@@ -1090,12 +1090,50 @@ _RATING_ALIASES: dict[str, list[str]] = {
 # 네이버 공식 패널이 없고, 보도된 시청률이 확인된 프로그램 (네트워크 실패 시 폴백)
 _MANUAL_RATINGS: dict[str, dict[str, Any]] = {
     "취사병 전설이 되다": {"view_rate": 7.3, "episode": "", "type": "LATEST"},
-    "아너 : 그녀들의 법정": {"view_rate": 4.3, "episode": "", "type": "LATEST"},
+    "아너 : 그녀들의 법정": {"view_rate": 4.3, "episode": "11회", "type": "LATEST"},
     "디어 마이 엑스": {"view_rate": 8.1, "episode": "", "type": "LATEST"},
     "보검 매직컬": {"view_rate": 3.7, "episode": "", "type": "LATEST"},
     "언니네 산지직송3": {"view_rate": 5.5, "episode": "", "type": "LATEST"},
     "우주떡집": {"view_rate": 1.2, "episode": "", "type": "LATEST"},
 }
+
+
+def apply_manual_rating_overrides(items: dict[str, Any]) -> dict[str, Any]:
+    """캐시에 수동 보정 시청률을 병합 (없는 항목·부정확 정수 보정)."""
+    out = dict(items)
+    for title, manual in _MANUAL_RATINGS.items():
+        existing = out.get(title)
+        need = True
+        if isinstance(existing, dict) and existing.get("view_rate") is not None:
+            try:
+                cur = float(existing["view_rate"])
+            except (TypeError, ValueError):
+                cur = None
+            # 공식 패널(소수·회차 풍부)은 유지, 정수 오탐/빈값만 덮어씀
+            if cur is not None and existing.get("episodes"):
+                need = False
+            elif cur is not None and abs(cur - float(manual["view_rate"])) < 0.05:
+                need = False
+            elif (
+                cur is not None
+                and cur == int(cur)
+                and abs(cur - float(manual["view_rate"])) >= 0.5
+            ):
+                need = True
+            else:
+                need = False
+        if not need:
+            continue
+        out[title] = {
+            "view_rate": float(manual["view_rate"]),
+            "episode": manual.get("episode") or "",
+            "air_date": "",
+            "channel": "",
+            "type": manual.get("type") or "LATEST",
+            "episodes": [],
+            "source": "manual_news",
+        }
+    return out
 
 
 def fetch_view_rate(title: str, search_html: str = "") -> dict[str, Any] | None:
@@ -1113,10 +1151,15 @@ def fetch_view_rate_with_history(
     queries: list[str] = [f"{title} 시청률"]
     if channel:
         queries.append(f"{title} {channel} 시청률")
+    # 드라마는 패널 검색어를 더 구체적으로
+    queries.append(f"{title} 드라마 시청률")
+    queries.append(f"{title} {channel} 드라마 시청률".strip())
     for alias in aliases:
         queries.append(f"{alias} 시청률")
     queries.append(f"{title} 시청률 닐슨")
     queries.append(title)
+    # 빈 채널 쿼리 제거
+    queries = [q for q in queries if q and "  " not in q]
 
     html = ""
     episodes: list[dict[str, Any]] = []

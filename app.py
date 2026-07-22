@@ -56,23 +56,37 @@ LIST_PAGE_SIZE = 12  # 위젯 수↓ → 첫 화면 즉시 표시
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_ratings_cached() -> dict:
+    from cache_bootstrap import ensure_runtime_caches
+
     ensure_runtime_caches()
-    # seed 갱신 반영용 버전 키 (변경 시 캐시 무효화)
-    _ = "ratings_seed_v3"
-    return load_cache()
+    cache = load_cache()
+    items = cache.get("items") if isinstance(cache, dict) else None
+    has = 0
+    if isinstance(items, dict):
+        has = sum(
+            1
+            for v in items.values()
+            if isinstance(v, dict) and v.get("view_rate") is not None
+        )
+    # Cloud 에 낡은 빈 캐시가 남은 경우 seed 강제 재적용
+    if has < 40:
+        ensure_runtime_caches(force=True)
+        cache = load_cache()
+    _ = "ratings_seed_v6"
+    return cache
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_posters_cached() -> dict:
     ensure_runtime_caches()
-    _ = "posters_seed_v3"
+    _ = "posters_seed_v6"
     return load_poster_cache()
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_otts_cached() -> dict:
     ensure_runtime_caches()
-    _ = "otts_seed_v3"
+    _ = "otts_seed_v6"
     return load_ott_cache()
 
 

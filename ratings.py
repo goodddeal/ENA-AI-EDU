@@ -10,7 +10,7 @@ from typing import Any, Callable
 from zoneinfo import ZoneInfo
 
 from cache_bootstrap import ensure_runtime_caches
-from naver_api import fetch_view_rate_with_history
+from naver_api import apply_manual_rating_overrides, fetch_view_rate_with_history
 
 KST = ZoneInfo("Asia/Seoul")
 REFRESH_HOUR = 8
@@ -45,9 +45,15 @@ def load_cache() -> dict[str, Any]:
     if not CACHE_PATH.is_file():
         return {}
     try:
-        return json.loads(CACHE_PATH.read_text(encoding="utf-8"))
+        data = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return {}
+    if not isinstance(data, dict):
+        return {}
+    items = data.get("items")
+    if isinstance(items, dict):
+        data = {**data, "items": apply_manual_rating_overrides(items)}
+    return data
 
 
 def save_cache(cache: dict[str, Any]) -> None:
