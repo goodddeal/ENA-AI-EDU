@@ -1,7 +1,9 @@
-[server]
-port = 8502
-headless = true
-address = "localhost"
+# Streamlit Cloud 호환 설정
+# server.port / server.address 는 Cloud에서 지정하면 앱이 실패합니다.
+# 로컬 실행은 run.bat 의 --server.port 8502 를 사용하세요.
 
 [browser]
 gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"

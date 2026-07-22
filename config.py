@@ -66,8 +66,27 @@ def _force_apply_keys(keys: tuple[str, ...] = _ENV_KEYS) -> None:
 
 
 def reload_env() -> None:
-    """프로젝트 .env 를 다시 로드."""
+    """프로젝트 .env 및 Streamlit secrets 를 다시 로드."""
     load_dotenv(_ENV_PATH, encoding="utf-8-sig", override=True)
+    # Streamlit Cloud: Settings → Secrets 의 값을 환경변수로 반영
+    try:
+        import streamlit as st
+
+        secrets = getattr(st, "secrets", None)
+        if secrets is not None:
+            for key in _ENV_KEYS:
+                try:
+                    val = secrets.get(key)  # type: ignore[attr-defined]
+                except Exception:
+                    val = None
+                if val is None:
+                    continue
+                text = str(val).strip()
+                if text:
+                    os.environ[key] = text
+    except Exception:
+        pass
+
     missing = [k for k in _ENV_KEYS if not os.getenv(k, "").strip()]
     if missing:
         _manual_load_env(_ENV_PATH)
