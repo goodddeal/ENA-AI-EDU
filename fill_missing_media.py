@@ -24,8 +24,13 @@ def main() -> None:
     def prog(i: int, n: int, title: str) -> None:
         print(f"  [{i}/{n}] {title}")
 
-    print("fill ratings…")
-    fill_missing_ratings(contents, max_fetch=len(contents), progress=prog)
+    print("fill ratings (retry looked_up)…")
+    fill_missing_ratings(
+        contents,
+        max_fetch=len(contents),
+        progress=prog,
+        retry_looked_up=True,
+    )
     print("fill posters…")
     fill_missing_posters(contents, max_fetch=len(contents), progress=prog)
 
@@ -39,6 +44,8 @@ def main() -> None:
             get_cached_poster(c["title"], pc) or (c.get("poster_url") or "")
         )
     ]
+    ok_r = len(contents) - len(miss_r)
+    print(f"ratings ok {ok_r}/{len(contents)}")
     print(f"still missing ratings ({len(miss_r)}): {miss_r}")
     print(f"still missing posters ({len(miss_p)}): {miss_p}")
 

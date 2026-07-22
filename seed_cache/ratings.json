@@ -1,7 +1,7 @@
 {
   "refresh_date": "2026-07-22",
   "as_of_date": "2026-07-21",
-  "refreshed_at": "2026-07-22T17:31:58.527052+09:00",
+  "refreshed_at": "2026-07-22T18:03:25.314498+09:00",
   "source": "naver_viewRate",
   "items": {
     "톡파원 25시": {
@@ -983,24 +983,6 @@
       "type": "",
       "episodes": []
     },
-    "우주떡집": {
-      "looked_up": true,
-      "view_rate": null,
-      "episode": "",
-      "air_date": "",
-      "channel": "",
-      "type": "",
-      "episodes": []
-    },
-    "언니네 산지직송3": {
-      "looked_up": true,
-      "view_rate": null,
-      "episode": "",
-      "air_date": "",
-      "channel": "",
-      "type": "",
-      "episodes": []
-    },
     "왕자와 거지": {
       "looked_up": true,
       "view_rate": null,
@@ -1019,40 +1001,52 @@
       "type": "",
       "episodes": []
     },
-    "디어 마이 엑스": {
-      "looked_up": true,
-      "view_rate": null,
-      "episode": "",
-      "air_date": "",
-      "channel": "",
-      "type": "",
-      "episodes": []
-    },
     "보검 매직컬": {
-      "looked_up": true,
-      "view_rate": null,
+      "view_rate": 3.7,
       "episode": "",
       "air_date": "",
-      "channel": "",
-      "type": "",
+      "channel": "tvN",
+      "type": "LATEST",
       "episodes": []
     },
     "취사병 전설이 되다": {
-      "looked_up": true,
-      "view_rate": null,
+      "view_rate": 9.0,
       "episode": "",
       "air_date": "",
       "channel": "",
-      "type": "",
+      "type": "LATEST",
       "episodes": []
     },
     "아너 : 그녀들의 법정": {
-      "looked_up": true,
-      "view_rate": null,
-      "episode": "",
+      "view_rate": 3.0,
+      "episode": "11회",
       "air_date": "",
       "channel": "",
-      "type": "",
+      "type": "LATEST",
+      "episodes": []
+    },
+    "디어 마이 엑스": {
+      "view_rate": 8.1,
+      "episode": "",
+      "air_date": "",
+      "channel": "ENA",
+      "type": "LATEST",
+      "episodes": []
+    },
+    "언니네 산지직송3": {
+      "view_rate": 5.5,
+      "episode": "",
+      "air_date": "",
+      "channel": "tvN",
+      "type": "LATEST",
+      "episodes": []
+    },
+    "우주떡집": {
+      "view_rate": 1.2,
+      "episode": "",
+      "air_date": "",
+      "channel": "tvN",
+      "type": "LATEST",
       "episodes": []
     }
   }

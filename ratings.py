@@ -237,6 +237,7 @@ def fill_missing_ratings(
     *,
     max_fetch: int = 20,
     progress: Callable[[int, int, str], None] | None = None,
+    retry_looked_up: bool = False,
 ) -> dict[str, Any]:
     """시청률이 없는 프로그램만 보강 (기존 캐시 유지)."""
     with _lock:
@@ -249,7 +250,7 @@ def fill_missing_ratings(
             if isinstance(existing, dict):
                 if existing.get("view_rate") is not None:
                     continue
-                if existing.get("looked_up"):
+                if existing.get("looked_up") and not retry_looked_up:
                     continue
             missing.append(c)
         batch = missing[: max(0, max_fetch)]

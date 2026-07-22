@@ -54,21 +54,25 @@ OTT_LOGIC_VERSION = 16
 LIST_PAGE_SIZE = 12  # 위젯 수↓ → 첫 화면 즉시 표시
 
 
-@st.cache_data(show_spinner=False, ttl=600)
+@st.cache_data(show_spinner=False, ttl=300)
 def _load_ratings_cached() -> dict:
     ensure_runtime_caches()
+    # seed 갱신 반영용 버전 키 (변경 시 캐시 무효화)
+    _ = "ratings_seed_v3"
     return load_cache()
 
 
-@st.cache_data(show_spinner=False, ttl=600)
+@st.cache_data(show_spinner=False, ttl=300)
 def _load_posters_cached() -> dict:
     ensure_runtime_caches()
+    _ = "posters_seed_v3"
     return load_poster_cache()
 
 
-@st.cache_data(show_spinner=False, ttl=600)
+@st.cache_data(show_spinner=False, ttl=300)
 def _load_otts_cached() -> dict:
     ensure_runtime_caches()
+    _ = "otts_seed_v3"
     return load_ott_cache()
 
 

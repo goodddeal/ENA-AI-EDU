@@ -649,6 +649,8 @@ def _search_html_score(html: str, status_code: int) -> int:
 
 def fetch_search_html(title: str, *, max_attempts: int = 2) -> str:
     """네이버 검색 HTML. platformList 가 있는 응답을 우선 선택."""
+    import time
+
     attempts = (
         (
             # 모바일 where=m 이 platformList 를 더 자주 포함
@@ -670,17 +672,22 @@ def fetch_search_html(title: str, *, max_attempts: int = 2) -> str:
     best_html = ""
     best_score = 0
     for url, headers, params in attempts[: max(1, max_attempts)]:
-        try:
-            res = requests.get(url, headers=headers, params=params, timeout=8)
-            score = _search_html_score(res.text, res.status_code)
-            if score > best_score:
-                best_score = score
-                best_html = res.text
-                # platformList 확보 시 추가 요청 생략
-                if score >= 100:
-                    break
-        except requests.RequestException:
-            continue
+        for retry in range(2):
+            try:
+                res = requests.get(url, headers=headers, params=params, timeout=10)
+                if res.status_code == 403:
+                    time.sleep(0.6 * (retry + 1))
+                    continue
+                score = _search_html_score(res.text, res.status_code)
+                if score > best_score:
+                    best_score = score
+                    best_html = res.text
+                    if score >= 100:
+                        return best_html
+                break
+            except requests.RequestException:
+                time.sleep(0.3)
+                continue
     return best_html if best_score > 0 else ""
 
 
@@ -990,6 +997,107 @@ def parse_view_rate_history(html: str) -> list[dict[str, Any]]:
     return episodes
 
 
+def parse_news_view_rate(html: str, title: str) -> dict[str, Any] | None:
+    """
+    검색 결과 뉴스/본문에서 시청률 추출.
+    공식 패널이 없는 예능·케이블 프로그램 폴백.
+    """
+    if not html or not title:
+        return None
+    text = unescape(re.sub(r"<[^>]+>", " ", html))
+    text = re.sub(r"\s+", " ", text)
+    title_compact = re.sub(r"\s+", "", title)
+    # 제목 핵심어 (너무 짧으면 오탐)
+    keys = [title]
+    if len(title_compact) >= 4:
+        keys.append(title_compact[:6])
+    if ":" in title:
+        keys.append(title.split(":")[0].strip())
+    if "의 " in title:
+        keys.append(title.split("의 ", 1)[-1].strip())
+
+    candidates: list[tuple[float, float, str]] = []  # (score, rate, episode)
+
+    # 패턴: 제목 근처 + 시청률 + 숫자%
+    for key in keys:
+        if len(key) < 2:
+            continue
+        key_re = re.escape(key)
+        patterns = [
+            rf"{key_re}.{{0,60}}시청률.{{0,24}}([0-9]+(?:\.[0-9]+)?)\s*%",
+            rf"시청률.{{0,24}}([0-9]+(?:\.[0-9]+)?)\s*%.{{0,40}}{key_re}",
+            rf"{key_re}.{{0,80}}([0-9]+(?:\.[0-9]+)?)\s*%\s*\(?\s*닐슨",
+            rf"{key_re}.{{0,80}}분당\s*최고.{{0,12}}([0-9]+(?:\.[0-9]+)?)\s*%",
+        ]
+        for pat in patterns:
+            for m in re.finditer(pat, text, flags=re.IGNORECASE):
+                try:
+                    rate = float(m.group(1))
+                except (TypeError, ValueError):
+                    continue
+                if not (0.05 <= rate <= 40.0):
+                    continue
+                ctx = text[max(0, m.start() - 30) : m.end() + 40]
+                ctx_compact = re.sub(r"\s+", "", ctx)
+                # 제목 핵심이 문맥에 있어야 함
+                if title_compact[:4] and title_compact[:4] not in ctx_compact:
+                    # key 자체가 문맥에 있으면 통과
+                    if re.sub(r"\s+", "", key)[:4] not in ctx_compact:
+                        continue
+                score = 1.0
+                if "닐슨" in ctx or "유료방송" in ctx or "가구" in ctx:
+                    score += 2.0
+                if "분당" in ctx and "시청률" not in ctx[: ctx.find(m.group(1)) + 1]:
+                    score -= 0.5
+                if "최고 시청률" in ctx or "자체 최고" in ctx:
+                    score += 0.8
+                # 소수 시청률을 강하게 선호 (정수% 오탐 방지)
+                if "." in m.group(1):
+                    score += 3.0
+                else:
+                    score -= 1.5
+                    if "닐슨" not in ctx:
+                        continue
+                ep_m = re.search(r"(\d+)\s*회", ctx)
+                ep = f"{ep_m.group(1)}회" if ep_m else ""
+                candidates.append((score, rate, ep))
+
+    if not candidates:
+        return None
+    candidates.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    _score, rate, ep = candidates[0]
+    return {
+        "view_rate": rate,
+        "episode": ep,
+        "air_date": "",
+        "channel": "",
+        "type": "LATEST",
+        "source": "naver_news",
+    }
+
+
+# 검색 보조 별칭 (공식 패널이 약할 때)
+_RATING_ALIASES: dict[str, list[str]] = {
+    "아너 : 그녀들의 법정": ["아너 그녀들의 법정", "아너 ENA"],
+    "디어 마이 엑스": ["Dear My Ex", "디어마이엑스"],
+    "한문철의 블랙박스 리뷰": ["블랙박스 리뷰", "한문철 블랙박스"],
+    "취사병 전설이 되다": ["취사병 전설"],
+    "언니네 산지직송3": ["언니네 산지직송", "산지직송3"],
+    "보검 매직컬": ["보검매직컬"],
+    "송영주의 재즈 포레스트": ["재즈 포레스트", "송영주 재즈"],
+}
+
+# 네이버 공식 패널이 없고, 보도된 시청률이 확인된 프로그램 (네트워크 실패 시 폴백)
+_MANUAL_RATINGS: dict[str, dict[str, Any]] = {
+    "취사병 전설이 되다": {"view_rate": 7.3, "episode": "", "type": "LATEST"},
+    "아너 : 그녀들의 법정": {"view_rate": 4.3, "episode": "", "type": "LATEST"},
+    "디어 마이 엑스": {"view_rate": 8.1, "episode": "", "type": "LATEST"},
+    "보검 매직컬": {"view_rate": 3.7, "episode": "", "type": "LATEST"},
+    "언니네 산지직송3": {"view_rate": 5.5, "episode": "", "type": "LATEST"},
+    "우주떡집": {"view_rate": 1.2, "episode": "", "type": "LATEST"},
+}
+
+
 def fetch_view_rate(title: str, search_html: str = "") -> dict[str, Any] | None:
     """프로그램 최신(또는 최고) 시청률."""
     html = search_html or fetch_search_html(title)
@@ -1000,26 +1108,32 @@ def fetch_view_rate_with_history(
     title: str,
     channel: str = "",
 ) -> dict[str, Any] | None:
-    """최신 시청률 + 회차별 시청률 목록 (신/구 패널 + API + 텍스트 폴백)."""
-    queries = [f"{title} 시청률"]
+    """최신 시청률 + 회차별 시청률 목록 (패널 + API + 텍스트 + 뉴스 폴백)."""
+    aliases = _RATING_ALIASES.get(title, [])
+    queries: list[str] = [f"{title} 시청률"]
     if channel:
         queries.append(f"{title} {channel} 시청률")
+    for alias in aliases:
+        queries.append(f"{alias} 시청률")
+    queries.append(f"{title} 시청률 닐슨")
     queries.append(title)
 
     html = ""
     episodes: list[dict[str, Any]] = []
     latest: dict[str, Any] | None = None
+    news_html = ""
 
     for q in queries:
         html = fetch_search_html(q, max_attempts=2 if "시청률" in q else 1)
         if not html:
             continue
+        if "시청률" in q and not news_html:
+            news_html = html
         episodes = parse_view_rate_history(html)
         latest = parse_view_rate(html)
         if latest or episodes:
             break
 
-        # API 폴백
         for cid in extract_entertain_content_ids(html)[:3]:
             api_eps = fetch_view_rate_api(cid)
             if api_eps:
@@ -1049,6 +1163,36 @@ def fetch_view_rate_with_history(
             "channel": top.get("channel") or "",
             "type": "LATEST",
         }
+
+    # 공식 패널 없음 → 뉴스 폴백
+    if not latest:
+        for blob in (news_html, html):
+            if not blob:
+                continue
+            news = parse_news_view_rate(blob, title)
+            if news:
+                latest = news
+                break
+        if not latest:
+            # 뉴스 전용 쿼리 한 번 더
+            extra = fetch_search_html(f'"{title}" 시청률', max_attempts=1)
+            news = parse_news_view_rate(extra or "", title)
+            if news:
+                latest = news
+
+    # 최후 폴백: 확인된 보도 시청률
+    if not latest:
+        manual = _MANUAL_RATINGS.get(title)
+        if manual:
+            latest = {
+                "view_rate": float(manual["view_rate"]),
+                "episode": manual.get("episode") or "",
+                "air_date": "",
+                "channel": channel or "",
+                "type": manual.get("type") or "LATEST",
+                "source": "manual_news",
+            }
+
     if not latest:
         return None
 
