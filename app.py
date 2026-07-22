@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import html
 from datetime import date
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit, urlunsplit
 
 import streamlit as st
 
@@ -120,15 +120,25 @@ def hex_to_rgb_css(color: str) -> str:
     return f"rgb({r},{g},{b})"
 
 
+def encode_media_url(url: str) -> str:
+    """한글 경로 등 non-ASCII URL 을 브라우저가 로드 가능하게 인코딩."""
+    raw = (url or "").strip()
+    if not raw:
+        return ""
+    parts = urlsplit(raw)
+    if parts.scheme not in ("http", "https") or not parts.netloc:
+        return ""
+    path = quote(parts.path, safe="/:@!$&'()*+,;=-._~")
+    return urlunsplit((parts.scheme, parts.netloc, path, parts.query, parts.fragment))
+
+
 def render_html(fragment: str) -> None:
-    """HTML 조각을 안전하게 렌더 (markdown # 파싱 이슈 회피)."""
-    if hasattr(st, "html"):
-        st.html(fragment)
-    else:
-        # 구버전 폴백: 속성 안 # 를 엔티티로
-        safe = fragment.replace("style=\"background:#", "style=\"background:&#35;")
-        safe = safe.replace("style='background:#", "style='background:&#35;")
-        st.markdown(safe, unsafe_allow_html=True)
+    """
+    HTML 렌더.
+    st.html() 은 별도 iframe 이라 inject_css / 외부 이미지가 깨지므로
+    markdown(unsafe_allow_html) 을 사용한다.
+    """
+    st.markdown(fragment, unsafe_allow_html=True)
 
 
 # ---------------------------------------------------------------------------
@@ -266,11 +276,24 @@ div[data-testid="stTextInput"] > div > div:focus-within {
   background: #1a1d27;
 }
 .thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 78px !important;
+  height: 104px !important;
+  max-width: 78px !important;
+  object-fit: cover !important;
   border-radius: 10px;
   display: block;
+}
+/* st.image 기반 목록 썸네일 */
+.list-row [data-testid="stImage"] {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1a1d27;
+}
+.list-row [data-testid="stImage"] img {
+  width: 100% !important;
+  aspect-ratio: 3 / 4;
+  object-fit: cover !important;
+  border-radius: 10px;
 }
 .detail-poster {
   width: 100%;
@@ -279,6 +302,11 @@ div[data-testid="stTextInput"] > div > div:focus-within {
   border-radius: 16px;
   margin-bottom: 1rem;
   background: #1a1d27;
+}
+[data-testid="stImage"] img.detail-native,
+div:has(> [data-testid="stImage"]) img {
+  border-radius: 16px;
+  object-fit: cover;
 }
 .card-body { flex: 1; min-width: 0; }
 .card-title {
@@ -621,20 +649,52 @@ def render_genre_tabs() -> str:
 
 
 def render_thumb(title: str, index: int, poster_url: str = "") -> str:
+    poster_url = encode_media_url(poster_url)
     if poster_url and is_safe_poster_url(poster_url):
         src = html.escape(poster_url, quote=True)
         alt = html.escape(title, quote=True)
+        # 인라인 크기 필수 — CSS 미적용 환경에서도 보이도록
         return (
-            '<div class="thumb" style="padding:0;">'
-            f'<img src="{src}" alt="{alt}" loading="lazy" referrerpolicy="no-referrer"/>'
+            '<div class="thumb" style="padding:0;width:78px;height:104px;'
+            'flex-shrink:0;overflow:hidden;border-radius:10px;background:#1a1d27;">'
+            f'<img src="{src}" alt="{alt}" width="78" height="104" '
+            'style="width:78px;height:104px;object-fit:cover;display:block;border-radius:10px;" '
+            'loading="lazy" referrerpolicy="no-referrer" '
+            'onerror="this.style.display=\'none\'"/>'
             "</div>"
         )
     c1, c2 = palette_for(index)
     g1, g2 = hex_to_rgb_css(c1), hex_to_rgb_css(c2)
     short = html.escape(title if len(title) <= 8 else title[:7] + "…")
     return (
-        f'<div class="thumb" style="background:linear-gradient(145deg,{g1},{g2});">'
+        f'<div class="thumb" style="width:78px;height:104px;flex-shrink:0;'
+        f'border-radius:10px;display:flex;align-items:flex-end;justify-content:center;'
+        f'padding:0.35rem;font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.9);'
+        f'text-align:center;line-height:1.2;overflow:hidden;'
+        f'background:linear-gradient(145deg,{g1},{g2});">'
         f"{short}</div>"
+    )
+
+
+def render_list_thumb(title: str, index: int, poster_url: str = "") -> None:
+    """목록 썸네일 — st.image 로 외부 CDN 이미지를 안정적으로 표시."""
+    poster_url = encode_media_url(poster_url)
+    if poster_url and is_safe_poster_url(poster_url):
+        try:
+            st.image(poster_url, use_container_width=True)
+            return
+        except Exception:
+            pass
+    c1, c2 = palette_for(index)
+    g1, g2 = hex_to_rgb_css(c1), hex_to_rgb_css(c2)
+    short = html.escape(title if len(title) <= 8 else title[:7] + "…")
+    st.markdown(
+        f'<div style="aspect-ratio:3/4;border-radius:10px;display:flex;'
+        f'align-items:flex-end;justify-content:center;padding:0.4rem;'
+        f'font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.92);'
+        f'text-align:center;background:linear-gradient(145deg,{g1},{g2});">'
+        f"{short}</div>",
+        unsafe_allow_html=True,
     )
 
 
@@ -957,7 +1017,6 @@ def view_home() -> None:
             last_group = group
 
         aired = item["aired_at"].strftime("%Y.%m.%d")
-        thumb = render_thumb(item["title"], start + i, item.get("poster_url") or "")
         pills = ott_pills_html(item["otts"])
         title_e = html.escape(item["title"])
         ch_e = html.escape(item["channel"])
@@ -979,24 +1038,32 @@ def view_home() -> None:
             f"</div>"
         )
 
-        render_html(
-            f"""
-<div class="content-card">
-  {thumb}
-  <div class="card-body">
-    <div class="card-title">{title_e}</div>
-    <div class="card-meta">
-      {status_html}
-      <span class="badge-genre">{genre_e}</span>
-      {ch_e} · {aired}
-    </div>
-    {rating_html}
-    {pills}
-    {src_html}
+        # st.image 로 썸네일 표시 (HTML iframe/CSP 이슈 회피)
+        row = st.container()
+        with row:
+            left, right = st.columns([0.95, 3.05], gap="small")
+            with left:
+                render_list_thumb(
+                    item["title"],
+                    start + i,
+                    item.get("poster_url") or "",
+                )
+            with right:
+                render_html(
+                    f"""
+<div class="card-body" style="padding-top:0.1rem;">
+  <div class="card-title">{title_e}</div>
+  <div class="card-meta">
+    {status_html}
+    <span class="badge-genre">{genre_e}</span>
+    {ch_e} · {aired}
   </div>
+  {rating_html}
+  {pills}
+  {src_html}
 </div>
-            """
-        )
+                    """
+                )
         if st.button("OTT에서 보기 →", key=f"open_{item['id']}"):
             go_detail(item["id"])
             st.rerun()
@@ -1119,13 +1186,20 @@ def view_detail() -> None:
         )
 
     white = hex_to_rgb_css("#ffffff")
+    poster = encode_media_url(poster) if poster else ""
     if poster and is_safe_poster_url(poster):
-        hero = (
-            f'<img class="detail-poster" src="{html.escape(poster, quote=True)}" '
-            f'alt="{title_e}" loading="lazy" referrerpolicy="no-referrer"/>'
-            f'<h1 style="margin:0 0 0.75rem;font-size:1.35rem;font-weight:800;'
+        try:
+            st.image(poster, use_container_width=True)
+        except Exception:
+            render_html(
+                f'<img class="detail-poster" src="{html.escape(poster, quote=True)}" '
+                f'alt="{title_e}" loading="lazy" referrerpolicy="no-referrer"/>'
+            )
+        render_html(
+            f'<h1 style="margin:0.35rem 0 0.75rem;font-size:1.35rem;font-weight:800;'
             f'color:{white};">{title_e}</h1>'
         )
+        hero = ""
     else:
         g1, g2 = hex_to_rgb_css(c1), hex_to_rgb_css(c2)
         hero = (

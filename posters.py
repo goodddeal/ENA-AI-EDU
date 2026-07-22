@@ -136,11 +136,24 @@ def resolve_poster_url(
     cache: dict[str, Any] | None = None,
 ) -> str:
     """우선순위: data 고정 → 캐시 → 실시간 fetch 결과."""
+    from urllib.parse import quote, urlsplit, urlunsplit
+
+    def _encode(url: str) -> str:
+        raw = (url or "").strip()
+        if not raw:
+            return ""
+        parts = urlsplit(raw)
+        if parts.scheme not in ("http", "https") or not parts.netloc:
+            return ""
+        path = quote(parts.path, safe="/:@!$&'()*+,;=-._~")
+        return urlunsplit((parts.scheme, parts.netloc, path, parts.query, parts.fragment))
+
     for candidate in (
         (item.get("poster_url") or "").strip(),
         get_cached_poster(item.get("title") or "", cache),
         (fetched or "").strip(),
     ):
-        if is_safe_poster_url(candidate):
-            return candidate
+        encoded = _encode(candidate)
+        if is_safe_poster_url(encoded):
+            return encoded
     return ""
