@@ -148,10 +148,21 @@ def encode_media_url(url: str) -> str:
 def render_html(fragment: str) -> None:
     """
     HTML 렌더.
-    st.html() 은 별도 iframe 이라 inject_css / 외부 이미지가 깨지므로
-    markdown(unsafe_allow_html) 을 사용한다.
+    st.markdown 은 빈 줄/들여쓰기에서 HTML을 코드블록으로 깨뜨리므로
+    가능하면 st.html, 없으면 components.html 사용.
     """
-    st.markdown(fragment, unsafe_allow_html=True)
+    compact = " ".join(line.strip() for line in fragment.splitlines() if line.strip())
+    if not compact:
+        return
+    if hasattr(st, "html"):
+        st.html(compact)
+        return
+    try:
+        import streamlit.components.v1 as components
+
+        components.html(compact, height=40, scrolling=False)
+    except Exception:
+        st.markdown(compact, unsafe_allow_html=True)
 
 
 # ---------------------------------------------------------------------------
@@ -666,37 +677,34 @@ def render_thumb(title: str, index: int, poster_url: str = "") -> str:
     if poster_url and is_safe_poster_url(poster_url):
         src = html.escape(poster_url, quote=True)
         alt = html.escape(title, quote=True)
-        # 인라인 크기 필수 — CSS 미적용 환경에서도 보이도록
         return (
-            '<div class="thumb" style="padding:0;width:78px;height:104px;'
-            'flex-shrink:0;overflow:hidden;border-radius:10px;background:#1a1d27;">'
+            f'<div style="flex-shrink:0;width:78px;height:104px;overflow:hidden;'
+            f'border-radius:10px;background:#1a1d27;">'
             f'<img src="{src}" alt="{alt}" width="78" height="104" '
-            'style="width:78px;height:104px;object-fit:cover;display:block;border-radius:10px;" '
-            'loading="lazy" referrerpolicy="no-referrer" '
-            'onerror="this.style.display=\'none\'"/>'
-            "</div>"
+            f'style="width:78px;height:104px;object-fit:cover;display:block;border:0;" '
+            f'referrerpolicy="no-referrer"/>'
+            f"</div>"
         )
     c1, c2 = palette_for(index)
     g1, g2 = hex_to_rgb_css(c1), hex_to_rgb_css(c2)
     short = html.escape(title if len(title) <= 8 else title[:7] + "…")
     return (
-        f'<div class="thumb" style="width:78px;height:104px;flex-shrink:0;'
-        f'border-radius:10px;display:flex;align-items:flex-end;justify-content:center;'
-        f'padding:0.35rem;font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.9);'
-        f'text-align:center;line-height:1.2;overflow:hidden;'
-        f'background:linear-gradient(145deg,{g1},{g2});">'
+        f'<div style="flex-shrink:0;width:78px;height:104px;border-radius:10px;'
+        f'display:flex;align-items:flex-end;justify-content:center;padding:6px;'
+        f'font-size:11px;font-weight:700;color:rgba(255,255,255,0.92);text-align:center;'
+        f'line-height:1.2;overflow:hidden;background:linear-gradient(145deg,{g1},{g2});">'
         f"{short}</div>"
     )
 
 
-def render_list_thumb(title: str, index: int, poster_url: str = "") -> None:
-    """(레거시) 목록 썸네일 — HTML img 사용. st.image 는 서버 다운로드로 느림."""
-    render_html(render_thumb(title, index, poster_url))
-
-
 def ott_pills_html(otts: list[str]) -> str:
     if not otts:
-        return '<span class="unconfirmed">[미확인]</span>'
+        return (
+            '<span style="display:inline-block;margin-top:6px;padding:3px 8px;'
+            'border-radius:999px;font-size:11px;font-weight:700;'
+            'color:#ffb020;background:rgba(255,176,32,0.12);'
+            'border:1px solid rgba(255,176,32,0.35);">[미확인]</span>'
+        )
     parts = []
     for name in otts:
         meta = OTT_META.get(name)
@@ -704,12 +712,78 @@ def ott_pills_html(otts: list[str]) -> str:
             continue
         bg = hex_to_rgb_css(meta["color"])
         parts.append(
-            f'<span class="ott-pill" style="background:{bg};">'
+            f'<span style="display:inline-block;padding:3px 8px;border-radius:999px;'
+            f'font-size:11px;font-weight:700;color:#fff;background:{bg};margin:2px 4px 0 0;">'
             f"{html.escape(name)}</span>"
         )
     if not parts:
-        return '<span class="unconfirmed">[미확인]</span>'
-    return '<div class="ott-row">' + "".join(parts) + "</div>"
+        return (
+            '<span style="display:inline-block;margin-top:6px;padding:3px 8px;'
+            'border-radius:999px;font-size:11px;font-weight:700;'
+            'color:#ffb020;background:rgba(255,176,32,0.12);'
+            'border:1px solid rgba(255,176,32,0.35);">[미확인]</span>'
+        )
+    return '<div style="margin-top:4px;line-height:1.6;">' + "".join(parts) + "</div>"
+
+
+def render_content_card(
+    item: dict,
+    *,
+    index: int,
+    airing: bool,
+) -> None:
+    """카드 1장 — components.html 로 렌더 (markdown HTML 깨짐/img 제거 방지)."""
+    import streamlit.components.v1 as components
+
+    aired = item["aired_at"].strftime("%Y.%m.%d")
+    thumb = render_thumb(item["title"], index, item.get("poster_url") or "")
+    pills = ott_pills_html(item.get("otts") or [])
+    title_e = html.escape(item["title"])
+    ch_e = html.escape(item["channel"])
+    genre_e = html.escape(item["genre"])
+    status = "방영 중" if airing else "종영"
+    status_bg = "rgba(46,204,113,0.18)" if airing else "rgba(255,255,255,0.08)"
+    status_fg = "#6dffb0" if airing else "#9aa3b8"
+    rating_label = format_rating_label(item.get("rating"))
+    rating_html = (
+        f'<div style="margin-top:4px;font-size:12px;font-weight:700;color:#ffd666;">'
+        f"{html.escape(rating_label)}</div>"
+        if rating_label
+        else ""
+    )
+    src_label = html.escape(source_label(item.get("ott_source", "none")))
+    card = (
+        '<div style="margin:0;padding:0;background:#141824;">'
+        f'<div style="display:flex;gap:12px;padding:11px;margin:0;'
+        f'border-radius:14px;background:rgba(255,255,255,0.04);'
+        f'border:1px solid rgba(255,255,255,0.07);font-family:Pretendard,Apple SD Gothic Neo,'
+        f'Noto Sans KR,sans-serif;color:#f2f4f8;">'
+        f"{thumb}"
+        f'<div style="flex:1;min-width:0;">'
+        f'<div style="font-size:15px;font-weight:700;color:#fff;white-space:nowrap;'
+        f'overflow:hidden;text-overflow:ellipsis;">{title_e}</div>'
+        f'<div style="margin-top:4px;font-size:12px;color:#8b93a7;">'
+        f'<span style="display:inline-block;padding:2px 7px;border-radius:999px;'
+        f'font-size:11px;font-weight:700;color:{status_fg};background:{status_bg};'
+        f'margin-right:4px;">{status}</span>'
+        f'<span style="display:inline-block;padding:2px 7px;border-radius:999px;'
+        f'font-size:11px;font-weight:700;color:#c5cad8;background:rgba(255,255,255,0.06);'
+        f'margin-right:4px;">{genre_e}</span>'
+        f"{ch_e} · {aired}</div>"
+        f"{rating_html}{pills}"
+        f'<div style="margin-top:4px;font-size:11px;color:#6b7280;">{src_label}</div>'
+        f"</div></div></div>"
+    )
+    components.html(
+        f'<!DOCTYPE html><html><body style="margin:0;background:#141824;">{card}</body></html>',
+        height=132,
+        scrolling=False,
+    )
+
+
+def render_list_thumb(title: str, index: int, poster_url: str = "") -> None:
+    """(레거시) 목록 썸네일."""
+    render_html(render_thumb(title, index, poster_url))
 
 
 def ott_landing_url(ott_name: str, title: str, ott_links: dict | None = None) -> str:
@@ -975,8 +1049,6 @@ def view_home() -> None:
     st.caption(cache_meta_label(ratings_cache))
     st.caption(f"OTT 확인 {confirmed}/{total} · 캐시로 즉시 표시 · 새로고침 시에만 네트워크")
 
-    # 카드 HTML을 한 번에 렌더 (st.image/columns 제거 → 서버 이미지 다운로드 없음)
-    cards_html: list[str] = []
     last_group: str | None = None
     enriched: list[dict] = []
     for i, raw in enumerate(page_items):
@@ -993,54 +1065,20 @@ def view_home() -> None:
         group = "airing" if airing else "ended"
         if group != last_group:
             if group == "airing":
-                cards_html.append('<div class="group-title">방영 중 · 시청률 순</div>')
+                st.markdown(
+                    '<p style="margin:10px 0 4px;font-size:13px;font-weight:700;color:#a8b4ff;">'
+                    "방영 중 · 시청률 순</p>",
+                    unsafe_allow_html=True,
+                )
             else:
-                cards_html.append('<div class="group-title">종영 · 시청률 순</div>')
+                st.markdown(
+                    '<p style="margin:10px 0 4px;font-size:13px;font-weight:700;color:#a8b4ff;">'
+                    "종영 · 시청률 순</p>",
+                    unsafe_allow_html=True,
+                )
             last_group = group
 
-        aired = item["aired_at"].strftime("%Y.%m.%d")
-        thumb = render_thumb(item["title"], start + i, item.get("poster_url") or "")
-        pills = ott_pills_html(item["otts"])
-        title_e = html.escape(item["title"])
-        ch_e = html.escape(item["channel"])
-        genre_e = html.escape(item["genre"])
-        status_html = (
-            '<span class="badge-airing">방영 중</span>'
-            if airing
-            else '<span class="badge-ended">종영</span>'
-        )
-        rating_label = format_rating_label(item.get("rating"))
-        rating_html = (
-            f'<div class="rating-badge">{html.escape(rating_label)}</div>'
-            if rating_label
-            else ""
-        )
-        src_html = (
-            f'<div class="source-tag">'
-            f'{html.escape(source_label(item.get("ott_source", "none")))}'
-            f"</div>"
-        )
-        cards_html.append(
-            f"""
-<div class="content-card">
-  {thumb}
-  <div class="card-body">
-    <div class="card-title">{title_e}</div>
-    <div class="card-meta">
-      {status_html}
-      <span class="badge-genre">{genre_e}</span>
-      {ch_e} · {aired}
-    </div>
-    {rating_html}
-    {pills}
-    {src_html}
-  </div>
-</div>
-            """
-        )
-
-    if cards_html:
-        render_html("".join(cards_html))
+        render_content_card(item, index=start + i, airing=airing)
 
     # 버튼 12개 대신 selectbox 1개 — 위젯/리렌더 비용 감소
     if enriched:
