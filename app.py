@@ -24,6 +24,7 @@ from otts import (
 )
 from posters import (
     ensure_poster_cache,
+    fill_missing_posters,
     is_safe_poster_url,
     load_poster_cache,
     resolve_poster_url,
@@ -32,11 +33,13 @@ from ratings import (
     cache_meta_label,
     ensure_ratings,
     fetch_rating_for_title,
+    fill_missing_ratings,
     format_rate_percent,
     format_rating_label,
     get_episode_ratings,
     get_rating,
     load_cache,
+    rating_lookup_done,
     save_cache,
 )
 
@@ -928,17 +931,23 @@ def view_home() -> None:
         st.info("검색어·장르에 맞는 프로그램이 없습니다.")
         return
 
-    all_titles = [c["title"] for c in get_sorted_contents("전체")]
+    all_contents = get_sorted_contents("전체")
+    all_titles = [c["title"] for c in all_contents]
+    channels = {c["title"]: c.get("channel") or "" for c in all_contents}
     col_a, col_b = st.columns(2)
     with col_a:
         refresh_otts = st.button("포스터·OTT 새로고침", key="refresh_otts")
     with col_b:
         refresh_ratings_btn = st.button("시청률 새로고침", key="refresh_ratings")
 
-    # 시청률·포스터: 디스크/시드 캐시만 사용 (버튼 시에만 네트워크)
+    # 시청률·포스터: 디스크/시드 캐시만 사용 (버튼 시에만 전체 네트워크)
     if refresh_ratings_btn:
         with st.spinner("시청률 갱신 중…"):
-            ratings_cache = ensure_ratings(all_titles, force=True)
+            from ratings import refresh_ratings
+
+            ratings_cache = refresh_ratings(
+                all_titles, force=True, channels=channels
+            )
     else:
         ratings_cache = load_cache()
 
@@ -992,6 +1001,24 @@ def view_home() -> None:
                 max_fetch=0,
                 refetch_empty=False,
             )
+
+    # 현재 페이지에서 비어 있는 시청률·포스터만 소량 보강
+    miss_ratings = [
+        c
+        for c in page_items
+        if not rating_lookup_done(c["title"], ratings_cache)
+    ]
+    miss_posters = [
+        c
+        for c in page_items
+        if not resolve_poster_url(c, cache=poster_cache)
+    ]
+    if miss_ratings or miss_posters:
+        with st.spinner("시청률·포스터 보강 중…"):
+            if miss_ratings:
+                ratings_cache = fill_missing_ratings(miss_ratings, max_fetch=4)
+            if miss_posters:
+                poster_cache = fill_missing_posters(miss_posters, max_fetch=4)
 
     looked, confirmed, total = ott_cache_stats(all_titles, ott_cache)
     st.caption(cache_meta_label(ratings_cache))
@@ -1122,7 +1149,9 @@ def view_detail() -> None:
     if not episodes and not st.session_state.get(ep_key):
         st.session_state[ep_key] = True
         with st.spinner("회차별 시청률 불러오는 중…"):
-            fresh = fetch_rating_for_title(item["title"])
+            fresh = fetch_rating_for_title(
+                item["title"], channel=item.get("channel") or ""
+            )
         if fresh:
             items_map = dict(ratings_cache.get("items") or {})
             items_map[item["title"]] = fresh

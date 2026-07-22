@@ -23,6 +23,15 @@ def is_safe_poster_url(url: str) -> bool:
         return False
     if "%22" in url or "%27" in url:
         return False
+    blocked = (
+        "img.extmovie.com",
+        "extmovie.com",
+        "i.namu.wiki",
+        "namu.wiki",
+    )
+    lower = url.lower()
+    if any(h in lower for h in blocked):
+        return False
     return True
 
 
@@ -124,6 +133,68 @@ def ensure_poster_cache(
             }
             fetched += 1
 
+        cache = {"source": "poster_cache", "items": items}
+        save_poster_cache(cache)
+        return cache
+
+
+def fill_missing_posters(
+    contents: list[dict],
+    *,
+    max_fetch: int = 20,
+    progress: Callable[[int, int, str], None] | None = None,
+) -> dict[str, Any]:
+    """안전 URL이 없는 포스터만 재조회 (차단 호스트·빈 값 포함)."""
+    with _lock:
+        cache = load_poster_cache()
+        items = dict(cache.get("items") or {})
+        need: list[dict] = []
+        for c in contents:
+            title = c["title"]
+            fixed = (c.get("poster_url") or "").strip()
+            if is_safe_poster_url(fixed):
+                items[title] = {
+                    "poster_url": fixed,
+                    "id": c.get("id") or "",
+                    "channel": c.get("channel") or "",
+                    "source": "data",
+                }
+                continue
+            existing = (items.get(title) or {}).get("poster_url") or ""
+            if is_safe_poster_url(existing):
+                continue
+            need.append(c)
+        if need:
+            save_poster_cache({"source": "poster_cache", "items": items})
+        batch = need[: max(0, max_fetch)]
+
+    if not batch:
+        return load_poster_cache()
+
+    from naver_api import fetch_poster_url
+
+    fetched_map: dict[str, dict[str, Any]] = {}
+    for i, c in enumerate(batch):
+        title = c["title"]
+        if progress:
+            progress(i + 1, len(batch), title)
+        try:
+            url = fetch_poster_url(title, channel=c.get("channel") or "") or ""
+        except Exception:
+            url = ""
+        if not is_safe_poster_url(url):
+            url = ""
+        fetched_map[title] = {
+            "poster_url": url,
+            "id": c.get("id") or "",
+            "channel": c.get("channel") or "",
+            "source": "naver" if url else "none",
+        }
+
+    with _lock:
+        cache = load_poster_cache()
+        items = dict(cache.get("items") or {})
+        items.update(fetched_map)
         cache = {"source": "poster_cache", "items": items}
         save_poster_cache(cache)
         return cache

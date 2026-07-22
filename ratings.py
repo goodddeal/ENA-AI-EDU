@@ -79,7 +79,23 @@ def cache_is_fresh(
 def get_rating(title: str, cache: dict[str, Any] | None = None) -> dict[str, Any] | None:
     cache = cache if cache is not None else load_cache()
     item = (cache.get("items") or {}).get(title)
-    return item if isinstance(item, dict) else None
+    if not isinstance(item, dict):
+        return None
+    # 조회했지만 네이버에 시청률이 없는 경우
+    if item.get("looked_up") and item.get("view_rate") is None:
+        return None
+    if item.get("view_rate") is None:
+        return None
+    return item
+
+
+def rating_lookup_done(title: str, cache: dict[str, Any] | None = None) -> bool:
+    """시청률 조회를 이미 시도했는지 (성공/실패 포함)."""
+    cache = cache if cache is not None else load_cache()
+    item = (cache.get("items") or {}).get(title)
+    if not isinstance(item, dict):
+        return False
+    return item.get("view_rate") is not None or bool(item.get("looked_up"))
 
 
 def view_rate_value(title: str, cache: dict[str, Any] | None = None) -> float:
@@ -153,8 +169,8 @@ def get_episode_ratings(rating: dict[str, Any] | None) -> list[dict[str, Any]]:
     return out
 
 
-def fetch_rating_for_title(title: str) -> dict[str, Any] | None:
-    parsed = fetch_view_rate_with_history(title)
+def fetch_rating_for_title(title: str, channel: str = "") -> dict[str, Any] | None:
+    parsed = fetch_view_rate_with_history(title, channel=channel)
     if not parsed:
         return None
     return {
@@ -172,11 +188,13 @@ def refresh_ratings(
     *,
     force: bool = False,
     progress: Callable[[int, int, str], None] | None = None,
+    channels: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """
     전체 프로그램 시청률을 네이버에서 다시 받아 캐시에 저장.
     force=False 이면 이미 오늘(08:00 기준) 갱신됐으면 스킵.
     """
+    channels = channels or {}
     with _lock:
         now = now_kst()
         expected = expected_refresh_date(now)
@@ -190,7 +208,7 @@ def refresh_ratings(
             if progress:
                 progress(i + 1, total, title)
             try:
-                rating = fetch_rating_for_title(title)
+                rating = fetch_rating_for_title(title, channel=channels.get(title) or "")
             except Exception:
                 rating = None
             if rating:
@@ -208,6 +226,69 @@ def refresh_ratings(
             "as_of_date": as_of_date_for(expected).isoformat(),
             "refreshed_at": now.isoformat(),
             "source": "naver_viewRate",
+            "items": items,
+        }
+        save_cache(new_cache)
+        return new_cache
+
+
+def fill_missing_ratings(
+    contents: list[dict],
+    *,
+    max_fetch: int = 20,
+    progress: Callable[[int, int, str], None] | None = None,
+) -> dict[str, Any]:
+    """시청률이 없는 프로그램만 보강 (기존 캐시 유지)."""
+    with _lock:
+        cache = load_cache()
+        items = dict(cache.get("items") or {})
+        missing: list[dict] = []
+        for c in contents:
+            title = c.get("title") or ""
+            existing = items.get(title)
+            if isinstance(existing, dict):
+                if existing.get("view_rate") is not None:
+                    continue
+                if existing.get("looked_up"):
+                    continue
+            missing.append(c)
+        batch = missing[: max(0, max_fetch)]
+        if not batch:
+            return cache
+
+    updated: dict[str, Any] = {}
+    for i, c in enumerate(batch):
+        title = c.get("title") or ""
+        if progress:
+            progress(i + 1, len(batch), title)
+        try:
+            rating = fetch_rating_for_title(title, channel=c.get("channel") or "")
+        except Exception:
+            rating = None
+        if rating and rating.get("view_rate") is not None:
+            updated[title] = rating
+        else:
+            # 재조회 폭주 방지 — 네이버에 없음으로 표시
+            updated[title] = {
+                "looked_up": True,
+                "view_rate": None,
+                "episode": "",
+                "air_date": "",
+                "channel": "",
+                "type": "",
+                "episodes": [],
+            }
+
+    with _lock:
+        cache = load_cache()
+        items = dict(cache.get("items") or {})
+        items.update(updated)
+        now = now_kst()
+        new_cache = {
+            "refresh_date": cache.get("refresh_date") or expected_refresh_date(now).isoformat(),
+            "as_of_date": cache.get("as_of_date") or as_of_date_for(expected_refresh_date(now)).isoformat(),
+            "refreshed_at": now.isoformat(),
+            "source": cache.get("source") or "naver_viewRate",
             "items": items,
         }
         save_cache(new_cache)

@@ -1,7 +1,7 @@
 {
   "refresh_date": "2026-07-22",
   "as_of_date": "2026-07-21",
-  "refreshed_at": "2026-07-22T13:41:48.237383+09:00",
+  "refreshed_at": "2026-07-22T17:31:58.527052+09:00",
   "source": "naver_viewRate",
   "items": {
     "톡파원 25시": {
@@ -716,6 +716,344 @@
       "air_date": "2025.02.14.",
       "channel": "SBS",
       "type": "HIGHEST"
+    },
+    "동네의 명장들": {
+      "view_rate": 4.0,
+      "episode": "376회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "376회",
+          "air_date": "",
+          "view_rate": 4.0,
+          "channel": ""
+        }
+      ]
+    },
+    "한문철의 블랙박스 리뷰": {
+      "view_rate": 2.8,
+      "episode": "178회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "178회",
+          "air_date": "",
+          "view_rate": 2.8,
+          "channel": ""
+        }
+      ]
+    },
+    "강연배틀쇼 사기꾼들": {
+      "view_rate": 2.4,
+      "episode": "21회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "21회",
+          "air_date": "",
+          "view_rate": 2.4,
+          "channel": ""
+        }
+      ]
+    },
+    "나는 자연인이다": {
+      "view_rate": 1.5,
+      "episode": "718회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "718회",
+          "air_date": "",
+          "view_rate": 1.5,
+          "channel": ""
+        }
+      ]
+    },
+    "예스맨": {
+      "view_rate": 2.48,
+      "episode": "",
+      "air_date": "2026.02.14.",
+      "channel": "JTBC",
+      "type": "HIGHEST",
+      "episodes": []
+    },
+    "세이렌": {
+      "view_rate": 4.483,
+      "episode": "12회",
+      "air_date": "2026-04-07",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "12회",
+          "air_date": "2026-04-07",
+          "view_rate": 4.483,
+          "channel": ""
+        },
+        {
+          "episode": "11회",
+          "air_date": "2026-04-06",
+          "view_rate": 4.277,
+          "channel": ""
+        },
+        {
+          "episode": "10회",
+          "air_date": "2026-03-31",
+          "view_rate": 4.361,
+          "channel": ""
+        },
+        {
+          "episode": "9회",
+          "air_date": "2026-03-30",
+          "view_rate": 4.798,
+          "channel": ""
+        },
+        {
+          "episode": "8회",
+          "air_date": "2026-03-24",
+          "view_rate": 4.024,
+          "channel": ""
+        },
+        {
+          "episode": "7회",
+          "air_date": "2026-03-23",
+          "view_rate": 3.934,
+          "channel": ""
+        },
+        {
+          "episode": "6회",
+          "air_date": "2026-03-17",
+          "view_rate": 4.368,
+          "channel": ""
+        },
+        {
+          "episode": "5회",
+          "air_date": "2026-03-16",
+          "view_rate": 4.529,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-03-10",
+          "view_rate": 4.316,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-03-09",
+          "view_rate": 4.076,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-03-03",
+          "view_rate": 4.592,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-03-02",
+          "view_rate": 5.504,
+          "channel": ""
+        }
+      ]
+    },
+    "식스센스: 시티투어": {
+      "view_rate": 2.0,
+      "episode": "3회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "3회",
+          "air_date": "",
+          "view_rate": 2.0,
+          "channel": ""
+        }
+      ]
+    },
+    "무쇠소녀단": {
+      "view_rate": 3.0,
+      "episode": "11회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "11회",
+          "air_date": "",
+          "view_rate": 3.0,
+          "channel": ""
+        }
+      ]
+    },
+    "마녀": {
+      "view_rate": 2.629,
+      "episode": "10회",
+      "air_date": "2025-03-16",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "10회",
+          "air_date": "2025-03-16",
+          "view_rate": 2.629,
+          "channel": ""
+        },
+        {
+          "episode": "9회",
+          "air_date": "2025-03-15",
+          "view_rate": 1.27,
+          "channel": ""
+        },
+        {
+          "episode": "8회",
+          "air_date": "2025-03-09",
+          "view_rate": 3.073,
+          "channel": ""
+        },
+        {
+          "episode": "7회",
+          "air_date": "2025-03-08",
+          "view_rate": 1.231,
+          "channel": ""
+        },
+        {
+          "episode": "6회",
+          "air_date": "2025-03-02",
+          "view_rate": 2.843,
+          "channel": ""
+        },
+        {
+          "episode": "5회",
+          "air_date": "2025-03-01",
+          "view_rate": 1.495,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2025-02-23",
+          "view_rate": 2.94,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2025-02-22",
+          "view_rate": 1.674,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2025-02-16",
+          "view_rate": 2.974,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2025-02-15",
+          "view_rate": 2.425,
+          "channel": ""
+        }
+      ]
+    },
+    "짐쌀라비움": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
+    },
+    "제비탐정 장성규": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
+    },
+    "우주떡집": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
+    },
+    "언니네 산지직송3": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
+    },
+    "왕자와 거지": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
+    },
+    "송영주의 재즈 포레스트": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
+    },
+    "디어 마이 엑스": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
+    },
+    "보검 매직컬": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
+    },
+    "취사병 전설이 되다": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
+    },
+    "아너 : 그녀들의 법정": {
+      "looked_up": true,
+      "view_rate": null,
+      "episode": "",
+      "air_date": "",
+      "channel": "",
+      "type": "",
+      "episodes": []
     }
   }
 }

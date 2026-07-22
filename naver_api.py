@@ -355,6 +355,16 @@ def is_safe_poster_url(url: str) -> bool:
         return False
     if "%22" in url or "%27" in url:
         return False
+    # 핫링크/403 빈번 호스트
+    blocked = (
+        "img.extmovie.com",
+        "extmovie.com",
+        "i.namu.wiki",
+        "namu.wiki",
+    )
+    lower = url.lower()
+    if any(h in lower for h in blocked):
+        return False
     return True
 
 
@@ -699,6 +709,178 @@ _EPISODE_OBJ_RE = re.compile(
     r'\{[^{}]{0,200}"episode"\s*:\s*"[^"]+"[^{}]{0,200}"viewRate"\s*:\s*[0-9.]+[^{}]{0,80}\}',
     re.IGNORECASE,
 )
+# 네이버 방송 패널 텍스트: "시청률 : 최신 716회 1.3% · 최고 698회 2.9%"
+_TEXT_PANEL_RATE_RE = re.compile(
+    r"시청률\s*:\s*최신\s*(\d+)\s*회\s*([0-9]+(?:\.[0-9]+)?)\s*%"
+    r"\s*[·•.\-|]\s*최고\s*(\d+)\s*회\s*([0-9]+(?:\.[0-9]+)?)\s*%",
+)
+_CONTENT_ID_RE = re.compile(
+    r"api-gw\.entertain\.naver\.com/csearch/contents/(\d+)",
+)
+
+
+def extract_entertain_content_ids(html: str) -> list[str]:
+    if not html:
+        return []
+    return list(dict.fromkeys(_CONTENT_ID_RE.findall(html)))
+
+
+def _episodes_from_view_rate_info(info: Any) -> list[dict[str, Any]]:
+    """viewRateInfo JSON → 회차 목록."""
+    if not isinstance(info, dict):
+        return []
+    episodes: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    channels = info.get("channels") or []
+    if not isinstance(channels, list):
+        return []
+    for ch in channels:
+        if not isinstance(ch, dict):
+            continue
+        ch_name = str(ch.get("channelName") or ch.get("name") or "").strip()
+        rows = ch.get("episodeViewRates") or ch.get("items") or []
+        if not isinstance(rows, list):
+            continue
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            episode = str(row.get("episode") or "").strip()
+            if not episode or episode in seen:
+                continue
+            try:
+                rate_f = float(row.get("viewRate"))
+            except (TypeError, ValueError):
+                continue
+            seen.add(episode)
+            episodes.append(
+                {
+                    "episode": episode,
+                    "air_date": str(row.get("airDate") or "").strip().rstrip("."),
+                    "view_rate": rate_f,
+                    "channel": ch_name,
+                }
+            )
+
+    def _ep_num(item: dict[str, Any]) -> int:
+        m = re.search(r"(\d+)", str(item.get("episode") or ""))
+        return int(m.group(1)) if m else 0
+
+    episodes.sort(key=_ep_num, reverse=True)
+    return episodes
+
+
+def parse_view_rate_info_html(html: str) -> list[dict[str, Any]]:
+    """HTML 안의 viewRateInfo / episodeViewRates 블록 파싱."""
+    if not html or "episodeViewRates" not in html:
+        return []
+    # dataPool 전체보다 작은 단위로 episodeViewRates 배열만 추출
+    episodes: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for m in re.finditer(r'"episodeViewRates"\s*:\s*(\[)', html):
+        start = m.end(1) - 1
+        depth = 0
+        end = None
+        for i, ch in enumerate(html[start:], start):
+            if ch == "[":
+                depth += 1
+            elif ch == "]":
+                depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    break
+        if end is None:
+            continue
+        try:
+            rows = json.loads(html[start:end])
+        except json.JSONDecodeError:
+            continue
+        if not isinstance(rows, list):
+            continue
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            episode = str(row.get("episode") or "").strip()
+            if not episode or episode in seen:
+                continue
+            try:
+                rate_f = float(row.get("viewRate"))
+            except (TypeError, ValueError):
+                continue
+            seen.add(episode)
+            episodes.append(
+                {
+                    "episode": episode,
+                    "air_date": str(row.get("airDate") or "").strip().rstrip("."),
+                    "view_rate": rate_f,
+                    "channel": "",
+                }
+            )
+
+    def _ep_num(item: dict[str, Any]) -> int:
+        m = re.search(r"(\d+)", str(item.get("episode") or ""))
+        return int(m.group(1)) if m else 0
+
+    episodes.sort(key=_ep_num, reverse=True)
+    return episodes
+
+
+def parse_text_panel_rate(html: str) -> dict[str, Any] | None:
+    """방송 정보 텍스트 패널의 최신/최고 시청률."""
+    if not html:
+        return None
+    # <mark>시청률</mark> 같은 하이라이트 태그 제거 후 탐색
+    text = unescape(re.sub(r"<[^>]+>", " ", html))
+    text = re.sub(r"\s+", " ", text)
+    loose = re.compile(
+        r"최신\s*(\d+)\s*회\s*([0-9]+(?:\.[0-9]+)?)\s*%\s*.\s*"
+        r"최고\s*(\d+)\s*회\s*([0-9]+(?:\.[0-9]+)?)\s*%"
+    )
+    best = None
+    best_ep = -1
+    for m in loose.finditer(text):
+        try:
+            ep_n = int(m.group(1))
+            latest_rate = float(m.group(2))
+            highest_ep = m.group(3)
+            highest_rate = float(m.group(4))
+        except (TypeError, ValueError):
+            continue
+        if ep_n >= best_ep:
+            best_ep = ep_n
+            best = {
+                "view_rate": latest_rate,
+                "episode": f"{ep_n}회",
+                "air_date": "",
+                "channel": "",
+                "type": "LATEST",
+                "highest_view_rate": highest_rate,
+                "highest_episode": f"{highest_ep}회",
+            }
+    return best
+
+
+def fetch_view_rate_api(content_id: str) -> list[dict[str, Any]]:
+    """api-gw.entertain.naver.com 시청률 모듈."""
+    cid = (content_id or "").strip()
+    if not cid.isdigit():
+        return []
+    url = (
+        f"https://api-gw.entertain.naver.com/csearch/contents/{cid}"
+        f"?modules=ent.enter.viewRate&pkid=57"
+    )
+    try:
+        res = requests.get(
+            url,
+            headers=_headers_mobile(),
+            timeout=10,
+        )
+        if res.status_code != 200:
+            return []
+        payload = res.json()
+    except (requests.RequestException, ValueError):
+        return []
+    pool = ((payload.get("result") or {}).get("dataPool") or {})
+    return _episodes_from_view_rate_info(pool.get("viewRateInfo"))
 
 
 def parse_view_rate(html: str) -> dict[str, Any] | None:
@@ -708,31 +890,44 @@ def parse_view_rate(html: str) -> dict[str, Any] | None:
     """
     if not html:
         return None
+
+    # 1) 신형 viewRateInfo
+    info_eps = parse_view_rate_info_html(html)
+    if info_eps:
+        top = info_eps[0]
+        return {
+            "view_rate": top["view_rate"],
+            "episode": top.get("episode") or "",
+            "air_date": top.get("air_date") or "",
+            "channel": top.get("channel") or "",
+            "type": "LATEST",
+        }
+
+    # 2) 구형 viewRate.type/items
     m = _VIEW_RATE_RE.search(html)
-    if not m:
-        return None
-    kind = m.group(1).upper()
-    try:
-        items = json.loads(m.group(2))
-    except json.JSONDecodeError:
-        return None
-    if not items or not isinstance(items, list):
-        return None
-    item = items[0]
-    if not isinstance(item, dict):
-        return None
-    rate = item.get("viewRate")
-    try:
-        rate_f = float(rate)
-    except (TypeError, ValueError):
-        return None
-    return {
-        "view_rate": rate_f,
-        "episode": str(item.get("episode") or "").strip(),
-        "air_date": str(item.get("airDate") or "").strip(),
-        "channel": str(item.get("channelName") or "").strip(),
-        "type": kind,  # LATEST | HIGHEST
-    }
+    if m:
+        kind = m.group(1).upper()
+        try:
+            items = json.loads(m.group(2))
+        except json.JSONDecodeError:
+            items = None
+        if items and isinstance(items, list) and isinstance(items[0], dict):
+            item = items[0]
+            try:
+                rate_f = float(item.get("viewRate"))
+            except (TypeError, ValueError):
+                rate_f = None
+            if rate_f is not None:
+                return {
+                    "view_rate": rate_f,
+                    "episode": str(item.get("episode") or "").strip(),
+                    "air_date": str(item.get("airDate") or "").strip(),
+                    "channel": str(item.get("channelName") or "").strip(),
+                    "type": kind,
+                }
+
+    # 3) 텍스트 패널
+    return parse_text_panel_rate(html)
 
 
 def parse_view_rate_history(html: str) -> list[dict[str, Any]]:
@@ -742,6 +937,10 @@ def parse_view_rate_history(html: str) -> list[dict[str, Any]]:
     """
     if not html:
         return []
+
+    info_eps = parse_view_rate_info_html(html)
+    if info_eps:
+        return info_eps
 
     episodes: list[dict[str, Any]] = []
     seen: set[str] = set()
@@ -775,6 +974,19 @@ def parse_view_rate_history(html: str) -> list[dict[str, Any]]:
         return int(m.group(1)) if m else 0
 
     episodes.sort(key=_ep_num, reverse=True)
+
+    # 회차 JSON이 없으면 텍스트 패널로 최신 1건만이라도
+    if not episodes:
+        text = parse_text_panel_rate(html)
+        if text:
+            episodes = [
+                {
+                    "episode": text.get("episode") or "",
+                    "air_date": "",
+                    "view_rate": text["view_rate"],
+                    "channel": "",
+                }
+            ]
     return episodes
 
 
@@ -784,18 +996,49 @@ def fetch_view_rate(title: str, search_html: str = "") -> dict[str, Any] | None:
     return parse_view_rate(html)
 
 
-def fetch_view_rate_with_history(title: str) -> dict[str, Any] | None:
-    """최신 시청률 + 회차별 시청률 목록."""
-    html = fetch_search_html(f"{title} 시청률", max_attempts=2)
-    episodes = parse_view_rate_history(html) if html else []
-    latest = parse_view_rate(html) if html else None
+def fetch_view_rate_with_history(
+    title: str,
+    channel: str = "",
+) -> dict[str, Any] | None:
+    """최신 시청률 + 회차별 시청률 목록 (신/구 패널 + API + 텍스트 폴백)."""
+    queries = [f"{title} 시청률"]
+    if channel:
+        queries.append(f"{title} {channel} 시청률")
+    queries.append(title)
 
-    if not episodes and not latest:
-        html = fetch_search_html(title, max_attempts=1)
+    html = ""
+    episodes: list[dict[str, Any]] = []
+    latest: dict[str, Any] | None = None
+
+    for q in queries:
+        html = fetch_search_html(q, max_attempts=2 if "시청률" in q else 1)
         if not html:
-            return None
+            continue
         episodes = parse_view_rate_history(html)
         latest = parse_view_rate(html)
+        if latest or episodes:
+            break
+
+        # API 폴백
+        for cid in extract_entertain_content_ids(html)[:3]:
+            api_eps = fetch_view_rate_api(cid)
+            if api_eps:
+                episodes = api_eps
+                break
+        if episodes:
+            break
+
+    if not latest and not episodes and channel:
+        html = fetch_search_html(f"{title} {channel}", max_attempts=1)
+        if html:
+            episodes = parse_view_rate_history(html)
+            latest = parse_view_rate(html)
+            if not episodes:
+                for cid in extract_entertain_content_ids(html)[:3]:
+                    api_eps = fetch_view_rate_api(cid)
+                    if api_eps:
+                        episodes = api_eps
+                        break
 
     if not latest and episodes:
         top = episodes[0]
