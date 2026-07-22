@@ -24,23 +24,17 @@ from otts import (
 )
 from posters import (
     ensure_poster_cache,
-    fill_missing_posters,
     is_safe_poster_url,
     load_poster_cache,
     resolve_poster_url,
 )
 from ratings import (
     cache_meta_label,
-    ensure_ratings,
-    fetch_rating_for_title,
-    fill_missing_ratings,
     format_rate_percent,
     format_rating_label,
     get_episode_ratings,
     get_rating,
     load_cache,
-    rating_lookup_done,
-    save_cache,
 )
 
 # ---------------------------------------------------------------------------
@@ -57,9 +51,25 @@ TEST_USER = {"id": "demo", "name": "테스트시청자"}
 
 # 보러가기/포스터 캐시 버전 (올리면 세션 캐시 전체 폐기)
 OTT_LOGIC_VERSION = 16
-LIST_PAGE_SIZE = 20
-# 목록 자동 조회: 페이지당 최대 몇 건만 네트워크 (나머지는 캐시/[미확인])
-LIST_OTT_FETCH = 4
+LIST_PAGE_SIZE = 12  # 위젯 수↓ → 첫 화면 즉시 표시
+
+
+@st.cache_data(show_spinner=False, ttl=600)
+def _load_ratings_cached() -> dict:
+    ensure_runtime_caches()
+    return load_cache()
+
+
+@st.cache_data(show_spinner=False, ttl=600)
+def _load_posters_cached() -> dict:
+    ensure_runtime_caches()
+    return load_poster_cache()
+
+
+@st.cache_data(show_spinner=False, ttl=600)
+def _load_otts_cached() -> dict:
+    ensure_runtime_caches()
+    return load_ott_cache()
 
 
 def init_session() -> None:
@@ -680,25 +690,8 @@ def render_thumb(title: str, index: int, poster_url: str = "") -> str:
 
 
 def render_list_thumb(title: str, index: int, poster_url: str = "") -> None:
-    """목록 썸네일 — st.image 로 외부 CDN 이미지를 안정적으로 표시."""
-    poster_url = encode_media_url(poster_url)
-    if poster_url and is_safe_poster_url(poster_url):
-        try:
-            st.image(poster_url, use_container_width=True)
-            return
-        except Exception:
-            pass
-    c1, c2 = palette_for(index)
-    g1, g2 = hex_to_rgb_css(c1), hex_to_rgb_css(c2)
-    short = html.escape(title if len(title) <= 8 else title[:7] + "…")
-    st.markdown(
-        f'<div style="aspect-ratio:3/4;border-radius:10px;display:flex;'
-        f'align-items:flex-end;justify-content:center;padding:0.4rem;'
-        f'font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.92);'
-        f'text-align:center;background:linear-gradient(145deg,{g1},{g2});">'
-        f"{short}</div>",
-        unsafe_allow_html=True,
-    )
+    """(레거시) 목록 썸네일 — HTML img 사용. st.image 는 서버 다운로드로 느림."""
+    render_html(render_thumb(title, index, poster_url))
 
 
 def ott_pills_html(otts: list[str]) -> str:
@@ -940,7 +933,12 @@ def view_home() -> None:
     with col_b:
         refresh_ratings_btn = st.button("시청률 새로고침", key="refresh_ratings")
 
-    # 시청률·포스터: 디스크/시드 캐시만 사용 (버튼 시에만 전체 네트워크)
+    # ---- 기본: 디스크/시드 캐시만 사용 (네트워크 0) → 즉시 화면 표시 ----
+    ratings_cache = _load_ratings_cached()
+    poster_cache = _load_posters_cached()
+    ott_cache = _load_otts_cached()
+
+    # 버튼으로만 네트워크 (자동 조회 없음)
     if refresh_ratings_btn:
         with st.spinner("시청률 갱신 중…"):
             from ratings import refresh_ratings
@@ -948,10 +946,7 @@ def view_home() -> None:
             ratings_cache = refresh_ratings(
                 all_titles, force=True, channels=channels
             )
-    else:
-        ratings_cache = load_cache()
-
-    poster_cache = load_poster_cache()
+            _load_ratings_cached.clear()
 
     # 방영 중 우선 → 시청률 높은 순 → 현재 페이지
     items = sort_items_by_view_rate(items, ratings_cache)
@@ -961,14 +956,6 @@ def view_home() -> None:
     st.session_state.list_page = page
     start = page * LIST_PAGE_SIZE
     page_items = items[start : start + LIST_PAGE_SIZE]
-
-    ott_cache = load_ott_cache()
-    cached_items = ott_cache.get("items") or {}
-    missing_on_page = [
-        c
-        for c in page_items
-        if refresh_otts or c["title"] not in cached_items
-    ]
 
     if refresh_otts:
         with st.spinner("포스터·OTT 새로고침 중…"):
@@ -981,50 +968,17 @@ def view_home() -> None:
                 max_fetch=LIST_PAGE_SIZE,
                 refetch_empty=False,
             )
-    elif missing_on_page:
-        # 캐시에 없는 항목만 소수·병렬 조회 (매 로드 전체 페이지 차단 방지)
-        with st.spinner("OTT 확인 중…"):
-            ott_cache = ensure_ott_cache(
-                missing_on_page,
-                logic_version=OTT_LOGIC_VERSION,
-                force=False,
-                max_fetch=LIST_OTT_FETCH,
-                refetch_empty=False,
-            )
-    else:
-        # 버전만 맞추고 네트워크 없음
-        if int(ott_cache.get("version") or 0) != OTT_LOGIC_VERSION:
-            ott_cache = ensure_ott_cache(
-                [],
-                logic_version=OTT_LOGIC_VERSION,
-                force=False,
-                max_fetch=0,
-                refetch_empty=False,
-            )
-
-    # 현재 페이지에서 비어 있는 시청률·포스터만 소량 보강
-    miss_ratings = [
-        c
-        for c in page_items
-        if not rating_lookup_done(c["title"], ratings_cache)
-    ]
-    miss_posters = [
-        c
-        for c in page_items
-        if not resolve_poster_url(c, cache=poster_cache)
-    ]
-    if miss_ratings or miss_posters:
-        with st.spinner("시청률·포스터 보강 중…"):
-            if miss_ratings:
-                ratings_cache = fill_missing_ratings(miss_ratings, max_fetch=4)
-            if miss_posters:
-                poster_cache = fill_missing_posters(miss_posters, max_fetch=4)
+            _load_posters_cached.clear()
+            _load_otts_cached.clear()
 
     looked, confirmed, total = ott_cache_stats(all_titles, ott_cache)
     st.caption(cache_meta_label(ratings_cache))
-    st.caption(f"OTT 확인 {confirmed}/{total} · 캐시 우선 · 미확인만 소량 자동 조회")
+    st.caption(f"OTT 확인 {confirmed}/{total} · 캐시로 즉시 표시 · 새로고침 시에만 네트워크")
 
+    # 카드 HTML을 한 번에 렌더 (st.image/columns 제거 → 서버 이미지 다운로드 없음)
+    cards_html: list[str] = []
     last_group: str | None = None
+    enriched: list[dict] = []
     for i, raw in enumerate(page_items):
         item = enrich_item(
             raw,
@@ -1033,17 +987,19 @@ def view_home() -> None:
             ott_cache,
             fetch_ott=False,
         )
+        enriched.append(item)
 
         airing = is_currently_airing(item)
         group = "airing" if airing else "ended"
         if group != last_group:
             if group == "airing":
-                render_html('<div class="group-title">방영 중 · 시청률 순</div>')
+                cards_html.append('<div class="group-title">방영 중 · 시청률 순</div>')
             else:
-                render_html('<div class="group-title">종영 · 시청률 순</div>')
+                cards_html.append('<div class="group-title">종영 · 시청률 순</div>')
             last_group = group
 
         aired = item["aired_at"].strftime("%Y.%m.%d")
+        thumb = render_thumb(item["title"], start + i, item.get("poster_url") or "")
         pills = ott_pills_html(item["otts"])
         title_e = html.escape(item["title"])
         ch_e = html.escape(item["channel"])
@@ -1064,35 +1020,39 @@ def view_home() -> None:
             f'{html.escape(source_label(item.get("ott_source", "none")))}'
             f"</div>"
         )
-
-        # st.image 로 썸네일 표시 (HTML iframe/CSP 이슈 회피)
-        row = st.container()
-        with row:
-            left, right = st.columns([0.95, 3.05], gap="small")
-            with left:
-                render_list_thumb(
-                    item["title"],
-                    start + i,
-                    item.get("poster_url") or "",
-                )
-            with right:
-                render_html(
-                    f"""
-<div class="card-body" style="padding-top:0.1rem;">
-  <div class="card-title">{title_e}</div>
-  <div class="card-meta">
-    {status_html}
-    <span class="badge-genre">{genre_e}</span>
-    {ch_e} · {aired}
+        cards_html.append(
+            f"""
+<div class="content-card">
+  {thumb}
+  <div class="card-body">
+    <div class="card-title">{title_e}</div>
+    <div class="card-meta">
+      {status_html}
+      <span class="badge-genre">{genre_e}</span>
+      {ch_e} · {aired}
+    </div>
+    {rating_html}
+    {pills}
+    {src_html}
   </div>
-  {rating_html}
-  {pills}
-  {src_html}
 </div>
-                    """
-                )
-        if st.button("OTT에서 보기 →", key=f"open_{item['id']}"):
-            go_detail(item["id"])
+            """
+        )
+
+    if cards_html:
+        render_html("".join(cards_html))
+
+    # 버튼 12개 대신 selectbox 1개 — 위젯/리렌더 비용 감소
+    if enriched:
+        options = {f"{it['title']} ({it['channel']})": it["id"] for it in enriched}
+        pick = st.selectbox(
+            "상세 볼 프로그램",
+            list(options.keys()),
+            label_visibility="collapsed",
+            key=f"pick_page_{page}",
+        )
+        if st.button("OTT에서 보기 →", key="open_selected", use_container_width=True):
+            go_detail(options[pick])
             st.rerun()
 
     nav_l, nav_m, nav_r = st.columns([1, 2, 1])
@@ -1129,37 +1089,42 @@ def view_detail() -> None:
         go_home()
         st.rerun()
 
-    ratings_cache = load_cache()
-    poster_cache = load_poster_cache()
-    ott_cache = load_ott_cache()
-    # 상세: 캐시 우선, 없을 때만 light 조회 (포스터·뉴스 생략)
+    ratings_cache = _load_ratings_cached()
+    poster_cache = _load_posters_cached()
+    ott_cache = _load_otts_cached()
+    # 상세도 캐시만 사용 (진입 시 네트워크 금지 → 즉시 표시)
     item = enrich_item(
         raw,
         ratings_cache,
         poster_cache,
         ott_cache,
-        fetch_ott=True,
+        fetch_ott=False,
         light_ott=True,
     )
 
-    # 회차별 시청률이 없으면 상세 진입 시 1회만 보강
     rating = item.get("rating") or get_rating(item["title"], ratings_cache) or {}
     episodes = get_episode_ratings(rating)
-    ep_key = f"_ep_fetch:{item['title']}"
-    if not episodes and not st.session_state.get(ep_key):
-        st.session_state[ep_key] = True
-        with st.spinner("회차별 시청률 불러오는 중…"):
+
+    if st.button("이 작품 OTT·시청률 새로고침", key="detail_refresh"):
+        with st.spinner("불러오는 중…"):
+            from ratings import fetch_rating_for_title, save_cache
+
+            result = resolve_otts_for_title(
+                item["title"],
+                channel=item.get("channel") or "",
+                light=True,
+            )
+            set_cached_ott(item["title"], result, ott_cache)
             fresh = fetch_rating_for_title(
                 item["title"], channel=item.get("channel") or ""
             )
-        if fresh:
-            items_map = dict(ratings_cache.get("items") or {})
-            items_map[item["title"]] = fresh
-            ratings_cache = {**ratings_cache, "items": items_map}
-            save_cache(ratings_cache)
-            rating = fresh
-            episodes = get_episode_ratings(rating)
-            item["rating"] = rating
+            if fresh:
+                items_map = dict(ratings_cache.get("items") or {})
+                items_map[item["title"]] = fresh
+                save_cache({**ratings_cache, "items": items_map})
+            _load_ratings_cached.clear()
+            _load_otts_cached.clear()
+            st.rerun()
 
     sorted_all = get_sorted_contents("전체")
     try:
@@ -1217,18 +1182,15 @@ def view_detail() -> None:
     white = hex_to_rgb_css("#ffffff")
     poster = encode_media_url(poster) if poster else ""
     if poster and is_safe_poster_url(poster):
-        try:
-            st.image(poster, use_container_width=True)
-        except Exception:
-            render_html(
-                f'<img class="detail-poster" src="{html.escape(poster, quote=True)}" '
-                f'alt="{title_e}" loading="lazy" referrerpolicy="no-referrer"/>'
-            )
-        render_html(
-            f'<h1 style="margin:0.35rem 0 0.75rem;font-size:1.35rem;font-weight:800;'
+        hero = (
+            f'<img class="detail-poster" src="{html.escape(poster, quote=True)}" '
+            f'alt="{title_e}" width="400" height="280" '
+            f'style="width:100%;max-height:280px;object-fit:cover;border-radius:16px;'
+            f'display:block;margin-bottom:1rem;background:#1a1d27;" '
+            f'loading="eager" referrerpolicy="no-referrer"/>'
+            f'<h1 style="margin:0 0 0.75rem;font-size:1.35rem;font-weight:800;'
             f'color:{white};">{title_e}</h1>'
         )
-        hero = ""
     else:
         g1, g2 = hex_to_rgb_css(c1), hex_to_rgb_css(c2)
         hero = (
