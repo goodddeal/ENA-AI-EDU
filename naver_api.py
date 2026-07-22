@@ -833,10 +833,11 @@ def resolve_otts_for_title(
     """
     del fallback  # 샘플/추정 OTT 사용 안 함
 
-    # OTT는 '보러가기' 검색을 우선
-    borragi_html = fetch_search_html(f"{title} 보러가기", max_attempts=2)
+    # OTT는 '보러가기' 검색을 우선 (light=목록용: 요청 1회로 제한)
+    attempts = 1 if light else 2
+    borragi_html = fetch_search_html(f"{title} 보러가기", max_attempts=attempts)
     platforms = parse_borragi_platforms(borragi_html) if borragi_html else []
-    if not platforms:
+    if not platforms and not light:
         platforms = fetch_borragi_otts(title, borragi_html)
 
     otts = [p["name"] for p in platforms]

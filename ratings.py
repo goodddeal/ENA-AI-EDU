@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any, Callable
 from zoneinfo import ZoneInfo
 
+from cache_bootstrap import ensure_runtime_caches
 from naver_api import fetch_view_rate_with_history
 
 KST = ZoneInfo("Asia/Seoul")
@@ -40,6 +41,7 @@ def as_of_date_for(refresh_day: date) -> date:
 
 
 def load_cache() -> dict[str, Any]:
+    ensure_runtime_caches()
     if not CACHE_PATH.is_file():
         return {}
     try:

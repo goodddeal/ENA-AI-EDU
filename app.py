@@ -6,29 +6,15 @@ PRD: broadcast_ott_service_planning.md
 from __future__ import annotations
 
 import html
-import importlib
-import inspect
 from datetime import date
 from urllib.parse import quote
 
 import streamlit as st
 
 import config  # noqa: F401 — .env 로드
-import data as _data_module
-import naver_api as _naver_module
-import otts as _otts_module
-import posters as _posters_module
-import ratings as _ratings_module
-
-# 코드 변경이 바로 반영되도록 로컬 모듈 강제 리로드
-importlib.reload(_data_module)
-importlib.reload(_naver_module)
-importlib.reload(_otts_module)
-importlib.reload(_posters_module)
-importlib.reload(_ratings_module)
-
+from cache_bootstrap import ensure_runtime_caches
 from data import OTT_META, get_content_by_id, get_sorted_contents, palette_for
-from naver_api import ping_naver_api, resolve_otts_for_title
+from naver_api import resolve_otts_for_title
 from otts import (
     ensure_ott_cache,
     get_cached_ott,
@@ -37,6 +23,7 @@ from otts import (
     set_cached_ott,
 )
 from posters import (
+    ensure_poster_cache,
     is_safe_poster_url,
     load_poster_cache,
     resolve_poster_url,
@@ -53,18 +40,6 @@ from ratings import (
     save_cache,
 )
 
-
-def ensure_poster_cache(contents, **kwargs):
-    """항상 리로드된 posters 모듈을 호출 (구버전 캐시 TypeError 방지)."""
-    importlib.reload(_posters_module)
-    fn = _posters_module.ensure_poster_cache
-    try:
-        params = inspect.signature(fn).parameters
-        filtered = {k: v for k, v in kwargs.items() if k in params}
-    except (TypeError, ValueError):
-        filtered = {k: v for k, v in kwargs.items() if k in ("force", "progress")}
-    return fn(contents, **filtered)
-
 # ---------------------------------------------------------------------------
 # 페이지 / 세션
 # ---------------------------------------------------------------------------
@@ -80,9 +55,12 @@ TEST_USER = {"id": "demo", "name": "테스트시청자"}
 # 보러가기/포스터 캐시 버전 (올리면 세션 캐시 전체 폐기)
 OTT_LOGIC_VERSION = 16
 LIST_PAGE_SIZE = 20
+# 목록 자동 조회: 페이지당 최대 몇 건만 네트워크 (나머지는 캐시/[미확인])
+LIST_OTT_FETCH = 4
 
 
 def init_session() -> None:
+    ensure_runtime_caches()
     if "logged_in" not in st.session_state:
         st.session_state.logged_in = True
         st.session_state.user = TEST_USER
@@ -701,7 +679,8 @@ def get_borragi_result(
     key = f"ott_cache:{OTT_LOGIC_VERSION}:{title}"
 
     cached = get_cached_ott(title, ott_cache)
-    if cached is not None and (cached.get("otts") or []):
+    if cached is not None:
+        # 빈 결과도 '조회 완료'로 취급 — 매 로드 재요청 방지
         result = {
             "otts": list(cached.get("otts") or []),
             "ott_links": dict(cached.get("ott_links") or {}),
@@ -710,13 +689,13 @@ def get_borragi_result(
             "source": cached.get("source") or "none",
             "news": [],
             "query": title,
-            "confirmed": True,
+            "confirmed": bool(cached.get("otts")),
         }
         st.session_state[key] = result
         return result
 
     sess = st.session_state.get(key)
-    if isinstance(sess, dict) and (sess.get("otts") or []):
+    if isinstance(sess, dict) and sess.get("source") not in (None, "pending"):
         return sess
 
     if not fetch_if_missing:
@@ -889,31 +868,21 @@ def view_home() -> None:
         st.info("검색어·장르에 맞는 프로그램이 없습니다.")
         return
 
-    all_contents = get_sorted_contents("전체")
-    all_titles = [c["title"] for c in all_contents]
+    all_titles = [c["title"] for c in get_sorted_contents("전체")]
     col_a, col_b = st.columns(2)
     with col_a:
         refresh_otts = st.button("포스터·OTT 새로고침", key="refresh_otts")
     with col_b:
         refresh_ratings_btn = st.button("시청률 새로고침", key="refresh_ratings")
 
-    # 시청률: 캐시만 사용 (버튼 눌렀을 때만 전체 갱신)
+    # 시청률·포스터: 디스크/시드 캐시만 사용 (버튼 시에만 네트워크)
     if refresh_ratings_btn:
         with st.spinner("시청률 갱신 중…"):
             ratings_cache = ensure_ratings(all_titles, force=True)
     else:
         ratings_cache = load_cache()
-        if not ratings_cache.get("items"):
-            with st.spinner("시청률 캐시 준비 중…"):
-                ratings_cache = ensure_ratings(all_titles[:12], force=False)
 
     poster_cache = load_poster_cache()
-    if not (poster_cache.get("items") or {}) and not st.session_state.get("_poster_warmed"):
-        with st.spinner("포스터 캐시 준비 중…"):
-            poster_cache = ensure_poster_cache(
-                all_contents, force=False, max_fetch=8
-            )
-        st.session_state["_poster_warmed"] = True
 
     # 방영 중 우선 → 시청률 높은 순 → 현재 페이지
     items = sort_items_by_view_rate(items, ratings_cache)
@@ -924,27 +893,49 @@ def view_home() -> None:
     start = page * LIST_PAGE_SIZE
     page_items = items[start : start + LIST_PAGE_SIZE]
 
-    # 화면에 보이는 프로그램만 OTT 조회 (미확인 해결의 핵심)
-    for raw in page_items:
-        skey = f"ott_cache:{OTT_LOGIC_VERSION}:{raw['title']}"
-        if skey in st.session_state and not (st.session_state[skey].get("otts") or []):
-            del st.session_state[skey]
+    ott_cache = load_ott_cache()
+    cached_items = ott_cache.get("items") or {}
+    missing_on_page = [
+        c
+        for c in page_items
+        if refresh_otts or c["title"] not in cached_items
+    ]
 
-    with st.spinner("이 페이지 OTT 확인 중…"):
-        if refresh_otts:
+    if refresh_otts:
+        with st.spinner("포스터·OTT 새로고침 중…"):
             ensure_poster_cache(page_items, force=True, max_fetch=LIST_PAGE_SIZE)
             poster_cache = load_poster_cache()
-        ott_cache = ensure_ott_cache(
-            page_items,
-            logic_version=OTT_LOGIC_VERSION,
-            force=bool(refresh_otts),
-            max_fetch=LIST_PAGE_SIZE,
-            refetch_empty=True,
-        )
+            ott_cache = ensure_ott_cache(
+                page_items,
+                logic_version=OTT_LOGIC_VERSION,
+                force=True,
+                max_fetch=LIST_PAGE_SIZE,
+                refetch_empty=False,
+            )
+    elif missing_on_page:
+        # 캐시에 없는 항목만 소수·병렬 조회 (매 로드 전체 페이지 차단 방지)
+        with st.spinner("OTT 확인 중…"):
+            ott_cache = ensure_ott_cache(
+                missing_on_page,
+                logic_version=OTT_LOGIC_VERSION,
+                force=False,
+                max_fetch=LIST_OTT_FETCH,
+                refetch_empty=False,
+            )
+    else:
+        # 버전만 맞추고 네트워크 없음
+        if int(ott_cache.get("version") or 0) != OTT_LOGIC_VERSION:
+            ott_cache = ensure_ott_cache(
+                [],
+                logic_version=OTT_LOGIC_VERSION,
+                force=False,
+                max_fetch=0,
+                refetch_empty=False,
+            )
 
     looked, confirmed, total = ott_cache_stats(all_titles, ott_cache)
     st.caption(cache_meta_label(ratings_cache))
-    st.caption(f"OTT 확인 {confirmed}/{total} · 현재 페이지 기준으로 자동 조회")
+    st.caption(f"OTT 확인 {confirmed}/{total} · 캐시 우선 · 미확인만 소량 자동 조회")
 
     last_group: str | None = None
     for i, raw in enumerate(page_items):
@@ -1047,20 +1038,22 @@ def view_detail() -> None:
     ratings_cache = load_cache()
     poster_cache = load_poster_cache()
     ott_cache = load_ott_cache()
-    # 상세에서만 해당 작품 OTT를 즉시 확인 (전체 목록 네트워크 금지)
+    # 상세: 캐시 우선, 없을 때만 light 조회 (포스터·뉴스 생략)
     item = enrich_item(
         raw,
         ratings_cache,
         poster_cache,
         ott_cache,
         fetch_ott=True,
-        light_ott=False,
+        light_ott=True,
     )
 
-    # 회차별 시청률이 없으면 상세 진입 시 1회 보강
+    # 회차별 시청률이 없으면 상세 진입 시 1회만 보강
     rating = item.get("rating") or get_rating(item["title"], ratings_cache) or {}
     episodes = get_episode_ratings(rating)
-    if not episodes:
+    ep_key = f"_ep_fetch:{item['title']}"
+    if not episodes and not st.session_state.get(ep_key):
+        st.session_state[ep_key] = True
         with st.spinner("회차별 시청률 불러오는 중…"):
             fresh = fetch_rating_for_title(item["title"])
         if fresh:
@@ -1220,13 +1213,9 @@ def main() -> None:
     inject_css()
 
     if st.session_state.view == "home":
-        ok, detail = ping_naver_api()
-        api_status = (
-            "네이버 보러가기 연동됨" if ok else f"네이버 연동 오류 ({detail})"
-        )
         st.caption(
             f"테스트 계정 `{TEST_USER['id']}` 자동 로그인 · "
-            f"기준일 {date.today().isoformat()} · 모바일 비율 · {api_status}"
+            f"기준일 {date.today().isoformat()} · 모바일 비율"
         )
         view_home()
     else:

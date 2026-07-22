@@ -1,0 +1,721 @@
+{
+  "refresh_date": "2026-07-22",
+  "as_of_date": "2026-07-21",
+  "refreshed_at": "2026-07-22T13:41:48.237383+09:00",
+  "source": "naver_viewRate",
+  "items": {
+    "톡파원 25시": {
+      "view_rate": 2.245,
+      "episode": "",
+      "air_date": "2026.07.20.",
+      "channel": "JTBC",
+      "type": "LATEST"
+    },
+    "런닝맨": {
+      "view_rate": 3.2,
+      "episode": "812회",
+      "air_date": "2026.07.19.",
+      "channel": "SBS",
+      "type": "LATEST"
+    },
+    "스트릿 레스토랑 파이터": {
+      "view_rate": 1.59,
+      "episode": "5회",
+      "air_date": "2026.07.19.",
+      "channel": "tvN",
+      "type": "LATEST"
+    },
+    "쯔양몇끼": {
+      "view_rate": 0.875,
+      "episode": "8회",
+      "air_date": "2026.07.18.",
+      "channel": "ENA",
+      "type": "LATEST"
+    },
+    "오싹한 연애": {
+      "view_rate": 5.32,
+      "episode": "2회",
+      "air_date": "2026-07-19",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "2회",
+          "air_date": "2026-07-19",
+          "view_rate": 5.32,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-07-18",
+          "view_rate": 3.049,
+          "channel": ""
+        }
+      ]
+    },
+    "나 혼자 산다": {
+      "view_rate": 5.7,
+      "episode": "656회",
+      "air_date": "2026.07.17.",
+      "channel": "MBC",
+      "type": "LATEST"
+    },
+    "벌거벗은 세계사": {
+      "view_rate": 2.503,
+      "episode": "264회",
+      "air_date": "2026.07.20.",
+      "channel": "tvN",
+      "type": "LATEST"
+    },
+    "콩콩팜팜": {
+      "view_rate": 2.744,
+      "episode": "5회",
+      "air_date": "2026.07.17.",
+      "channel": "tvN",
+      "type": "LATEST"
+    },
+    "유 퀴즈 온 더 블럭": {
+      "view_rate": 3.996,
+      "episode": "351회",
+      "air_date": "2026.07.15.",
+      "channel": "tvN",
+      "type": "LATEST"
+    },
+    "나는 SOLO": {
+      "view_rate": 1.871,
+      "episode": "262회",
+      "air_date": "2026.07.15.",
+      "channel": "SBS Plus",
+      "type": "LATEST"
+    },
+    "언더커버 셰프": {
+      "view_rate": 5.018,
+      "episode": "9회",
+      "air_date": "2026.07.16.",
+      "channel": "tvN",
+      "type": "LATEST"
+    },
+    "핸썸가이즈": {
+      "view_rate": 2.023,
+      "episode": "36회",
+      "air_date": "2025.08.14.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "아이돌 파견근무": {
+      "view_rate": 0.305,
+      "episode": "5회",
+      "air_date": "2026.07.07.",
+      "channel": "ENA",
+      "type": "LATEST"
+    },
+    "신발 벗고 돌싱포맨": {
+      "view_rate": 4.0,
+      "episode": "",
+      "air_date": "2025.08.05.",
+      "channel": "SBS",
+      "type": "HIGHEST"
+    },
+    "킬잇 : 스타일 크리에이터 대전쟁": {
+      "view_rate": 1.066,
+      "episode": "11회",
+      "air_date": "2026.07.21.",
+      "channel": "tvN",
+      "type": "LATEST"
+    },
+    "연애전쟁": {
+      "view_rate": 2.149,
+      "episode": "",
+      "air_date": "2026.07.21.",
+      "channel": "JTBC",
+      "type": "LATEST"
+    },
+    "이호선 상담소": {
+      "view_rate": 1.288,
+      "episode": "26회",
+      "air_date": "2026.07.14.",
+      "channel": "tvN STORY",
+      "type": "LATEST"
+    },
+    "히든에이지": {
+      "view_rate": 0.367,
+      "episode": "5회",
+      "air_date": "2026.03.24.",
+      "channel": "tvN",
+      "type": "LATEST"
+    },
+    "동상이몽 2 - 너는 내 운명": {
+      "view_rate": 4.4,
+      "episode": "448회",
+      "air_date": "2026.07.21.",
+      "channel": "SBS",
+      "type": "LATEST"
+    },
+    "골 때리는 그녀들": {
+      "view_rate": 3.6,
+      "episode": "223회",
+      "air_date": "2026.07.15.",
+      "channel": "SBS",
+      "type": "LATEST"
+    },
+    "남겨서 뭐하게": {
+      "view_rate": 0.524,
+      "episode": "52회",
+      "air_date": "2026.07.20.",
+      "channel": "tvN STORY",
+      "type": "LATEST"
+    },
+    "프리한19": {
+      "view_rate": 0.248,
+      "episode": "529회",
+      "air_date": "2026.07.20.",
+      "channel": "tvN SHOW",
+      "type": "LATEST"
+    },
+    "그대에게 드림": {
+      "view_rate": 2.698,
+      "episode": "4회",
+      "air_date": "2026.07.21.",
+      "channel": "ENA",
+      "type": "LATEST"
+    },
+    "전지적 참견 시점": {
+      "view_rate": 2.5,
+      "episode": "407회",
+      "air_date": "2026.07.18.",
+      "channel": "MBC",
+      "type": "LATEST"
+    },
+    "미운 우리 새끼": {
+      "view_rate": 8.1,
+      "episode": "504회",
+      "air_date": "2026.07.19.",
+      "channel": "SBS",
+      "type": "LATEST"
+    },
+    "아는 형님": {
+      "view_rate": 1.17,
+      "episode": "",
+      "air_date": "2026.07.11.",
+      "channel": "JTBC",
+      "type": "LATEST"
+    },
+    "놀라운 토요일": {
+      "view_rate": 1.511,
+      "episode": "426회",
+      "air_date": "2026.07.18.",
+      "channel": "tvN",
+      "type": "LATEST"
+    },
+    "놀면 뭐하니?": {
+      "view_rate": 3.6,
+      "episode": "338회",
+      "air_date": "2026.07.18.",
+      "channel": "MBC",
+      "type": "LATEST"
+    },
+    "아파트": {
+      "view_rate": 6.018,
+      "episode": "4회",
+      "air_date": "2026.07.19.",
+      "channel": "JTBC",
+      "type": "LATEST"
+    },
+    "사장님 귀는 당나귀 귀": {
+      "view_rate": 3.7,
+      "episode": "366회",
+      "air_date": "2026.07.19.",
+      "channel": "KBS2",
+      "type": "LATEST"
+    },
+    "가족관계증명서": {
+      "view_rate": 4.2,
+      "episode": "12회",
+      "air_date": "2026.07.21.",
+      "channel": "MBC",
+      "type": "LATEST"
+    },
+    "1박 2일": {
+      "view_rate": 6.4,
+      "episode": "336회",
+      "air_date": "2026.07.19.",
+      "channel": "KBS2",
+      "type": "LATEST"
+    },
+    "금쪽같은 내 새끼": {
+      "view_rate": 2.038,
+      "episode": "",
+      "air_date": "2026.03.06.",
+      "channel": "채널A",
+      "type": "HIGHEST"
+    },
+    "결혼의 완성": {
+      "view_rate": 6.4,
+      "episode": "6회",
+      "air_date": "2026.07.19.",
+      "channel": "KBS2",
+      "type": "LATEST"
+    },
+    "라디오스타": {
+      "view_rate": 3.6,
+      "episode": "972회",
+      "air_date": "2026.07.15.",
+      "channel": "MBC",
+      "type": "LATEST"
+    },
+    "불후의 명곡": {
+      "view_rate": 5.7,
+      "episode": "765회",
+      "air_date": "2026.07.18.",
+      "channel": "KBS2",
+      "type": "LATEST"
+    },
+    "김부장": {
+      "view_rate": 23.1,
+      "episode": "8회",
+      "air_date": "2026-07-18",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "8회",
+          "air_date": "2026-07-18",
+          "view_rate": 23.1,
+          "channel": ""
+        },
+        {
+          "episode": "7회",
+          "air_date": "2026-07-17",
+          "view_rate": 21.9,
+          "channel": ""
+        },
+        {
+          "episode": "6회",
+          "air_date": "2026-07-11",
+          "view_rate": 22.3,
+          "channel": ""
+        },
+        {
+          "episode": "5회",
+          "air_date": "2026-07-10",
+          "view_rate": 20.5,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-07-04",
+          "view_rate": 21.6,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-07-03",
+          "view_rate": 18.8,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-06-27",
+          "view_rate": 15.7,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-06-26",
+          "view_rate": 9.5,
+          "channel": ""
+        }
+      ]
+    },
+    "신랑수업": {
+      "view_rate": 1.424,
+      "episode": "",
+      "air_date": "2026.07.17.",
+      "channel": "채널A",
+      "type": "LATEST"
+    },
+    "내일도 출근": {
+      "view_rate": 4.356,
+      "episode": "10회",
+      "air_date": "2026.07.21.",
+      "channel": "tvN",
+      "type": "LATEST"
+    },
+    "냉장고를 부탁해": {
+      "view_rate": 2.291,
+      "episode": "",
+      "air_date": "2026.07.19.",
+      "channel": "JTBC",
+      "type": "LATEST"
+    },
+    "전국노래자랑": {
+      "view_rate": 6.4,
+      "episode": "",
+      "air_date": "2026.07.19.",
+      "channel": "KBS1",
+      "type": "LATEST"
+    },
+    "꽃보다 청춘: 리미티드 에디션": {
+      "view_rate": 3.744,
+      "episode": "1회",
+      "air_date": "2026.05.03.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "닥터 섬보이": {
+      "view_rate": 5.932,
+      "episode": "12회",
+      "air_date": "2026.07.07.",
+      "channel": "ENA",
+      "type": "HIGHEST"
+    },
+    "길치라도 괜찮아": {
+      "view_rate": 0.905,
+      "episode": "1회",
+      "air_date": "2025.10.18.",
+      "channel": "ENA",
+      "type": "HIGHEST"
+    },
+    "신입사원 강회장": {
+      "view_rate": 13.568,
+      "episode": "12회",
+      "air_date": "2026.07.05.",
+      "channel": "JTBC",
+      "type": "HIGHEST"
+    },
+    "오십프로": {
+      "view_rate": 6.0,
+      "episode": "11회",
+      "air_date": "2026.06.26.",
+      "channel": "MBC",
+      "type": "HIGHEST"
+    },
+    "입 터지는 실험실": {
+      "view_rate": 0.323,
+      "episode": "1회",
+      "air_date": "2025.10.25.",
+      "channel": "ENA",
+      "type": "HIGHEST"
+    },
+    "오늘도 매진했습니다": {
+      "view_rate": 3.3,
+      "episode": "2회",
+      "air_date": "2026.04.23.",
+      "channel": "SBS",
+      "type": "HIGHEST"
+    },
+    "허수아비": {
+      "view_rate": 8.122,
+      "episode": "12회",
+      "air_date": "2026.05.26.",
+      "channel": "ENA",
+      "type": "HIGHEST"
+    },
+    "모두가 자신의 무가치함과 싸우고 있다": {
+      "view_rate": 5.292,
+      "episode": "12회",
+      "air_date": "2026.05.24.",
+      "channel": "JTBC",
+      "type": "HIGHEST"
+    },
+    "방과후 태리쌤": {
+      "view_rate": 1.464,
+      "episode": "1회",
+      "air_date": "2026.02.22.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "21세기 대군부인": {
+      "view_rate": 13.8,
+      "episode": "12회",
+      "air_date": "2026-05-16",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "12회",
+          "air_date": "2026-05-16",
+          "view_rate": 13.8,
+          "channel": ""
+        },
+        {
+          "episode": "11회",
+          "air_date": "2026-05-15",
+          "view_rate": 13.5,
+          "channel": ""
+        },
+        {
+          "episode": "10회",
+          "air_date": "2026-05-09",
+          "view_rate": 13.3,
+          "channel": ""
+        },
+        {
+          "episode": "9회",
+          "air_date": "2026-05-08",
+          "view_rate": 11.7,
+          "channel": ""
+        },
+        {
+          "episode": "8회",
+          "air_date": "2026-05-02",
+          "view_rate": 11.2,
+          "channel": ""
+        },
+        {
+          "episode": "7회",
+          "air_date": "2026-05-01",
+          "view_rate": 10.8,
+          "channel": ""
+        },
+        {
+          "episode": "6회",
+          "air_date": "2026-04-25",
+          "view_rate": 11.2,
+          "channel": ""
+        },
+        {
+          "episode": "5회",
+          "air_date": "2026-04-24",
+          "view_rate": 10.6,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-04-18",
+          "view_rate": 11.1,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-04-17",
+          "view_rate": 9.0,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-04-11",
+          "view_rate": 9.5,
+          "channel": ""
+        }
+      ]
+    },
+    "기쁜 우리 좋은 날": {
+      "view_rate": 10.6,
+      "episode": "80회",
+      "air_date": "2026.07.21.",
+      "channel": "KBS1",
+      "type": "LATEST"
+    },
+    "체인지 스트릿": {
+      "view_rate": 0.32,
+      "episode": "7회",
+      "air_date": "2026.02.06.",
+      "channel": "ENA",
+      "type": "HIGHEST"
+    },
+    "닥터신": {
+      "view_rate": 2.321,
+      "episode": "",
+      "air_date": "2026.05.03.",
+      "channel": "TV조선",
+      "type": "HIGHEST"
+    },
+    "아기가 생겼어요": {
+      "view_rate": 1.937,
+      "episode": "12회",
+      "air_date": "2026.02.22.",
+      "channel": "채널A",
+      "type": "HIGHEST"
+    },
+    "스프링 피버": {
+      "view_rate": 5.748,
+      "episode": "12회",
+      "air_date": "2026.02.10.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "살림하는 남자들": {
+      "view_rate": 3.1,
+      "episode": "452회",
+      "air_date": "2026.07.18.",
+      "channel": "KBS2",
+      "type": "LATEST"
+    },
+    "미혼남녀의 효율적 만남": {
+      "view_rate": 4.968,
+      "episode": "12회",
+      "air_date": "2026.04.05.",
+      "channel": "JTBC",
+      "type": "HIGHEST"
+    },
+    "오늘부터 인간입니다만": {
+      "view_rate": 4.2,
+      "episode": "9회",
+      "air_date": "2026.02.20.",
+      "channel": "SBS",
+      "type": "HIGHEST"
+    },
+    "은애하는 도적님아": {
+      "view_rate": 7.7,
+      "episode": "15회",
+      "air_date": "2026.02.21.",
+      "channel": "KBS2",
+      "type": "HIGHEST"
+    },
+    "판사 이한영": {
+      "view_rate": 13.6,
+      "episode": "13회",
+      "air_date": "2026.02.13.",
+      "channel": "MBC",
+      "type": "HIGHEST"
+    },
+    "프로보노": {
+      "view_rate": 10.003,
+      "episode": "12회",
+      "air_date": "2026.01.11.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "경도를 기다리며": {
+      "view_rate": 4.728,
+      "episode": "12회",
+      "air_date": "2026.01.11.",
+      "channel": "JTBC",
+      "type": "HIGHEST"
+    },
+    "모범택시 3": {
+      "view_rate": 14.2,
+      "episode": "14회",
+      "air_date": "2026.01.03.",
+      "channel": "SBS",
+      "type": "HIGHEST"
+    },
+    "당일배송 우리집": {
+      "view_rate": 1.549,
+      "episode": "",
+      "air_date": "2025.12.16.",
+      "channel": "JTBC",
+      "type": "HIGHEST"
+    },
+    "퍼스트레이디": {
+      "view_rate": 2.179,
+      "episode": "1회",
+      "air_date": "2025.09.24.",
+      "channel": "MBN",
+      "type": "HIGHEST"
+    },
+    "컨피던스맨 KR": {
+      "view_rate": 1.772,
+      "episode": "",
+      "air_date": "2025.09.28.",
+      "channel": "TV조선",
+      "type": "HIGHEST"
+    },
+    "한끼합쇼": {
+      "view_rate": 3.059,
+      "episode": "",
+      "air_date": "2025.07.10.",
+      "channel": "JTBC",
+      "type": "HIGHEST"
+    },
+    "폭군의 셰프": {
+      "view_rate": 17.107,
+      "episode": "12회",
+      "air_date": "2025.09.28.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "트라이: 우리는 기적이 된다": {
+      "view_rate": 6.8,
+      "episode": "8회",
+      "air_date": "2025.08.16.",
+      "channel": "SBS",
+      "type": "HIGHEST"
+    },
+    "견우와 선녀": {
+      "view_rate": 4.942,
+      "episode": "12회",
+      "air_date": "2025.07.29.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "살롱 드 홈즈": {
+      "view_rate": 3.627,
+      "episode": "10회",
+      "air_date": "2025.07.15.",
+      "channel": "ENA",
+      "type": "HIGHEST"
+    },
+    "굿보이": {
+      "view_rate": 8.125,
+      "episode": "16회",
+      "air_date": "2025.07.20.",
+      "channel": "JTBC",
+      "type": "HIGHEST"
+    },
+    "천국보다 아름다운": {
+      "view_rate": 8.345,
+      "episode": "12회",
+      "air_date": "2025.05.25.",
+      "channel": "JTBC",
+      "type": "HIGHEST"
+    },
+    "언젠가는 슬기로울 전공의생활": {
+      "view_rate": 8.142,
+      "episode": "12회",
+      "air_date": "2025.05.18.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "바니와 오빠들": {
+      "view_rate": 1.5,
+      "episode": "3회",
+      "air_date": "2025.04.18.",
+      "channel": "MBC",
+      "type": "HIGHEST"
+    },
+    "협상의 기술": {
+      "view_rate": 10.315,
+      "episode": "12회",
+      "air_date": "2025.04.13.",
+      "channel": "JTBC",
+      "type": "HIGHEST"
+    },
+    "감자연구소": {
+      "view_rate": 2.003,
+      "episode": "4회",
+      "air_date": "2025.03.09.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "언더커버 하이스쿨": {
+      "view_rate": 8.3,
+      "episode": "4회",
+      "air_date": "2025.03.01.",
+      "channel": "MBC",
+      "type": "HIGHEST"
+    },
+    "모텔 캘리포니아": {
+      "view_rate": 6.0,
+      "episode": "7회",
+      "air_date": "2025.01.31.",
+      "channel": "MBC",
+      "type": "HIGHEST"
+    },
+    "별들에게 물어봐": {
+      "view_rate": 3.883,
+      "episode": "2회",
+      "air_date": "2025.01.05.",
+      "channel": "tvN",
+      "type": "HIGHEST"
+    },
+    "나의 완벽한 비서": {
+      "view_rate": 12.0,
+      "episode": "12회",
+      "air_date": "2025.02.14.",
+      "channel": "SBS",
+      "type": "HIGHEST"
+    }
+  }
+}

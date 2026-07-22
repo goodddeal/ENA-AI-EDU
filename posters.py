@@ -7,6 +7,8 @@ import threading
 from pathlib import Path
 from typing import Any, Callable
 
+from cache_bootstrap import ensure_runtime_caches
+
 CACHE_PATH = Path(__file__).resolve().parent / ".cache" / "posters.json"
 _lock = threading.Lock()
 
@@ -25,6 +27,7 @@ def is_safe_poster_url(url: str) -> bool:
 
 
 def load_poster_cache() -> dict[str, Any]:
+    ensure_runtime_caches()
     if not CACHE_PATH.is_file():
         return {"items": {}}
     try:
