@@ -453,13 +453,12 @@ def _poster_score(url: str, channel: str = "") -> int:
     prefer = (
         "cjenm.com",
         "csearch-phinf.pstatic.net",
+        "phinf.pstatic.net/tvcast",
         "image.tving.com",
         "tving.com",
         "ssl.pstatic.net/sstatic/keypage",
-        "img.extmovie.com",
         "talkimg.imbc.com",
         "img.imbc.com",
-        "i.namu.wiki",
         "cdn.instiz.net",
         "imbc.com",
         "kbs.co.kr",
@@ -475,9 +474,15 @@ def _poster_score(url: str, channel: str = "") -> int:
         "influencer-phinf",
         "ytimg.com",
         "twimg.com",
+        "img.extmovie.com",
+        "i.namu.wiki",
     )
     if not is_safe_poster_url(url):
-        return -999
+        return -10_000
+    # 지상파 KBS + 티빙 CDN 조합은 오인 포스터 가능성이 큼
+    ch = (channel or "").upper()
+    if ch.startswith("KBS") and "tving.com" in url.lower():
+        return -10_000
     score = 0
     for i, p in enumerate(prefer):
         if p in url:
@@ -487,7 +492,6 @@ def _poster_score(url: str, channel: str = "") -> int:
         if p in url:
             score -= 50
     # 지상파(KBS/SBS/MBC)인데 티빙 전용 이미지가 잡히면 감점 (오매칭 방지)
-    ch = (channel or "").upper()
     if any(x in ch for x in ("KBS", "SBS", "MBC")) and ("tving.com" in url):
         score -= 60
     low = url.lower()

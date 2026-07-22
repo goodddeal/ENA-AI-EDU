@@ -222,10 +222,11 @@ CONTENTS = [
         "episode": "방영 중",
         "otts": [],
         "desc": "KBS1 일요일 국민 노래 예능.",
-        # 자동 수집이 타 프로그램(티빙) 포스터로 오인되어 고정
+        # 자동 수집이 타 프로그램(티빙·태군노래자랑)으로 오인되어 고정
+        "poster_locked": True,
         "poster_url": (
-            "https://i.namu.wiki/i/"
-            "uvWCF4cWcW9nntX_dmaZh5FUnon6TyzbBsuvzsQJYQ0QxouUHi_-C_wDvxF7BSlutJHVzXe5z0lHarUigmk6AbGJjBIMiHl7pVDOjlXjwThRKXB8SAvbQjF5eFCbK3qhf4psoqHUjDWFDEYQNJJXDQ.webp"
+            "https://phinf.pstatic.net/tvcast/20240326_238/"
+            "TSkf5_1711431154087vMAPG_JPEG/2GOtb0vuXqFc.jpg"
         ),
     },
     # ========== 예능 추가 (tvN · ENA · JTBC · 지상파) ==========
@@ -611,9 +612,9 @@ CONTENTS = [
         "channel": "ENA",
         "broadcaster": "ENA (PP)",
         "aired_at": date(2026, 7, 14),
-        "episode": "방영 중",
+        "episode": "종영",
         "otts": [],
-        "desc": "ENA 화요 예능. 전 연인 재회·연애 상담.",
+        "desc": "ENA 예능. 전 연인 재회·연애 상담. (방영 종료)",
     },
     {
         "id": "v51",
@@ -921,10 +922,6 @@ CONTENTS = [
         "episode": "12부작",
         "otts": [],
         "desc": "ENA 월화드라마. 2026.02.02~03.10.",
-        "poster_url": (
-            "https://img.extmovie.com/files/attach/images/135/327/692/093/"
-            "82ad6ed0b2361dc19a3d3d8c5359e20d.jpg"
-        ),
     },
     {
         "id": "d21",

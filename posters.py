@@ -35,6 +35,23 @@ def is_safe_poster_url(url: str) -> bool:
     return True
 
 
+def is_plausible_poster_url(url: str, *, title: str = "", channel: str = "") -> bool:
+    """채널·제목과 명백히 안 맞는 포스터(예: KBS+티빙 오인) 차단."""
+    if not is_safe_poster_url(url):
+        return False
+    ch = (channel or "").upper()
+    lower = url.lower()
+    # 지상파 KBS 콘텐츠에 티빙 CDN 포스터가 붙는 오인 방지
+    if ch.startswith("KBS") and ("image.tving.com" in lower or "tving.com" in lower):
+        return False
+    # 알려진 오인 키워드
+    bad_markers = ("태군노래자랑", "taegoon")
+    blob = f"{title}|{url}".lower()
+    if any(m.lower() in blob for m in bad_markers) and "전국노래자랑" in (title or ""):
+        return False
+    return True
+
+
 def load_poster_cache() -> dict[str, Any]:
     ensure_runtime_caches()
     if not CACHE_PATH.is_file():
@@ -99,7 +116,20 @@ def ensure_poster_cache(
                 progress(i + 1, len(contents), title)
 
             fixed = (c.get("poster_url") or "").strip()
-            if is_safe_poster_url(fixed):
+            if c.get("poster_locked") and is_plausible_poster_url(
+                fixed, title=title, channel=c.get("channel") or ""
+            ):
+                items[title] = {
+                    "poster_url": fixed,
+                    "id": c.get("id") or "",
+                    "channel": c.get("channel") or "",
+                    "source": "data_locked",
+                }
+                continue
+
+            if is_plausible_poster_url(
+                fixed, title=title, channel=c.get("channel") or ""
+            ):
                 items[title] = {
                     "poster_url": fixed,
                     "id": c.get("id") or "",
@@ -110,7 +140,9 @@ def ensure_poster_cache(
 
             if not force:
                 existing = (items.get(title) or {}).get("poster_url") or ""
-                if is_safe_poster_url(existing):
+                if is_plausible_poster_url(
+                    existing, title=title, channel=c.get("channel") or ""
+                ):
                     continue
 
             if max_fetch is not None and fetched >= max_fetch:
@@ -123,7 +155,9 @@ def ensure_poster_cache(
                 url = fetch_poster_url(title, channel=c.get("channel") or "") or ""
             except Exception:
                 url = ""
-            if not is_safe_poster_url(url):
+            if not is_plausible_poster_url(
+                url, title=title, channel=c.get("channel") or ""
+            ):
                 url = ""
             items[title] = {
                 "poster_url": url,
@@ -152,7 +186,19 @@ def fill_missing_posters(
         for c in contents:
             title = c["title"]
             fixed = (c.get("poster_url") or "").strip()
-            if is_safe_poster_url(fixed):
+            if c.get("poster_locked") and is_plausible_poster_url(
+                fixed, title=title, channel=c.get("channel") or ""
+            ):
+                items[title] = {
+                    "poster_url": fixed,
+                    "id": c.get("id") or "",
+                    "channel": c.get("channel") or "",
+                    "source": "data_locked",
+                }
+                continue
+            if is_plausible_poster_url(
+                fixed, title=title, channel=c.get("channel") or ""
+            ):
                 items[title] = {
                     "poster_url": fixed,
                     "id": c.get("id") or "",
@@ -161,7 +207,9 @@ def fill_missing_posters(
                 }
                 continue
             existing = (items.get(title) or {}).get("poster_url") or ""
-            if is_safe_poster_url(existing):
+            if is_plausible_poster_url(
+                existing, title=title, channel=c.get("channel") or ""
+            ):
                 continue
             need.append(c)
         if need:
@@ -182,7 +230,9 @@ def fill_missing_posters(
             url = fetch_poster_url(title, channel=c.get("channel") or "") or ""
         except Exception:
             url = ""
-        if not is_safe_poster_url(url):
+        if not is_plausible_poster_url(
+            url, title=title, channel=c.get("channel") or ""
+        ):
             url = ""
         fetched_map[title] = {
             "poster_url": url,
@@ -206,7 +256,7 @@ def resolve_poster_url(
     fetched: str = "",
     cache: dict[str, Any] | None = None,
 ) -> str:
-    """우선순위: data 고정 → 캐시 → 실시간 fetch 결과."""
+    """우선순위: data 고정(locked) → data 안전 URL → 캐시 → 실시간 fetch 결과."""
     from urllib.parse import quote, urlsplit, urlunsplit
 
     def _encode(url: str) -> str:
@@ -219,12 +269,20 @@ def resolve_poster_url(
         path = quote(parts.path, safe="/:@!$&'()*+,;=-._~")
         return urlunsplit((parts.scheme, parts.netloc, path, parts.query, parts.fragment))
 
+    title = item.get("title") or ""
+    channel = item.get("channel") or ""
+    fixed = _encode((item.get("poster_url") or "").strip())
+    if item.get("poster_locked") and is_plausible_poster_url(
+        fixed, title=title, channel=channel
+    ):
+        return fixed
+
     for candidate in (
-        (item.get("poster_url") or "").strip(),
-        get_cached_poster(item.get("title") or "", cache),
+        fixed,
+        get_cached_poster(title, cache),
         (fetched or "").strip(),
     ):
         encoded = _encode(candidate)
-        if is_safe_poster_url(encoded):
+        if is_plausible_poster_url(encoded, title=title, channel=channel):
             return encoded
     return ""
