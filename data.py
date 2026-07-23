@@ -6,35 +6,42 @@
 
 from datetime import date
 
-# OTT 메타: 표시명, 브랜드 색, 기본 검색/홈 URL 템플릿
+# OTT 메타: 표시명, 브랜드 색, 로고 이니셜, 기본 검색/홈 URL 템플릿
+# 로고는 외부 이미지 없이 인라인 이니셜 배지(추가 HTTP 0)로 표시한다.
 OTT_META = {
     "넷플릭스": {
         "color": "#E50914",
+        "letter": "N",
         "url": "https://www.netflix.com/kr/",
         "search": "https://www.netflix.com/search?q={query}",
     },
     "티빙": {
         "color": "#FF153C",
+        "letter": "T",
         "url": "https://www.tving.com/",
         "search": "https://www.tving.com/search?keyword={query}",
     },
     "웨이브": {
         "color": "#1B1C3A",
+        "letter": "W",
         "url": "https://www.wavve.com/",
         "search": "https://www.wavve.com/search?searchWord={query}",
     },
     "쿠팡플레이": {
         "color": "#E4002B",
+        "letter": "C",
         "url": "https://www.coupangplay.com/",
         "search": "https://www.coupangplay.com/search?q={query}",
     },
     "디즈니+": {
         "color": "#113CCF",
+        "letter": "D+",
         "url": "https://www.disneyplus.com/ko-kr",
         "search": "https://www.disneyplus.com/ko-kr/search?q={query}",
     },
     "왓챠": {
         "color": "#FF0558",
+        "letter": "W",
         "url": "https://watcha.com/",
         "search": "https://watcha.com/search?query={query}",
     },

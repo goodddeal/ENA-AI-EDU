@@ -531,6 +531,7 @@ div:has(> [data-testid="stImage"]) img {
 }
 .ott-link:hover { opacity: 0.88; }
 .ott-link span.arrow { font-size: 1.1rem; opacity: 0.85; }
+a[href].ott-badge:active { opacity: 0.85; }
 .fake-pay {
   margin-top: 0.5rem;
   padding: 0.9rem 1rem;
@@ -715,33 +716,103 @@ def render_thumb(title: str, index: int, poster_url: str = "") -> str:
     )
 
 
-def ott_pills_html(otts: list[str]) -> str:
-    if not otts:
+def _unconfirmed_ott_html() -> str:
+    return (
+        '<span style="display:inline-block;margin-top:6px;padding:3px 8px;'
+        'border-radius:999px;font-size:11px;font-weight:700;'
+        'color:#ffb020;background:rgba(255,176,32,0.12);'
+        'border:1px solid rgba(255,176,32,0.35);">[미확인]</span>'
+    )
+
+
+def ott_logo_badge_html(
+    name: str,
+    url: str,
+    *,
+    compact: bool = True,
+) -> str:
+    """OTT 로고 배지 + 바로가기 링크. 외부 이미지 없음(인라인 이니셜)."""
+    meta = OTT_META.get(name)
+    if not meta or not url:
+        return ""
+    bg = hex_to_rgb_css(meta["color"])
+    letter = html.escape(str(meta.get("letter") or name[:1]))
+    label = html.escape(name)
+    safe_url = html.escape(url, quote=True)
+    title_attr = html.escape(f"{name}에서 보기", quote=True)
+    if compact:
+        # 목록용: 로고 원형 + 짧은 라벨 (탭 영역 확보)
         return (
-            '<span style="display:inline-block;margin-top:6px;padding:3px 8px;'
-            'border-radius:999px;font-size:11px;font-weight:700;'
-            'color:#ffb020;background:rgba(255,176,32,0.12);'
-            'border:1px solid rgba(255,176,32,0.35);">[미확인]</span>'
+            f'<a href="{safe_url}" target="_blank" rel="noopener noreferrer" '
+            f'title="{title_attr}" '
+            f'style="display:inline-flex;align-items:center;gap:5px;margin:2px 6px 0 0;'
+            f'padding:3px 8px 3px 3px;border-radius:999px;text-decoration:none;'
+            f'color:#fff;background:{bg};font-size:11px;font-weight:700;'
+            f'line-height:1;vertical-align:middle;-webkit-tap-highlight-color:transparent;">'
+            f'<span style="display:inline-flex;align-items:center;justify-content:center;'
+            f'width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,0.22);'
+            f'font-size:9px;font-weight:800;letter-spacing:-0.02em;">{letter}</span>'
+            f"<span>{label}</span></a>"
         )
+    # 상세용: 넓은 로고 버튼
+    return (
+        f'<a href="{safe_url}" target="_blank" rel="noopener noreferrer" '
+        f'title="{title_attr}" '
+        f'style="display:flex;align-items:center;justify-content:space-between;'
+        f'gap:10px;padding:0.85rem 1rem;border-radius:12px;text-decoration:none;'
+        f'color:#fff;background:{bg};font-weight:700;font-size:0.95rem;">'
+        f'<span style="display:inline-flex;align-items:center;gap:10px;">'
+        f'<span style="display:inline-flex;align-items:center;justify-content:center;'
+        f'width:32px;height:32px;border-radius:10px;background:rgba(0,0,0,0.22);'
+        f'font-size:13px;font-weight:800;">{letter}</span>'
+        f"<span>{label}</span></span>"
+        f'<span style="font-size:1.1rem;opacity:0.85;">↗</span></a>'
+    )
+
+
+def ott_pills_html(
+    otts: list[str],
+    title: str = "",
+    ott_links: dict | None = None,
+) -> str:
+    """목록 카드용 클릭 가능 OTT 로고. URL은 캐시/검색 템플릿만 사용(네트워크 0)."""
+    if not otts:
+        return _unconfirmed_ott_html()
     parts = []
     for name in otts:
-        meta = OTT_META.get(name)
-        if not meta:
+        if name not in OTT_META:
             continue
-        bg = hex_to_rgb_css(meta["color"])
-        parts.append(
-            f'<span style="display:inline-block;padding:3px 8px;border-radius:999px;'
-            f'font-size:11px;font-weight:700;color:#fff;background:{bg};margin:2px 4px 0 0;">'
-            f"{html.escape(name)}</span>"
-        )
+        url = ott_landing_url(name, title, ott_links)
+        badge = ott_logo_badge_html(name, url, compact=True)
+        if badge:
+            parts.append(badge)
     if not parts:
-        return (
-            '<span style="display:inline-block;margin-top:6px;padding:3px 8px;'
-            'border-radius:999px;font-size:11px;font-weight:700;'
-            'color:#ffb020;background:rgba(255,176,32,0.12);'
-            'border:1px solid rgba(255,176,32,0.35);">[미확인]</span>'
-        )
-    return '<div style="margin-top:4px;line-height:1.6;">' + "".join(parts) + "</div>"
+        return _unconfirmed_ott_html()
+    return (
+        '<div style="margin-top:4px;line-height:1.5;display:flex;flex-wrap:wrap;'
+        'align-items:center;">' + "".join(parts) + "</div>"
+    )
+
+
+def ott_detail_links_html(
+    otts: list[str],
+    title: str,
+    ott_links: dict | None = None,
+) -> str:
+    parts = []
+    for name in otts:
+        if name not in OTT_META:
+            continue
+        url = ott_landing_url(name, title, ott_links)
+        badge = ott_logo_badge_html(name, url, compact=False)
+        if badge:
+            parts.append(badge)
+    if not parts:
+        return ""
+    return (
+        '<div style="display:flex;flex-direction:column;gap:0.55rem;'
+        'margin:0.5rem 0 1.2rem;">' + "".join(parts) + "</div>"
+    )
 
 
 def render_content_card(
@@ -755,7 +826,11 @@ def render_content_card(
 
     aired = item["aired_at"].strftime("%Y.%m.%d")
     thumb = render_thumb(item["title"], index, item.get("poster_url") or "")
-    pills = ott_pills_html(item.get("otts") or [])
+    pills = ott_pills_html(
+        item.get("otts") or [],
+        item.get("title") or "",
+        item.get("ott_links") or {},
+    )
     title_e = html.escape(item["title"])
     ch_e = html.escape(item["channel"])
     genre_e = html.escape(item["genre"])
@@ -792,9 +867,12 @@ def render_content_card(
         f'<div style="margin-top:4px;font-size:11px;color:#6b7280;">{src_label}</div>'
         f"</div></div></div>"
     )
+    # OTT 로고 줄이 늘어날 수 있어 여유 높이
+    n_otts = len(item.get("otts") or [])
+    height = 132 if n_otts <= 2 else 148
     components.html(
         f'<!DOCTYPE html><html><body style="margin:0;background:#141824;">{card}</body></html>',
-        height=132,
+        height=height,
         scrolling=False,
     )
 
@@ -1109,7 +1187,7 @@ def view_home() -> None:
             label_visibility="collapsed",
             key=f"pick_page_{page}",
         )
-        if st.button("OTT에서 보기 →", key="open_selected", use_container_width=True):
+        if st.button("상세·시청률 보기 →", key="open_selected", use_container_width=True):
             go_detail(options[pick])
             st.rerun()
 
@@ -1281,22 +1359,22 @@ def view_detail() -> None:
             "[미확인] — 네이버 보러가기에 표시된 OTT가 없습니다.</p>"
         )
     else:
-        links = []
-        ott_links = item.get("ott_links") or {}
-        for ott in item["otts"]:
-            meta = OTT_META.get(ott)
-            if not meta:
-                continue
-            url = ott_landing_url(ott, item["title"], ott_links)
-            bg = hex_to_rgb_css(meta["color"])
-            links.append(
-                f'<a class="ott-link" href="{html.escape(url)}" target="_blank" rel="noopener"'
-                f' style="background:{bg};">'
-                f"<span>{html.escape(ott)}</span>"
-                f'<span class="arrow">↗</span></a>'
-            )
-        render_html('<div class="ott-link-grid">' + "".join(links) + "</div>")
-        st.caption("네이버 검색 ‘보러가기’에 있는 OTT만 표시됩니다.")
+        import streamlit.components.v1 as components
+
+        grid = ott_detail_links_html(
+            item["otts"],
+            item["title"],
+            item.get("ott_links") or {},
+        )
+        # 링크 클릭이 안정적으로 동작하도록 iframe HTML 사용 (추가 네트워크 없음)
+        components.html(
+            '<!DOCTYPE html><html><body style="margin:0;background:transparent;'
+            'font-family:Pretendard,Apple SD Gothic Neo,Noto Sans KR,sans-serif;">'
+            f"{grid}</body></html>",
+            height=min(72 + 64 * len(item["otts"]), 320),
+            scrolling=False,
+        )
+        st.caption("로고를 누르면 해당 OTT로 이동합니다. (네이버 보러가기 기준)")
 
     news = item.get("naver_news") or []
     if news:
