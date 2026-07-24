@@ -19,12 +19,6 @@
       "channel": "MBC",
       "source": "naver"
     },
-    "유 퀴즈 온 더 블럭": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/유퀴즈banner1200630.jpg",
-      "id": "v03",
-      "channel": "tvN",
-      "source": "naver"
-    },
     "그대에게 드림": {
       "poster_url": "https://csearch-phinf.pstatic.net/20260708_26/1783499425639ichk1_JPEG/57_40928922_poster_image_1783499425618.jpg",
       "id": "d02",
@@ -47,12 +41,6 @@
       "poster_url": "https://csearch-phinf.pstatic.net/20250918_67/1758168647469dpciM_JPEG/36e549469ab5d1cc18eace2684f8d8ab.jpg",
       "id": "v06",
       "channel": "JTBC",
-      "source": "naver"
-    },
-    "놀라운 토요일": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/놀라운토요일banner1200SNS.jpg",
-      "id": "v07",
-      "channel": "tvN",
       "source": "naver"
     },
     "아파트": {
@@ -151,22 +139,10 @@
       "channel": "MBC",
       "source": "naver"
     },
-    "취사병 전설이 되다": {
-      "poster_url": "https://cdn.instiz.net/data/cached_img/upload/2026/04/21/10/2a353474e8635b74541b88aaca2c5d75.jpg",
-      "id": "d11",
-      "channel": "tvN",
-      "source": "data"
-    },
     "오늘도 매진했습니다": {
       "poster_url": "https://csearch-phinf.pstatic.net/20260403_199/1775175397932W3Lgh_JPEG/750f4c36b3ef1203b83d85781efced37.jpg",
       "id": "d14",
       "channel": "SBS",
-      "source": "naver"
-    },
-    "허수아비": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260706_62/1783321052391UHydD_JPEG/760_31963112_marketing_banner_pc_icon_1_1783321052383.jpg",
-      "id": "d15",
-      "channel": "ENA",
       "source": "naver"
     },
     "모두가 자신의 무가치함과 싸우고 있다": {
@@ -289,12 +265,6 @@
       "channel": "tvN",
       "source": "naver"
     },
-    "살롱 드 홈즈": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260706_62/1783321052391UHydD_JPEG/760_31963112_marketing_banner_pc_icon_1_1783321052383.jpg",
-      "id": "d34",
-      "channel": "ENA",
-      "source": "naver"
-    },
     "굿보이": {
       "poster_url": "https://csearch-phinf.pstatic.net/20250602_54/1748832756768Llboz_JPEG/60_main_image_new_1748832756753.jpg",
       "id": "d35",
@@ -337,12 +307,6 @@
       "channel": "MBC",
       "source": "naver"
     },
-    "마녀": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260706_62/1783321052391UHydD_JPEG/760_31963112_marketing_banner_pc_icon_1_1783321052383.jpg",
-      "id": "d42",
-      "channel": "채널A",
-      "source": "naver"
-    },
     "모텔 캘리포니아": {
       "poster_url": "https://csearch-phinf.pstatic.net/20241230_211/17355272690682Gt2G_JPEG/60_main_image_new_1735527269060.jpg",
       "id": "d43",
@@ -367,12 +331,6 @@
       "channel": "ENA",
       "source": "naver"
     },
-    "제비탐정 장성규": {
-      "poster_url": "https://i2.ruliweb.com/img/24/04/11/18ecd8bd8474514a9.jpg",
-      "id": "v54",
-      "channel": "ENA",
-      "source": "naver"
-    },
     "우주떡집": {
       "poster_url": "https://csearch-phinf.pstatic.net/20210624_280/1624500481062kQRMT_JPEG/57_18831841_poster_image_1624500481004.jpg",
       "id": "v34",
@@ -391,22 +349,10 @@
       "channel": "ENA",
       "source": "naver"
     },
-    "송영주의 재즈 포레스트": {
-      "poster_url": "https://i.pinimg.com/originals/d9/0d/a5/d90da5722ed82ba62abb554a83ba40c9.jpg",
-      "id": "v53",
-      "channel": "ENA",
-      "source": "naver"
-    },
     "톡파원 25시": {
       "poster_url": "https://csearch-phinf.pstatic.net/20220718_257/1658124041708ilDbi_JPEG/4c8464f031fa1644d3ed9902f0be765d.jpg",
       "id": "v16",
       "channel": "JTBC",
-      "source": "naver"
-    },
-    "스트릿 레스토랑 파이터": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/스트릿레스토랑파이터banner1200.jpg",
-      "id": "v41",
-      "channel": "tvN",
       "source": "naver"
     },
     "쯔양몇끼": {
@@ -427,46 +373,16 @@
       "channel": "tvN",
       "source": "naver"
     },
-    "콩콩팜팜": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/콩콩팜팜banner1200.jpg",
-      "id": "v42",
-      "channel": "tvN",
-      "source": "naver"
-    },
     "나는 SOLO": {
       "poster_url": "https://csearch-phinf.pstatic.net/20250507_55/1746626455383LlD44_JPEG/3f92dd269906cd477588dcf236a43c9e.jpg",
       "id": "v19",
       "channel": "ENA",
       "source": "naver"
     },
-    "언더커버 셰프": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/언더커버셰프banner1200.jpg",
-      "id": "v43",
-      "channel": "tvN",
-      "source": "naver"
-    },
     "핸썸가이즈": {
       "poster_url": "https://web2-cf-image.cjenm.com/crop/520x748/public/share/metamng/programs/contentsdetailposterhandsomeguys01.jpg?v=1779337501",
       "id": "v44",
       "channel": "tvN",
-      "source": "naver"
-    },
-    "아이돌 파견근무": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260706_62/1783321052391UHydD_JPEG/760_31963112_marketing_banner_pc_icon_1_1783321052383.jpg",
-      "id": "v20",
-      "channel": "ENA",
-      "source": "naver"
-    },
-    "동네의 명장들": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/동네의명장들banner1200.jpg",
-      "id": "v45",
-      "channel": "tvN",
-      "source": "naver"
-    },
-    "한문철의 블랙박스 리뷰": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260706_62/1783321052391UHydD_JPEG/760_31963112_marketing_banner_pc_icon_1_1783321052383.jpg",
-      "id": "v57",
-      "channel": "JTBC",
       "source": "naver"
     },
     "신발 벗고 돌싱포맨": {
@@ -485,12 +401,6 @@
       "poster_url": "https://csearch-phinf.pstatic.net/20260615_95/1781486432002pjLhO_JPEG/967453d0391518f6fd58b5c5f7ccafe2.jpg",
       "id": "v25",
       "channel": "JTBC",
-      "source": "naver"
-    },
-    "이호선 상담소": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/이호선상담소메인배너1200x630_1765849906129.jpg",
-      "id": "v46",
-      "channel": "tvN",
       "source": "naver"
     },
     "히든에이지": {
@@ -517,12 +427,6 @@
       "channel": "SBS",
       "source": "naver"
     },
-    "남겨서 뭐하게": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/남겨서뭐하게banner1200SNS_1748223919880.jpg",
-      "id": "v48",
-      "channel": "tvN",
-      "source": "naver"
-    },
     "프리한19": {
       "poster_url": "https://ssl.pstatic.net/sstatic/keypage/image/dss/57/43/44/71/57_3434471_poster_image_1560495840338.jpg",
       "id": "v49",
@@ -533,48 +437,6 @@
       "poster_url": "https://csearch-phinf.pstatic.net/20251105_30/1762334917737cDMGw_JPEG/09b3226cc23e0e9d8ee52b7587fc1047.jpg",
       "id": "v24",
       "channel": "MBC",
-      "source": "naver"
-    },
-    "강연배틀쇼 사기꾼들": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260706_62/1783321052391UHydD_JPEG/760_31963112_marketing_banner_pc_icon_1_1783321052383.jpg",
-      "id": "v27",
-      "channel": "JTBC",
-      "source": "naver"
-    },
-    "보검 매직컬": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260120_92/1768873109739AoVVT_JPEG/57_40598721_poster_image_1768873109723.jpg",
-      "id": "v26",
-      "channel": "tvN",
-      "source": "naver"
-    },
-    "사장님 귀는 당나귀 귀": {
-      "poster_url": "https://i.pinimg.com/736x/b0/a7/60/b0a760a3fe93bfc936387d4afa859410.jpg",
-      "id": "v40",
-      "channel": "KBS2",
-      "source": "naver"
-    },
-    "꽃보다 청춘: 리미티드 에디션": {
-      "poster_url": "https://poc-cf-image.cjenm.com/public/share/menumng/꽃청춘banner1200_1777513667090.jpg",
-      "id": "v29",
-      "channel": "tvN",
-      "source": "naver"
-    },
-    "길치라도 괜찮아": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260706_62/1783321052391UHydD_JPEG/760_31963112_marketing_banner_pc_icon_1_1783321052383.jpg",
-      "id": "v32",
-      "channel": "ENA",
-      "source": "naver"
-    },
-    "입 터지는 실험실": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260706_62/1783321052391UHydD_JPEG/760_31963112_marketing_banner_pc_icon_1_1783321052383.jpg",
-      "id": "v33",
-      "channel": "ENA",
-      "source": "naver"
-    },
-    "방과후 태리쌤": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260120_92/1768873109739AoVVT_JPEG/57_40598721_poster_image_1768873109723.jpg",
-      "id": "v31",
-      "channel": "tvN",
       "source": "naver"
     },
     "체인지 스트릿": {
@@ -589,28 +451,166 @@
       "channel": "JTBC",
       "source": "naver"
     },
-    "당일배송 우리집": {
-      "poster_url": "https://csearch-phinf.pstatic.net/20260706_62/1783321052391UHydD_JPEG/760_31963112_marketing_banner_pc_icon_1_1783321052383.jpg",
-      "id": "v36",
-      "channel": "JTBC",
-      "source": "naver"
-    },
-    "식스센스: 시티투어": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/식스센스banner1200.jpg",
-      "id": "v39",
-      "channel": "tvN",
-      "source": "naver"
-    },
-    "무쇠소녀단": {
-      "poster_url": "https://poc-cf-image.cjenm.com/crop/1200x630/public/share/menumng/무쇠소녀단banner1200.jpg",
-      "id": "v37",
-      "channel": "tvN",
-      "source": "naver"
-    },
     "한끼합쇼": {
       "poster_url": "https://csearch-phinf.pstatic.net/20250708_268/1751946271832wQjmm_JPEG/57_37101523_poster_image_1751946271814.jpg",
       "id": "v28",
       "channel": "JTBC",
+      "source": "naver"
+    },
+    "강연배틀쇼 사기꾼들": {
+      "poster_url": "https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260108/1046/P001781187.jpg/dims/resize/F_webp,480",
+      "id": "v27",
+      "channel": "JTBC",
+      "source": "naver"
+    },
+    "길치라도 괜찮아": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20250925_81/1758760686187VCV5p_PNG/b669f156cc74f1c31d3a871882272bfe.png",
+      "id": "v32",
+      "channel": "ENA",
+      "source": "naver"
+    },
+    "꽃보다 청춘: 리미티드 에디션": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20260413_70/1776045154321FQ1uX_PNG/c7f7e9fb4b7ade4e3a08061a923b0d03.png",
+      "id": "v29",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "남겨서 뭐하게": {
+      "poster_url": "https://cdnweb01.wikitree.co.kr/webdata/editor/202203/23/img_20220323145940_ee4fa3b4.webp",
+      "id": "v48",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "놀라운 토요일": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20251222_15/1766389018898Dbhj0_JPEG/4fd8af86fd2482f63c9c14300520497f.jpg",
+      "id": "v07",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "당일배송 우리집": {
+      "poster_url": "https://images.justwatch.com/poster/340361438/s718/시즌-1.jpg",
+      "id": "v36",
+      "channel": "JTBC",
+      "source": "naver"
+    },
+    "동네의 명장들": {
+      "poster_url": "https://cdnweb01.wikitree.co.kr/webdata/editor/202203/23/img_20220323145940_ee4fa3b4.webp",
+      "id": "v45",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "마녀": {
+      "poster_url": "https://img.imbc.com/adams/Program/20215/132668993468719195_Big_C.jpg",
+      "id": "d42",
+      "channel": "채널A",
+      "source": "naver"
+    },
+    "무쇠소녀단": {
+      "poster_url": "https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20250703/0355/P001773658.jpg/dims/resize/F_webp,480",
+      "id": "v37",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "방과후 태리쌤": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20260120_92/1768873109739AoVVT_JPEG/57_40598721_poster_image_1768873109723.jpg",
+      "id": "v31",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "보검 매직컬": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20231130_138/17013137111753b6CK_JPEG/57_32668767_poster_image_1701313711146.jpg",
+      "id": "v26",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "사장님 귀는 당나귀 귀": {
+      "poster_url": "https://sucia5374.imglink.kr/sre/imgs/2021/03/b/210315_sel_02_01.jpg",
+      "id": "v40",
+      "channel": "KBS2",
+      "source": "naver"
+    },
+    "살롱 드 홈즈": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20250609_11/1749427221339rs3wi_PNG/9d2b7f7790c7550ff366aa959e1db59c.png",
+      "id": "d34",
+      "channel": "ENA",
+      "source": "naver"
+    },
+    "송영주의 재즈 포레스트": {
+      "poster_url": "http://shop1.phinf.naver.net/20260515_291/1778811791274mMvsn_JPEG/112944630411678023_1373977241.jpg",
+      "id": "v53",
+      "channel": "ENA",
+      "source": "naver"
+    },
+    "스트릿 레스토랑 파이터": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20260526_235/1779782215948jwkn5_JPEG/7c60ba2ba98b6d8070b4fd6f623ea655.jpg",
+      "id": "v41",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "식스센스: 시티투어": {
+      "poster_url": "https://web2-cf-image.cjenm.com/resize/1344x756/public/share/metamng/programs/contentsdetailimagesixthsensecitytour04.jpg?v=1744815946",
+      "id": "v39",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "아이돌 파견근무": {
+      "poster_url": "https://blog.kakaocdn.net/dn/b4hm1C/btsISOPKqIr/oznXMWcZl8sbhJkPVSDbQ1/img.png",
+      "id": "v20",
+      "channel": "ENA",
+      "source": "naver"
+    },
+    "언더커버 셰프": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20260423_30/1776910748014PAXNQ_JPEG/6e08029fba91280a7102371ee10d1f01.jpg",
+      "id": "v43",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "유 퀴즈 온 더 블럭": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20260102_259/1767336502184dq0Rl_JPEG/87728e2e2ca45352b1e1fc6108d15f51.jpg",
+      "id": "v03",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "이호선 상담소": {
+      "poster_url": "https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260105/1856/P001781344.jpg/dims/resize/F_webp,480",
+      "id": "v46",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "입 터지는 실험실": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20251013_273/1760347056121MEMVz_PNG/884a2d5cd99c9defd56b98a072e272a9.png",
+      "id": "v33",
+      "channel": "ENA",
+      "source": "naver"
+    },
+    "제비탐정 장성규": {
+      "poster_url": "https://www.nemopan.com/files/attach/images/6294/910/303/012/de6f9b4781f6322b070c91255798c85f.webp",
+      "id": "v54",
+      "channel": "ENA",
+      "source": "naver"
+    },
+    "취사병 전설이 되다": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20260427_289/1777268581598feg6T_JPEG/e74bc7780afe3bcc6b1a4785c2f5bafd.jpg",
+      "id": "d11",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "콩콩팜팜": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20260528_3/1779933319152nMhjY_JPEG/b79d95dfe7caea7c61d6f9934af4762e.jpg",
+      "id": "v42",
+      "channel": "tvN",
+      "source": "naver"
+    },
+    "한문철의 블랙박스 리뷰": {
+      "poster_url": "http://img2.sbs.co.kr/img/sbs_cms/PG/2019/01/23/PG26977009_w1280_h720.jpg",
+      "id": "v57",
+      "channel": "JTBC",
+      "source": "naver"
+    },
+    "허수아비": {
+      "poster_url": "https://csearch-phinf.pstatic.net/20260327_221/177457932971714V5F_PNG/205d6b4883d107e0ceda69f2de32dae4.png",
+      "id": "d15",
+      "channel": "ENA",
       "source": "naver"
     }
   }

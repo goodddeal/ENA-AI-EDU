@@ -11,7 +11,7 @@ SEED_DIR = _ROOT / "seed_cache"
 RUNTIME_DIR = _ROOT / ".cache"
 _SEED_FILES = ("otts.json", "posters.json", "ratings.json")
 # seed_cache 내용이 바뀌면 숫자를 올려 Cloud 의 낡은 .cache 를 덮어쓴다.
-SEED_VERSION = 8
+SEED_VERSION = 9
 _VERSION_PATH = RUNTIME_DIR / "seed_version.txt"
 _bootstrapped = False
 

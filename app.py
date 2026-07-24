@@ -72,21 +72,21 @@ def _load_ratings_cached() -> dict:
     if has < 40:
         ensure_runtime_caches(force=True)
         cache = load_cache()
-    _ = "ratings_seed_v8"
+    _ = "ratings_seed_v9"
     return cache
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_posters_cached() -> dict:
     ensure_runtime_caches()
-    _ = "posters_seed_v8"
+    _ = "posters_seed_v9"
     return load_poster_cache()
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_otts_cached() -> dict:
     ensure_runtime_caches()
-    _ = "otts_seed_v8"
+    _ = "otts_seed_v9"
     return load_ott_cache()
 
 

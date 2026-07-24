@@ -28,9 +28,20 @@ def is_safe_poster_url(url: str) -> bool:
         "extmovie.com",
         "i.namu.wiki",
         "namu.wiki",
+        "i.pinimg.com",
+        "pinimg.com",
+        "ruliweb.com",
+        "instiz.net",
     )
     lower = url.lower()
     if any(h in lower for h in blocked):
+        return False
+    # Naver marketing icons / landscape OG banners are not portrait posters
+    if "marketing_banner" in lower:
+        return False
+    if "pc_icon" in lower:
+        return False
+    if "banner1200" in lower or "1200x630" in lower:
         return False
     return True
 
