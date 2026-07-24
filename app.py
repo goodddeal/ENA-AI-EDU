@@ -41,7 +41,7 @@ from ratings import (
 # 페이지 / 세션
 # ---------------------------------------------------------------------------
 st.set_page_config(
-    page_title="방송→OTT",
+    page_title="편성OTT",
     page_icon="📺",
     layout="centered",
     initial_sidebar_state="collapsed",
@@ -72,21 +72,21 @@ def _load_ratings_cached() -> dict:
     if has < 40:
         ensure_runtime_caches(force=True)
         cache = load_cache()
-    _ = "ratings_seed_v7"
+    _ = "ratings_seed_v8"
     return cache
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_posters_cached() -> dict:
     ensure_runtime_caches()
-    _ = "posters_seed_v7"
+    _ = "posters_seed_v8"
     return load_poster_cache()
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_otts_cached() -> dict:
     ensure_runtime_caches()
-    _ = "otts_seed_v7"
+    _ = "otts_seed_v8"
     return load_ott_cache()
 
 
@@ -214,24 +214,64 @@ div[data-testid="stVerticalBlock"] > div { gap: 0.35rem; }
 
 .brand-bar {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding: 0.4rem 0 0.85rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 0.9rem;
+  gap: 0.75rem;
+  padding: 0.15rem 0 1rem;
+  margin-bottom: 0.85rem;
+  border-bottom: none;
+  position: relative;
+}
+.brand-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,90,95,0.55), rgba(62,220,195,0.35), transparent 85%);
+}
+.brand-lockup { min-width: 0; flex: 1; }
+.brand-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #7ee7d3;
+  margin-bottom: 0.28rem;
+  animation: brandIn 0.55s ease-out both;
+}
+.brand-kicker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff5a5f;
+  box-shadow: 0 0 0 3px rgba(255,90,95,0.22);
 }
 .brand-name {
-  font-size: 1.35rem;
+  font-size: 1.55rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
-  background: linear-gradient(90deg, #fff 0%, #a8b4ff 100%);
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+  color: #fff;
+  animation: brandIn 0.65s ease-out 0.05s both;
+}
+.brand-name .brand-accent {
+  background: linear-gradient(105deg, #ff6b6b 0%, #ff8f6b 45%, #3edcc3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .brand-sub {
-  font-size: 0.72rem;
-  color: #8b93a7;
-  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  color: #9aa3b8;
+  margin-top: 0.28rem;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  animation: brandIn 0.7s ease-out 0.12s both;
 }
 .user-chip {
   font-size: 0.72rem;
@@ -240,6 +280,12 @@ div[data-testid="stVerticalBlock"] > div { gap: 0.35rem; }
   border: 1px solid rgba(255,255,255,0.1);
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+@keyframes brandIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .section-title {
@@ -649,9 +695,10 @@ def brand_header() -> None:
         f"""
 <div class="phone-shell">
   <div class="brand-bar">
-    <div>
-      <div class="brand-name">방송→OTT</div>
-      <div class="brand-sub">지상파·PP 콘텐츠, 어디서 볼까?</div>
+    <div class="brand-lockup">
+      <div class="brand-kicker">LIVE · OTT LINK</div>
+      <div class="brand-name"><span class="brand-accent">편성</span>OTT</div>
+      <div class="brand-sub">지상파·PP 방영작, 어디서 볼지 한눈에 · 로고 탭하면 바로 이동</div>
     </div>
     <div class="user-chip">👤 {html.escape(user["name"])}</div>
   </div>
@@ -716,12 +763,13 @@ def render_thumb(title: str, index: int, poster_url: str = "") -> str:
     )
 
 
-def _unconfirmed_ott_html() -> str:
+def _unconfirmed_ott_html(label: str = "[미편성]") -> str:
     return (
         '<span style="display:inline-block;margin-top:6px;padding:3px 8px;'
         'border-radius:999px;font-size:11px;font-weight:700;'
         'color:#ffb020;background:rgba(255,176,32,0.12);'
-        'border:1px solid rgba(255,176,32,0.35);">[미확인]</span>'
+        'border:1px solid rgba(255,176,32,0.35);">'
+        f"{html.escape(label)}</span>"
     )
 
 
@@ -774,10 +822,14 @@ def ott_pills_html(
     otts: list[str],
     title: str = "",
     ott_links: dict | None = None,
+    *,
+    ott_source: str = "",
 ) -> str:
     """목록 카드용 클릭 가능 OTT 로고. URL은 캐시/검색 템플릿만 사용(네트워크 0)."""
     if not otts:
-        return _unconfirmed_ott_html()
+        # PRD: 편성 없음은 [미편성]. 캐시 미조회만 대기 표기.
+        label = "[확인 대기]" if ott_source == "pending" else "[미편성]"
+        return _unconfirmed_ott_html(label)
     parts = []
     for name in otts:
         if name not in OTT_META:
@@ -787,7 +839,8 @@ def ott_pills_html(
         if badge:
             parts.append(badge)
     if not parts:
-        return _unconfirmed_ott_html()
+        label = "[확인 대기]" if ott_source == "pending" else "[미편성]"
+        return _unconfirmed_ott_html(label)
     return (
         '<div style="margin-top:4px;line-height:1.5;display:flex;flex-wrap:wrap;'
         'align-items:center;">' + "".join(parts) + "</div>"
@@ -830,6 +883,7 @@ def render_content_card(
         item.get("otts") or [],
         item.get("title") or "",
         item.get("ott_links") or {},
+        ott_source=item.get("ott_source") or "",
     )
     title_e = html.escape(item["title"])
     ch_e = html.escape(item["channel"])
@@ -991,10 +1045,12 @@ def enrich_item(
 
 def source_label(source: str) -> str:
     if source == "naver_borragi":
-        return "네이버 검색 · 보러가기 OTT만 표시"
+        return "네이버 보러가기 · 로고 탭 시 이동"
     if source == "pending":
         return "OTT 확인 대기 중"
-    return "OTT 시청 여부 미확인"
+    if source == "manual":
+        return "수동 확인 · 로고 탭 시 이동"
+    return "OTT 미편성 (보러가기 없음)"
 
 
 def is_currently_airing(item: dict) -> bool:
@@ -1061,7 +1117,7 @@ def view_home() -> None:
     st.markdown(
         """
 <div class="section-title">최근 방송</div>
-<div class="section-desc">방영 중 우선 · 시청률 높은 순 · 네이버 ‘보러가기’ OTT</div>
+<div class="section-desc">방영 중 우선 · 시청률 순 · OTT 로고를 누르면 바로 이동</div>
         """,
         unsafe_allow_html=True,
     )
@@ -1356,7 +1412,7 @@ def view_detail() -> None:
     if not item["otts"]:
         render_html(
             '<p class="unconfirmed" style="font-size:1rem;margin:0.6rem 0 1rem;">'
-            "[미확인] — 네이버 보러가기에 표시된 OTT가 없습니다.</p>"
+            "[미편성] — 네이버 보러가기에 표시된 OTT가 없습니다.</p>"
         )
     else:
         import streamlit.components.v1 as components

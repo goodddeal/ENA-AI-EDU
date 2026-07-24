@@ -1,66 +1,6 @@
 {
   "version": 16,
   "items": {
-    "짐쌀라비움": {
-      "otts": [],
-      "ott_links": {},
-      "source": "none",
-      "confirmed": false,
-      "updated_at": "2026-07-22T05:25:22.279707+00:00"
-    },
-    "제비탐정 장성규": {
-      "otts": [],
-      "ott_links": {},
-      "source": "none",
-      "confirmed": false,
-      "updated_at": "2026-07-22T05:25:24.101752+00:00"
-    },
-    "우주떡집": {
-      "otts": [],
-      "ott_links": {},
-      "source": "none",
-      "confirmed": false,
-      "updated_at": "2026-07-22T05:25:26.130473+00:00"
-    },
-    "언니네 산지직송3": {
-      "otts": [
-        "티빙"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001789236?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:26.763576+00:00"
-    },
-    "왕자와 거지": {
-      "otts": [],
-      "ott_links": {},
-      "source": "none",
-      "confirmed": false,
-      "updated_at": "2026-07-22T05:25:29.701312+00:00"
-    },
-    "송영주의 재즈 포레스트": {
-      "otts": [],
-      "ott_links": {},
-      "source": "none",
-      "confirmed": false,
-      "updated_at": "2026-07-22T05:25:31.937844+00:00"
-    },
-    "톡파원 25시": {
-      "otts": [
-        "티빙",
-        "웨이브",
-        "왓챠"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001559629?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=J3801_J38000000020&autoplay=y"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:32.913190+00:00"
-    },
     "런닝맨": {
       "otts": [
         "넷플릭스"
@@ -71,84 +11,6 @@
       "source": "naver_borragi",
       "confirmed": true,
       "updated_at": "2026-07-22T05:25:33.486564+00:00"
-    },
-    "김부장": {
-      "otts": [
-        "넷플릭스"
-      ],
-      "ott_links": {
-        "넷플릭스": "https://www.netflix.com/title/82682338?source=naver"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:44.013498+00:00"
-    },
-    "기쁜 우리 좋은 날": {
-      "otts": [
-        "웨이브"
-      ],
-      "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=K01_T2026-0027&autoplay=y"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:44.828105+00:00"
-    },
-    "미운 우리 새끼": {
-      "otts": [
-        "넷플릭스",
-        "왓챠"
-      ],
-      "ott_links": {
-        "넷플릭스": "https://www.netflix.com/title/81978488?source=naver"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:45.631134+00:00"
-    },
-    "1박 2일": {
-      "otts": [
-        "웨이브"
-      ],
-      "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=K02_T2005-0230_1&autoplay=y"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:46.509497+00:00"
-    },
-    "결혼의 완성": {
-      "otts": [
-        "디즈니+"
-      ],
-      "ott_links": {
-        "디즈니+": "https://www.disneyplus.com/browse/entity-1fd5e246-6f87-4a97-8ea1-e8a279dcfafe?placement=searchEngine&distributionPartner=naver_kr"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:47.253371+00:00"
-    },
-    "전국노래자랑": {
-      "otts": [
-        "웨이브"
-      ],
-      "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=K01_T2000-0054&autoplay=y"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:47.980916+00:00"
-    },
-    "아파트": {
-      "otts": [
-        "넷플릭스"
-      ],
-      "ott_links": {
-        "넷플릭스": "https://www.netflix.com/title/82755552?source=naver"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:48.695781+00:00"
     },
     "나 혼자 산다": {
       "otts": [
@@ -166,94 +28,6 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:25:49.205597+00:00"
     },
-    "불후의 명곡": {
-      "otts": [
-        "웨이브",
-        "티빙"
-      ],
-      "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=K02_T2011-0781&autoplay=y",
-        "티빙": "https://www.tving.com/contents/P001777553?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:49.950026+00:00"
-    },
-    "오싹한 연애": {
-      "otts": [
-        "티빙",
-        "넷플릭스"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001788020?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "넷플릭스": "https://www.netflix.com/title/82682401?source=naver"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:50.663915+00:00"
-    },
-    "언더커버 셰프": {
-      "otts": [
-        "티빙",
-        "웨이브"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001786901?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000090&autoplay=y"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:51.374644+00:00"
-    },
-    "동상이몽 2 - 너는 내 운명": {
-      "otts": [
-        "넷플릭스"
-      ],
-      "ott_links": {
-        "넷플릭스": "https://www.netflix.com/title/81978516?source=naver"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:25:52.175270+00:00"
-    },
-    "내일도 출근": {
-      "otts": [
-        "웨이브",
-        "티빙"
-      ],
-      "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000091&autoplay=y",
-        "티빙": "https://www.tving.com/contents/P001787810?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:26:53.356786+00:00"
-    },
-    "가족관계증명서": {
-      "otts": [
-        "티빙",
-        "웨이브"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001789076?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=M_T60540G&autoplay=y"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:26:54.212589+00:00"
-    },
-    "신발 벗고 돌싱포맨": {
-      "otts": [
-        "넷플릭스",
-        "왓챠"
-      ],
-      "ott_links": {
-        "넷플릭스": "https://www.netflix.com/title/81978509?source=naver"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:26:55.600927+00:00"
-    },
     "유 퀴즈 온 더 블럭": {
       "otts": [
         "티빙",
@@ -267,16 +41,266 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:26:56.485719+00:00"
     },
-    "사장님 귀는 당나귀 귀": {
+    "전지적 참견 시점": {
+      "otts": [
+        "웨이브",
+        "티빙",
+        "쿠팡플레이",
+        "왓챠"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=M_1003594100000100000&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001781027?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "쿠팡플레이": "https://www.coupangplay.com/content/3f73b75d-092b-476d-b758-668c93fe8655?src=naver_content_search"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:27:51.135106+00:00"
+    },
+    "미운 우리 새끼": {
+      "otts": [
+        "넷플릭스",
+        "왓챠"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/81978488?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:25:45.631134+00:00"
+    },
+    "아는 형님": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "넷플릭스",
+        "왓챠"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P000218912?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=J3801_J38000000019&autoplay=y",
+        "넷플릭스": "https://www.netflix.com/title/80176842?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:28:01.360577+00:00"
+    },
+    "놀라운 토요일": {
+      "otts": [
+        "티빙",
+        "웨이브"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P000515167?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000073&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:27:58.654687+00:00"
+    },
+    "1박 2일": {
       "otts": [
         "웨이브"
       ],
       "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=K02_T2019-0063&autoplay=y"
+        "웨이브": "https://m.wavve.com/player/vod?programid=K02_T2005-0230_1&autoplay=y"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:26:57.516693+00:00"
+      "updated_at": "2026-07-22T05:25:46.509497+00:00"
+    },
+    "금쪽같은 내 새끼": {
+      "otts": [
+        "웨이브",
+        "티빙"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=C2501_WPG2200051D&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001243851?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:27:55.184835+00:00"
+    },
+    "라디오스타": {
+      "otts": [
+        "웨이브",
+        "티빙",
+        "쿠팡플레이",
+        "왓챠"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=M_1000794100000100000&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001781973?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "쿠팡플레이": "https://www.coupangplay.com/content/ae97151f-22fb-4308-899f-07a4c76a516d?src=naver_content_search"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:26:59.961248+00:00"
+    },
+    "불후의 명곡": {
+      "otts": [
+        "웨이브",
+        "티빙"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=K02_T2011-0781&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001777553?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:25:49.950026+00:00"
+    },
+    "신랑수업": {
+      "otts": [
+        "티빙",
+        "웨이브"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001784305?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=C2501_WPG2260022D&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:27:59.590915+00:00"
+    },
+    "나는 자연인이다": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/search?keyword=%EB%82%98%EB%8A%94%20%EC%9E%90%EC%97%B0%EC%9D%B8%EC%9D%B4%EB%8B%A4"
+      },
+      "source": "manual",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "냉장고를 부탁해": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "넷플릭스",
+        "쿠팡플레이",
+        "왓챠"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001765388?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=J3801_J38000000003&autoplay=y",
+        "넷플릭스": "https://www.netflix.com/title/80176931?source=naver",
+        "쿠팡플레이": "https://www.coupangplay.com/content/7a7e750e-ebbe-4bd2-a01a-16336398ec90?src=naver_content_search"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:27:52.354448+00:00"
+    },
+    "전국노래자랑": {
+      "otts": [
+        "웨이브"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=K01_T2000-0054&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:25:47.980916+00:00"
+    },
+    "톡파원 25시": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "왓챠"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001559629?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=J3801_J38000000020&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:25:32.913190+00:00"
+    },
+    "쯔양몇끼": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "넷플릭스",
+        "왓챠"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001787471?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=F6601_F66000000053&autoplay=y",
+        "넷플릭스": "https://www.netflix.com/title/82929668?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:28:02.930088+00:00"
+    },
+    "벌거벗은 세계사": {
+      "otts": [
+        "티빙",
+        "웨이브"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001392765?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000070&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:27:50.202007+00:00"
+    },
+    "나는 SOLO": {
+      "otts": [
+        "왓챠",
+        "티빙",
+        "웨이브",
+        "넷플릭스",
+        "쿠팡플레이"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001492081?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=S03_22000012183&autoplay=y",
+        "넷플릭스": "https://www.netflix.com/title/81551819?source=naver",
+        "쿠팡플레이": "https://www.coupangplay.com/content/aafafdbe-67d6-4335-a456-0997f00364f9?src=naver_content_search"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:27:56.808934+00:00"
+    },
+    "아이돌 파견근무": {
+      "otts": [
+        "웨이브",
+        "티빙",
+        "왓챠"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=F6601_F66000000054&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001787959?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "신발 벗고 돌싱포맨": {
+      "otts": [
+        "넷플릭스",
+        "왓챠"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/81978509?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:26:55.600927+00:00"
+    },
+    "킬잇 : 스타일 크리에이터 대전쟁": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001785558?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:28:02.070963+00:00"
     },
     "골 때리는 그녀들": {
       "otts": [
@@ -306,28 +330,197 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:26:59.162248+00:00"
     },
-    "라디오스타": {
+    "연애전쟁": {
       "otts": [
-        "웨이브",
-        "티빙",
-        "쿠팡플레이",
-        "왓챠"
+        "디즈니+"
       ],
       "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=M_1000794100000100000&autoplay=y",
-        "티빙": "https://www.tving.com/contents/P001781973?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "쿠팡플레이": "https://www.coupangplay.com/content/ae97151f-22fb-4308-899f-07a4c76a516d?src=naver_content_search"
+        "디즈니+": "https://www.disneyplus.com/browse/entity-b47ba964-c614-4281-a642-cd7dfa7cb457?placement=searchEngine&distributionPartner=naver_kr"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:26:59.961248+00:00"
+      "updated_at": "2026-07-22T05:27:53.453071+00:00"
     },
-    "살림하는 남자들": {
+    "보검 매직컬": {
       "otts": [],
       "ott_links": {},
       "source": "none",
       "confirmed": false,
-      "updated_at": "2026-07-22T05:27:47.658749+00:00"
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "강연배틀쇼 사기꾼들": {
+      "otts": [],
+      "ott_links": {},
+      "source": "none",
+      "confirmed": false,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "한끼합쇼": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "왓챠"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001773740?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=J3801_J38000000012&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "꽃보다 청춘: 리미티드 에디션": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001785607?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "체인지 스트릿": {
+      "otts": [
+        "웨이브",
+        "티빙"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=F6601_F66000000047&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001780221?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "방과후 태리쌤": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001782554?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "길치라도 괜찮아": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "왓챠"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001777924?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=F6601_F66000000044&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "입 터지는 실험실": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "넷플릭스",
+        "왓챠"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001778198?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=F6601_F66000000045&autoplay=y",
+        "넷플릭스": "https://www.netflix.com/title/82174372?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "우주떡집": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001789273?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "예스맨": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "왓챠"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001781671?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=J3801_J38000000182&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "당일배송 우리집": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "넷플릭스",
+        "왓챠"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001780244?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=J3801_J38000000128&autoplay=y",
+        "넷플릭스": "https://www.netflix.com/title/82660803?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "무쇠소녀단": {
+      "otts": [],
+      "ott_links": {},
+      "source": "none",
+      "confirmed": false,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "언니네 산지직송3": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001789236?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:25:26.763576+00:00"
+    },
+    "식스센스: 시티투어": {
+      "otts": [],
+      "ott_links": {},
+      "source": "none",
+      "confirmed": false,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "사장님 귀는 당나귀 귀": {
+      "otts": [
+        "웨이브"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=K02_T2019-0063&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:26:57.516693+00:00"
+    },
+    "스트릿 레스토랑 파이터": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001787512?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:27:57.547669+00:00"
     },
     "콩콩팜팜": {
       "otts": [
@@ -340,87 +533,18 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:27:48.479455+00:00"
     },
-    "그대에게 드림": {
-      "otts": [
-        "티빙"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001788898?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:27:49.264035+00:00"
-    },
-    "벌거벗은 세계사": {
+    "언더커버 셰프": {
       "otts": [
         "티빙",
         "웨이브"
       ],
       "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001392765?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000070&autoplay=y"
+        "티빙": "https://www.tving.com/contents/P001786901?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000090&autoplay=y"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:27:50.202007+00:00"
-    },
-    "전지적 참견 시점": {
-      "otts": [
-        "웨이브",
-        "티빙",
-        "쿠팡플레이",
-        "왓챠"
-      ],
-      "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=M_1003594100000100000&autoplay=y",
-        "티빙": "https://www.tving.com/contents/P001781027?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "쿠팡플레이": "https://www.coupangplay.com/content/3f73b75d-092b-476d-b758-668c93fe8655?src=naver_content_search"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:27:51.135106+00:00"
-    },
-    "냉장고를 부탁해": {
-      "otts": [
-        "티빙",
-        "웨이브",
-        "넷플릭스",
-        "쿠팡플레이",
-        "왓챠"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001765388?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=J3801_J38000000003&autoplay=y",
-        "넷플릭스": "https://www.netflix.com/title/80176931?source=naver",
-        "쿠팡플레이": "https://www.coupangplay.com/content/7a7e750e-ebbe-4bd2-a01a-16336398ec90?src=naver_content_search"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:27:52.354448+00:00"
-    },
-    "연애전쟁": {
-      "otts": [
-        "디즈니+"
-      ],
-      "ott_links": {
-        "디즈니+": "https://www.disneyplus.com/browse/entity-b47ba964-c614-4281-a642-cd7dfa7cb457?placement=searchEngine&distributionPartner=naver_kr"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:27:53.453071+00:00"
-    },
-    "금쪽같은 내 새끼": {
-      "otts": [
-        "웨이브",
-        "티빙"
-      ],
-      "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=C2501_WPG2200051D&autoplay=y",
-        "티빙": "https://www.tving.com/contents/P001243851?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:27:55.184835+00:00"
+      "updated_at": "2026-07-22T05:25:51.374644+00:00"
     },
     "핸썸가이즈": {
       "otts": [
@@ -435,60 +559,12 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:27:55.921449+00:00"
     },
-    "나는 SOLO": {
-      "otts": [
-        "왓챠",
-        "티빙",
-        "웨이브",
-        "넷플릭스",
-        "쿠팡플레이"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001492081?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=S03_22000012183&autoplay=y",
-        "넷플릭스": "https://www.netflix.com/title/81551819?source=naver",
-        "쿠팡플레이": "https://www.coupangplay.com/content/aafafdbe-67d6-4335-a456-0997f00364f9?src=naver_content_search"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:27:56.808934+00:00"
-    },
-    "스트릿 레스토랑 파이터": {
-      "otts": [
-        "티빙"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001787512?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:27:57.547669+00:00"
-    },
-    "놀라운 토요일": {
-      "otts": [
-        "티빙",
-        "웨이브"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P000515167?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000073&autoplay=y"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:27:58.654687+00:00"
-    },
-    "신랑수업": {
-      "otts": [
-        "티빙",
-        "웨이브"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001784305?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=C2501_WPG2260022D&autoplay=y"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:27:59.590915+00:00"
+    "동네의 명장들": {
+      "otts": [],
+      "ott_links": {},
+      "source": "none",
+      "confirmed": false,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
     },
     "이호선 상담소": {
       "otts": [
@@ -503,48 +579,18 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:28:00.419918+00:00"
     },
-    "아는 형님": {
+    "히든에이지": {
       "otts": [
         "티빙",
-        "웨이브",
-        "넷플릭스",
-        "왓챠"
+        "웨이브"
       ],
       "ott_links": {
-        "티빙": "https://www.tving.com/contents/P000218912?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=J3801_J38000000019&autoplay=y",
-        "넷플릭스": "https://www.netflix.com/title/80176842?source=naver"
+        "티빙": "https://www.tving.com/contents/P001783246?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=B120255660&autoplay=y"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:28:01.360577+00:00"
-    },
-    "킬잇 : 스타일 크리에이터 대전쟁": {
-      "otts": [
-        "티빙"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001785558?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:28:02.070963+00:00"
-    },
-    "쯔양몇끼": {
-      "otts": [
-        "티빙",
-        "웨이브",
-        "넷플릭스",
-        "왓챠"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001787471?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "웨이브": "https://m.wavve.com/player/vod?programid=F6601_F66000000053&autoplay=y",
-        "넷플릭스": "https://www.netflix.com/title/82929668?source=naver"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:28:02.930088+00:00"
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
     },
     "남겨서 뭐하게": {
       "otts": [
@@ -559,29 +605,226 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:28:03.830394+00:00"
     },
-    "폭군의 셰프": {
+    "프리한19": {
+      "otts": [
+        "티빙",
+        "웨이브"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P000274709?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000077&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "디어 마이 엑스": {
+      "otts": [
+        "티빙",
+        "왓챠",
+        "웨이브"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001781829?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=F6601_F66000000050&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "왕자와 거지": {
+      "otts": [],
+      "ott_links": {},
+      "source": "none",
+      "confirmed": false,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "짐쌀라비움": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001789806?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "송영주의 재즈 포레스트": {
+      "otts": [],
+      "ott_links": {},
+      "source": "none",
+      "confirmed": false,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "제비탐정 장성규": {
+      "otts": [],
+      "ott_links": {},
+      "source": "none",
+      "confirmed": false,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "동상이몽 2 - 너는 내 운명": {
+      "otts": [
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/81978516?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:25:52.175270+00:00"
+    },
+    "살림하는 남자들": {
+      "otts": [
+        "웨이브"
+      ],
+      "ott_links": {
+        "웨이브": "https://www.wavve.com/search?searchWord=%EC%82%B4%EB%A6%BC%ED%95%98%EB%8A%94%20%EB%82%A8%EC%9E%90%EB%93%A4"
+      },
+      "source": "manual",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "한문철의 블랙박스 리뷰": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/search?keyword=%ED%95%9C%EB%AC%B8%EC%B2%A0%EC%9D%98%20%EB%B8%94%EB%9E%99%EB%B0%95%EC%8A%A4%20%EB%A6%AC%EB%B7%B0"
+      },
+      "source": "manual",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "오싹한 연애": {
       "otts": [
         "티빙",
         "넷플릭스"
       ],
       "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001774816?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "넷플릭스": "https://www.netflix.com/title/82024852?source=naver"
+        "티빙": "https://www.tving.com/contents/P001788020?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "넷플릭스": "https://www.netflix.com/title/82682401?source=naver"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:28:15.008349+00:00"
+      "updated_at": "2026-07-22T05:25:50.663915+00:00"
     },
-    "모범택시 3": {
+    "그대에게 드림": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001788898?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:27:49.264035+00:00"
+    },
+    "아파트": {
       "otts": [
         "넷플릭스"
       ],
       "ott_links": {
-        "넷플릭스": "https://www.netflix.com/title/81552615?source=naver"
+        "넷플릭스": "https://www.netflix.com/title/82755552?source=naver"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:28:15.844402+00:00"
+      "updated_at": "2026-07-22T05:25:48.695781+00:00"
+    },
+    "가족관계증명서": {
+      "otts": [
+        "티빙",
+        "웨이브"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001789076?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=M_T60540G&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:26:54.212589+00:00"
+    },
+    "결혼의 완성": {
+      "otts": [
+        "디즈니+"
+      ],
+      "ott_links": {
+        "디즈니+": "https://www.disneyplus.com/browse/entity-1fd5e246-6f87-4a97-8ea1-e8a279dcfafe?placement=searchEngine&distributionPartner=naver_kr"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:25:47.253371+00:00"
+    },
+    "김부장": {
+      "otts": [
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/82682338?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:25:44.013498+00:00"
+    },
+    "내일도 출근": {
+      "otts": [
+        "웨이브",
+        "티빙"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000091&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001787810?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:26:53.356786+00:00"
+    },
+    "신입사원 강회장": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001786154?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:28:18.510291+00:00"
+    },
+    "닥터 섬보이": {
+      "otts": [
+        "디즈니+"
+      ],
+      "ott_links": {
+        "디즈니+": "https://www.disneyplus.com/browse/entity-e9b9326f-fd16-4b6b-86ca-33ff4add7118?placement=searchEngine&distributionPartner=naver_kr"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "오십프로": {
+      "otts": [
+        "티빙",
+        "웨이브"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001785606?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=M_T60526G&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "취사병 전설이 되다": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001785205?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
     },
     "21세기 대군부인": {
       "otts": [
@@ -596,6 +839,135 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:28:16.778756+00:00"
     },
+    "모두가 자신의 무가치함과 싸우고 있다": {
+      "otts": [
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/82189639?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "오늘도 매진했습니다": {
+      "otts": [
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/82175564?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "허수아비": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001784511?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "닥터신": {
+      "otts": [
+        "쿠팡플레이"
+      ],
+      "ott_links": {
+        "쿠팡플레이": "https://www.coupangplay.com/content/95eea3f8-0639-4a0e-9d3c-5bfc5496cc92?src=naver_content_search"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "기쁜 우리 좋은 날": {
+      "otts": [
+        "웨이브"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=K01_T2026-0027&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:25:44.828105+00:00"
+    },
+    "세이렌": {
+      "otts": [
+        "티빙",
+        "웨이브"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001783239?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000094&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "미혼남녀의 효율적 만남": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001781474?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "아너 : 그녀들의 법정": {
+      "otts": [
+        "쿠팡플레이"
+      ],
+      "ott_links": {
+        "쿠팡플레이": "https://www.coupangplay.com/content/2ad1b0d0-1b59-4915-af7a-228ca6dd9e52?src=naver_content_search"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "아기가 생겼어요": {
+      "otts": [
+        "티빙",
+        "웨이브",
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001781638?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=C2501_WPG2250127D&autoplay=y",
+        "넷플릭스": "https://www.netflix.com/title/82693232?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "오늘부터 인간입니다만": {
+      "otts": [
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/82076348?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "스프링 피버": {
+      "otts": [
+        "티빙",
+        "웨이브"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001780197?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "웨이브": "https://m.wavve.com/player/vod?programid=C3519_C35000000067&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
     "판사 이한영": {
       "otts": [
         "웨이브",
@@ -609,38 +981,29 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:28:17.681129+00:00"
     },
-    "신입사원 강회장": {
+    "은애하는 도적님아": {
       "otts": [
-        "티빙"
+        "웨이브",
+        "넷플릭스"
       ],
       "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001786154?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+        "웨이브": "https://m.wavve.com/player/vod?programid=K02_T2025-0062&autoplay=y",
+        "넷플릭스": "https://www.netflix.com/title/82643427?source=naver"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:28:18.510291+00:00"
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
     },
-    "나의 완벽한 비서": {
+    "모범택시 3": {
       "otts": [
         "넷플릭스"
       ],
       "ott_links": {
-        "넷플릭스": "https://www.netflix.com/title/81988231?source=naver"
+        "넷플릭스": "https://www.netflix.com/title/81552615?source=naver"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:28:19.507347+00:00"
-    },
-    "협상의 기술": {
-      "otts": [
-        "티빙"
-      ],
-      "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001767988?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
-      },
-      "source": "naver_borragi",
-      "confirmed": true,
-      "updated_at": "2026-07-22T05:28:20.350204+00:00"
+      "updated_at": "2026-07-22T05:28:15.844402+00:00"
     },
     "프로보노": {
       "otts": [
@@ -655,42 +1018,85 @@
       "confirmed": true,
       "updated_at": "2026-07-22T05:28:21.250056+00:00"
     },
-    "천국보다 아름다운": {
+    "경도를 기다리며": {
       "otts": [
-        "넷플릭스"
+        "쿠팡플레이"
       ],
       "ott_links": {
-        "넷플릭스": "https://www.netflix.com/title/81952837?source=naver"
+        "쿠팡플레이": "https://www.coupangplay.com/content/d5912bd2-5caf-406d-aa25-b0b4c178c65e?src=naver_content_search"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:28:22.086005+00:00"
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
     },
-    "언더커버 하이스쿨": {
+    "퍼스트레이디": {
       "otts": [
         "웨이브",
-        "티빙"
+        "티빙",
+        "넷플릭스",
+        "왓챠"
       ],
       "ott_links": {
-        "웨이브": "https://m.wavve.com/player/vod?programid=M_T60488G&autoplay=y",
-        "티빙": "https://www.tving.com/contents/P001768253?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+        "웨이브": "https://m.wavve.com/player/vod?programid=C2401_PR1003&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001776924?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "넷플릭스": "https://www.netflix.com/title/82137540?source=naver"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:28:23.282766+00:00"
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
     },
-    "언젠가는 슬기로울 전공의생활": {
+    "컨피던스맨 KR": {
+      "otts": [
+        "쿠팡플레이"
+      ],
+      "ott_links": {
+        "쿠팡플레이": "https://www.coupangplay.com/content/3bd14b1c-cf64-4b71-be07-ef7c75002a60?src=naver_content_search"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "폭군의 셰프": {
       "otts": [
         "티빙",
         "넷플릭스"
       ],
       "ott_links": {
-        "티빙": "https://www.tving.com/contents/P001768976?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
-        "넷플릭스": "https://www.netflix.com/title/81739042?source=naver"
+        "티빙": "https://www.tving.com/contents/P001774816?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "넷플릭스": "https://www.netflix.com/title/82024852?source=naver"
       },
       "source": "naver_borragi",
       "confirmed": true,
-      "updated_at": "2026-07-22T05:28:24.560483+00:00"
+      "updated_at": "2026-07-22T05:28:15.008349+00:00"
+    },
+    "트라이: 우리는 기적이 된다": {
+      "otts": [
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/82037349?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "견우와 선녀": {
+      "otts": [],
+      "ott_links": {},
+      "source": "none",
+      "confirmed": false,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "살롱 드 홈즈": {
+      "otts": [
+        "쿠팡플레이"
+      ],
+      "ott_links": {
+        "쿠팡플레이": "https://www.coupangplay.com/content/d3ace231-37c4-4ac0-b8bf-c8033b4218df?src=naver_content_search"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
     },
     "굿보이": {
       "otts": [
@@ -710,7 +1116,133 @@
       "source": "naver_borragi",
       "confirmed": true,
       "updated_at": "2026-07-22T05:28:25.421866+00:00"
+    },
+    "천국보다 아름다운": {
+      "otts": [
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/81952837?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:28:22.086005+00:00"
+    },
+    "언젠가는 슬기로울 전공의생활": {
+      "otts": [
+        "티빙",
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001768976?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "넷플릭스": "https://www.netflix.com/title/81739042?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:28:24.560483+00:00"
+    },
+    "바니와 오빠들": {
+      "otts": [
+        "웨이브",
+        "티빙"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=M_T60492G&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001769546?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "협상의 기술": {
+      "otts": [
+        "티빙"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001767988?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:28:20.350204+00:00"
+    },
+    "감자연구소": {
+      "otts": [
+        "티빙",
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001768266?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "넷플릭스": "https://www.netflix.com/title/81989515?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "언더커버 하이스쿨": {
+      "otts": [
+        "웨이브",
+        "티빙"
+      ],
+      "ott_links": {
+        "웨이브": "https://m.wavve.com/player/vod?programid=M_T60488G&autoplay=y",
+        "티빙": "https://www.tving.com/contents/P001768253?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:28:23.282766+00:00"
+    },
+    "마녀": {
+      "otts": [
+        "쿠팡플레이",
+        "티빙",
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "쿠팡플레이": "https://www.coupangplay.com/content/9838a654-5812-4c87-85e2-1fe58653d352?src=naver_content_search",
+        "티빙": "https://www.tving.com/contents/P001767755?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "넷플릭스": "https://www.netflix.com/title/81954881?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "모텔 캘리포니아": {
+      "otts": [
+        "쿠팡플레이",
+        "웨이브"
+      ],
+      "ott_links": {
+        "쿠팡플레이": "https://www.coupangplay.com/content/5afaa1b2-4930-4859-a5cb-169ccbaa0a8d?src=naver_content_search",
+        "웨이브": "https://m.wavve.com/player/vod?programid=M_T60491G&autoplay=y"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "별들에게 물어봐": {
+      "otts": [
+        "티빙",
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "티빙": "https://www.tving.com/contents/P001765419?utm_source=Naver&utm_medium=Organic&utm_campaign=SERP",
+        "넷플릭스": "https://www.netflix.com/title/81970550?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-24T02:49:10.745996+00:00"
+    },
+    "나의 완벽한 비서": {
+      "otts": [
+        "넷플릭스"
+      ],
+      "ott_links": {
+        "넷플릭스": "https://www.netflix.com/title/81988231?source=naver"
+      },
+      "source": "naver_borragi",
+      "confirmed": true,
+      "updated_at": "2026-07-22T05:28:19.507347+00:00"
     }
   },
-  "refreshed_at": "2026-07-22T05:28:25.421912+00:00"
+  "refreshed_at": "2026-07-24T02:49:10.745996+00:00"
 }

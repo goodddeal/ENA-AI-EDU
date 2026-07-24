@@ -1082,13 +1082,26 @@ def parse_news_view_rate(html: str, title: str) -> dict[str, Any] | None:
 
 # 검색 보조 별칭 (공식 패널이 약할 때)
 _RATING_ALIASES: dict[str, list[str]] = {
-    "아너 : 그녀들의 법정": ["아너 그녀들의 법정", "아너 ENA"],
+    "아너 : 그녀들의 법정": ["아너 그녀들의 법정", "아너 ENA", "아너"],
     "디어 마이 엑스": ["Dear My Ex", "디어마이엑스"],
     "한문철의 블랙박스 리뷰": ["블랙박스 리뷰", "한문철 블랙박스"],
     "취사병 전설이 되다": ["취사병 전설"],
     "언니네 산지직송3": ["언니네 산지직송", "산지직송3"],
     "보검 매직컬": ["보검매직컬"],
     "송영주의 재즈 포레스트": ["재즈 포레스트", "송영주 재즈"],
+    "꽃보다 청춘: 리미티드 에디션": ["꽃보다 청춘 리미티드", "꽃보다 청춘"],
+    "식스센스: 시티투어": ["식스센스 시티투어", "식스센스"],
+    "닥터 섬보이": ["닥터섬보이"],
+    "트라이: 우리는 기적이 된다": ["트라이 우리는 기적이 된다", "트라이"],
+}
+
+# 보러가기 미검출 시 검증된 편성(검색 랜딩). 확실하지 않으면 넣지 않음.
+_MANUAL_OTTS: dict[str, list[str]] = {
+    "나는 자연인이다": ["티빙"],
+    "살림하는 남자들": ["웨이브"],
+    "한문철의 블랙박스 리뷰": ["티빙"],
+    "프리한19": ["티빙"],
+    "한끼합쇼": ["티빙"],
 }
 
 # 네이버 공식 패널이 없고, 보도된 시청률이 확인된 프로그램 (네트워크 실패 시 폴백)
@@ -1267,15 +1280,46 @@ def resolve_otts_for_title(
     """
     del fallback  # 샘플/추정 OTT 사용 안 함
 
-    # OTT는 '보러가기' 검색을 우선 (light=목록용: 요청 1회로 제한)
+    queries: list[str] = [f"{title} 보러가기"]
+    if channel:
+        queries.append(f"{title} {channel} 보러가기")
+    for alias in _RATING_ALIASES.get(title, []):
+        q = f"{alias} 보러가기"
+        if q not in queries:
+            queries.append(q)
+    if light:
+        queries = queries[:1]
+
+    platforms: list[dict[str, str]] = []
+    borragi_html = ""
     attempts = 1 if light else 2
-    borragi_html = fetch_search_html(f"{title} 보러가기", max_attempts=attempts)
-    platforms = parse_borragi_platforms(borragi_html) if borragi_html else []
+    for q in queries:
+        borragi_html = fetch_search_html(q, max_attempts=attempts)
+        platforms = parse_borragi_platforms(borragi_html) if borragi_html else []
+        if platforms:
+            break
     if not platforms and not light:
         platforms = fetch_borragi_otts(title, borragi_html)
 
     otts = [p["name"] for p in platforms]
     links = {p["name"]: p["url"] for p in platforms if p.get("url")}
+    source = "naver_borragi" if otts else "none"
+
+    # 네이버 보러가기 미검출 시 검증된 수동 편성 (검색 URL 폴백)
+    if not otts:
+        manual = [o for o in (_MANUAL_OTTS.get(title) or []) if o in _PLATFORM_MAP.values()]
+        if manual:
+            from data import OTT_META
+            from urllib.parse import quote as _quote
+
+            otts = manual
+            links = {}
+            for name in manual:
+                meta = OTT_META.get(name) or {}
+                search = meta.get("search")
+                if search:
+                    links[name] = search.format(query=_quote(title))
+            source = "manual"
 
     if light:
         return {
@@ -1283,7 +1327,7 @@ def resolve_otts_for_title(
             "ott_links": links,
             "poster_url": "",
             "rating": None,
-            "source": "naver_borragi" if otts else "none",
+            "source": source,
             "news": [],
             "query": title,
             "confirmed": bool(otts),
@@ -1301,7 +1345,7 @@ def resolve_otts_for_title(
         "ott_links": links,
         "poster_url": poster_url,
         "rating": rating,
-        "source": "naver_borragi" if otts else "none",
+        "source": source,
         "news": news,
         "query": title,
         "confirmed": bool(otts),
