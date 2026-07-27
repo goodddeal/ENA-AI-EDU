@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import json
 import sys
+from datetime import date, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -13,6 +15,7 @@ from posters import is_plausible_poster_url, is_safe_poster_url
 
 ROOT = Path(__file__).resolve().parent
 SEED_POSTERS = ROOT / "seed_cache" / "posters.json"
+KST = ZoneInfo("Asia/Seoul")
 
 
 def _check_seed_posters(errors: list[str], warnings: list[str]) -> None:
@@ -60,9 +63,21 @@ def main() -> int:
         if "방영 중" in ep and ("종영" in ep or "방영 예정" in ep):
             errors.append(f"[status conflict] {title}: {ep}")
 
+        ended = c.get("ended_at")
+        today = datetime.now(KST).date()
+        if isinstance(ended, date) and ended < today and "방영 중" in ep and "종영" not in ep:
+            errors.append(
+                f"[ended but airing] {title}: ended_at={ended.isoformat()} episode={ep}"
+            )
+
         # 알려진 재발 케이스
         if title == "디어 마이 엑스" and "방영 중" in ep:
             errors.append("[회귀] 디어 마이 엑스는 종영이어야 합니다.")
+        if title == "김부장":
+            if "방영 중" in ep or "종영" not in ep:
+                errors.append("[회귀] 김부장은 2026-07-25 종영이어야 합니다.")
+            if c.get("ended_at") != date(2026, 7, 25):
+                errors.append("[회귀] 김부장 ended_at 이 2026-07-25 이어야 합니다.")
         if title == "전국노래자랑":
             if "namu.wiki" in poster or "tving.com" in poster:
                 errors.append("[회귀] 전국노래자랑 포스터가 오인 URL 입니다.")

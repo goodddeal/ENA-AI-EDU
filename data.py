@@ -708,9 +708,10 @@ CONTENTS = [
         "channel": "tvN",
         "broadcaster": "tvN (PP)",
         "aired_at": date(2026, 7, 18),
+        "ended_at": date(2026, 8, 23),
         "episode": "12부작 · 방영 중",
         "otts": [],
-        "desc": "tvN 토일드라마. 2026.07.18 첫방.",
+        "desc": "tvN 토일드라마. 2026.07.18~08.23.",
     },
     {
         "id": "d02",
@@ -719,9 +720,10 @@ CONTENTS = [
         "channel": "ENA",
         "broadcaster": "ENA (PP)",
         "aired_at": date(2026, 7, 13),
+        "ended_at": date(2026, 8, 18),
         "episode": "12부작 · 방영 중",
         "otts": [],
-        "desc": "ENA 월화드라마. 2026.07.13 첫방.",
+        "desc": "ENA 월화드라마. 2026.07.13~08.18.",
     },
     {
         "id": "d03",
@@ -730,9 +732,10 @@ CONTENTS = [
         "channel": "JTBC",
         "broadcaster": "JTBC (PP)",
         "aired_at": date(2026, 7, 11),
+        "ended_at": date(2026, 8, 16),
         "episode": "12부작 · 방영 중",
         "otts": [],
-        "desc": "JTBC 토일드라마. 2026.07.11 첫방.",
+        "desc": "JTBC 토일드라마. 2026.07.11~08.16.",
     },
     {
         "id": "d04",
@@ -752,9 +755,10 @@ CONTENTS = [
         "channel": "KBS2",
         "broadcaster": "KBS2 (지상파)",
         "aired_at": date(2026, 7, 4),
+        "ended_at": date(2026, 8, 9),
         "episode": "12부작 · 방영 중",
         "otts": [],
-        "desc": "KBS2 토일드라마. 2026.07.04 첫방.",
+        "desc": "KBS2 토일드라마. 2026.07.04~08.09.",
     },
     {
         "id": "d06",
@@ -762,10 +766,11 @@ CONTENTS = [
         "genre": "드라마",
         "channel": "SBS",
         "broadcaster": "SBS (지상파)",
-        "aired_at": date(2026, 6, 26),
-        "episode": "10부작 · 방영 중",
+        "aired_at": date(2026, 7, 25),
+        "ended_at": date(2026, 7, 25),
+        "episode": "10부작 · 종영",
         "otts": [],
-        "desc": "SBS 금토드라마. 2026.06.26 첫방.",
+        "desc": "SBS 금토드라마. 2026.06.26~07.25 종영(10화).",
     },
     {
         "id": "d07",
@@ -774,9 +779,10 @@ CONTENTS = [
         "channel": "tvN",
         "broadcaster": "tvN (PP)",
         "aired_at": date(2026, 6, 22),
+        "ended_at": date(2026, 7, 28),
         "episode": "12부작 · 방영 중",
         "otts": [],
-        "desc": "tvN 월화드라마. 2026.06.22 첫방.",
+        "desc": "tvN 월화드라마. 2026.06.22~07.28.",
     },
     {
         "id": "d08",
@@ -823,8 +829,8 @@ CONTENTS = [
         "desc": "tvN 월화드라마. 2026.05.11~06.16.",
         # 검색 폴백 dthumb/블로그 URL이 레이아웃을 깨뜨려 공식/안정 URL 고정
         "poster_url": (
-            "https://cdn.instiz.net/data/cached_img/upload/2026/04/21/10/"
-            "2a353474e8635b74541b88aaca2c5d75.jpg"
+            "https://csearch-phinf.pstatic.net/20260427_289/"
+            "1777268581598feg6T_JPEG/e74bc7780afe3bcc6b1a4785c2f5bafd.jpg"
         ),
     },
     {
@@ -889,9 +895,10 @@ CONTENTS = [
         "channel": "KBS1",
         "broadcaster": "KBS1 (지상파)",
         "aired_at": date(2026, 3, 30),
+        "ended_at": date(2026, 9, 18),
         "episode": "일일 · 방영 중",
         "otts": [],
-        "desc": "KBS1 일일드라마. 2026.03.30 첫방.",
+        "desc": "KBS1 일일드라마. 2026.03.30~09.18.",
     },
     {
         "id": "d18",

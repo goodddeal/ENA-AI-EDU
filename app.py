@@ -6,8 +6,9 @@ PRD: broadcast_ott_service_planning.md
 from __future__ import annotations
 
 import html
-from datetime import date
+from datetime import date, datetime
 from urllib.parse import quote, urlsplit, urlunsplit
+from zoneinfo import ZoneInfo
 
 import streamlit as st
 
@@ -1054,7 +1055,11 @@ def source_label(source: str) -> str:
 
 
 def is_currently_airing(item: dict) -> bool:
-    """episode 필드 기준. 예정/종영은 방영 중이 아님."""
+    """종영일·episode 필드 기준. 예정/종영·ended_at 경과 시 비방영."""
+    today = datetime.now(ZoneInfo("Asia/Seoul")).date()
+    ended = item.get("ended_at")
+    if isinstance(ended, date) and ended < today:
+        return False
     ep = str(item.get("episode") or "")
     if "방영 예정" in ep or "종영" in ep:
         return False
