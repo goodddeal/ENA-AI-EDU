@@ -4,17 +4,20 @@ from __future__ import annotations
 
 import json
 import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime, timedelta, time
 from pathlib import Path
 from typing import Any, Callable
 from zoneinfo import ZoneInfo
 
-from cache_bootstrap import ensure_runtime_caches
+from cache_bootstrap import SEED_DIR, ensure_runtime_caches
 from naver_api import apply_manual_rating_overrides, fetch_view_rate_with_history
 
 KST = ZoneInfo("Asia/Seoul")
 REFRESH_HOUR = 8
 CACHE_PATH = Path(__file__).resolve().parent / ".cache" / "ratings.json"
+SEED_PATH = SEED_DIR / "ratings.json"
+DEFAULT_WORKERS = 5
 
 _lock = threading.Lock()
 
@@ -56,12 +59,16 @@ def load_cache() -> dict[str, Any]:
     return data
 
 
-def save_cache(cache: dict[str, Any]) -> None:
+def save_cache(cache: dict[str, Any], *, sync_seed: bool = True) -> None:
     CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    CACHE_PATH.write_text(
-        json.dumps(cache, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    text = json.dumps(cache, ensure_ascii=False, indent=2)
+    CACHE_PATH.write_text(text, encoding="utf-8")
+    if sync_seed:
+        try:
+            SEED_PATH.parent.mkdir(parents=True, exist_ok=True)
+            SEED_PATH.write_text(text, encoding="utf-8")
+        except OSError:
+            pass
 
 
 def cache_is_fresh(
@@ -120,13 +127,13 @@ def sort_by_view_rate(
     cache: dict[str, Any] | None = None,
 ) -> list[dict]:
     """시청률 높은 순. 동률·미확인은 최근 방영일 우선."""
-    from datetime import date
+    from datetime import date as date_cls
 
     cache = cache if cache is not None else load_cache()
 
     def key(item: dict) -> tuple:
         rate = view_rate_value(item.get("title") or "", cache)
-        aired = item.get("aired_at") or date.min
+        aired = item.get("aired_at") or date_cls.min
         return (rate, aired)
 
     return sorted(items, key=key, reverse=True)
@@ -189,18 +196,36 @@ def fetch_rating_for_title(title: str, channel: str = "") -> dict[str, Any] | No
     }
 
 
+def _rate_changed(prev: dict[str, Any] | None, new: dict[str, Any]) -> bool:
+    if not isinstance(prev, dict) or prev.get("view_rate") is None:
+        return new.get("view_rate") is not None
+    try:
+        if abs(float(prev["view_rate"]) - float(new["view_rate"])) >= 0.005:
+            return True
+    except (TypeError, ValueError):
+        return True
+    if (prev.get("episode") or "") != (new.get("episode") or ""):
+        return True
+    if (prev.get("air_date") or "").rstrip(".") != (new.get("air_date") or "").rstrip("."):
+        return True
+    return False
+
+
 def refresh_ratings(
     titles: list[str],
     *,
     force: bool = False,
     progress: Callable[[int, int, str], None] | None = None,
     channels: dict[str, str] | None = None,
+    workers: int = DEFAULT_WORKERS,
 ) -> dict[str, Any]:
     """
-    전체 프로그램 시청률을 네이버에서 다시 받아 캐시에 저장.
-    force=False 이면 이미 오늘(08:00 기준) 갱신됐으면 스킵.
+    지정 프로그램 시청률을 네이버에서 다시 받아 캐시에 병합 저장.
+    - 기존 캐시의 다른 타이틀은 유지 (부분 갱신 안전)
+    - force=False 이면 이미 오늘(08:00 기준) 갱신됐으면 스킵
     """
     channels = channels or {}
+    titles = [t for t in titles if t]
     with _lock:
         now = now_kst()
         expected = expected_refresh_date(now)
@@ -208,33 +233,64 @@ def refresh_ratings(
         if not force and cache_is_fresh(cache, now, titles):
             return cache
 
-        items: dict[str, Any] = {}
-        total = len(titles)
-        for i, title in enumerate(titles):
+    fetched: dict[str, dict[str, Any]] = {}
+    total = len(titles)
+    if total == 0:
+        return load_cache()
+
+    def _one(title: str) -> tuple[str, dict[str, Any] | None]:
+        try:
+            return title, fetch_rating_for_title(title, channel=channels.get(title) or "")
+        except Exception:
+            return title, None
+
+    workers = max(1, min(workers, total))
+    done = 0
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futs = [pool.submit(_one, t) for t in titles]
+        for fut in as_completed(futs):
+            title, rating = fut.result()
+            if rating and rating.get("view_rate") is not None:
+                fetched[title] = rating
+            done += 1
             if progress:
-                progress(i + 1, total, title)
-            try:
-                rating = fetch_rating_for_title(title, channel=channels.get(title) or "")
-            except Exception:
-                rating = None
-            if rating:
-                items[title] = rating
+                progress(done, total, title)
 
-        # 강제 갱신이 아니고 일부만 실패한 경우, 이전 값 유지
-        prev_items = cache.get("items") or {}
-        if isinstance(prev_items, dict):
-            for title in titles:
-                if title not in items and title in prev_items:
-                    items[title] = prev_items[title]
+    changed = 0
+    with _lock:
+        cache = load_cache()
+        items = dict(cache.get("items") or {})
+        # 락 밖 prev 와 병합하되, 최신 디스크 기준 유지
+        for title, rating in fetched.items():
+            if _rate_changed(items.get(title), rating):
+                changed += 1
+            items[title] = rating
+        # 조회 실패분은 이전 값 유지. 아예 없던 타이틀만 looked_up 표시
+        for title in titles:
+            if title in fetched:
+                continue
+            if title not in items:
+                items[title] = {
+                    "looked_up": True,
+                    "view_rate": None,
+                    "episode": "",
+                    "air_date": "",
+                    "channel": "",
+                    "type": "",
+                    "episodes": [],
+                }
 
+        items = apply_manual_rating_overrides(items)
         new_cache = {
             "refresh_date": expected.isoformat(),
             "as_of_date": as_of_date_for(expected).isoformat(),
-            "refreshed_at": now.isoformat(),
+            "refreshed_at": now_kst().isoformat(),
             "source": "naver_viewRate",
+            "changed_count": changed,
+            "fetched_count": len(fetched),
             "items": items,
         }
-        save_cache(new_cache)
+        save_cache(new_cache, sync_seed=True)
         return new_cache
 
 
@@ -263,43 +319,15 @@ def fill_missing_ratings(
         if not batch:
             return cache
 
-    updated: dict[str, Any] = {}
-    for i, c in enumerate(batch):
-        title = c.get("title") or ""
-        if progress:
-            progress(i + 1, len(batch), title)
-        try:
-            rating = fetch_rating_for_title(title, channel=c.get("channel") or "")
-        except Exception:
-            rating = None
-        if rating and rating.get("view_rate") is not None:
-            updated[title] = rating
-        else:
-            # 재조회 폭주 방지 — 네이버에 없음으로 표시
-            updated[title] = {
-                "looked_up": True,
-                "view_rate": None,
-                "episode": "",
-                "air_date": "",
-                "channel": "",
-                "type": "",
-                "episodes": [],
-            }
-
-    with _lock:
-        cache = load_cache()
-        items = dict(cache.get("items") or {})
-        items.update(updated)
-        now = now_kst()
-        new_cache = {
-            "refresh_date": cache.get("refresh_date") or expected_refresh_date(now).isoformat(),
-            "as_of_date": cache.get("as_of_date") or as_of_date_for(expected_refresh_date(now)).isoformat(),
-            "refreshed_at": now.isoformat(),
-            "source": cache.get("source") or "naver_viewRate",
-            "items": items,
-        }
-        save_cache(new_cache)
-        return new_cache
+    titles = [c.get("title") or "" for c in batch]
+    channels = {c.get("title") or "": c.get("channel") or "" for c in batch}
+    return refresh_ratings(
+        titles,
+        force=True,
+        progress=progress,
+        channels=channels,
+        workers=min(DEFAULT_WORKERS, max(1, len(titles))),
+    )
 
 
 def ensure_ratings(
@@ -307,10 +335,16 @@ def ensure_ratings(
     *,
     force: bool = False,
     progress: Callable[[int, int, str], None] | None = None,
+    channels: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """앱 진입 시 호출 — 08:00 기준 전일 시청률이 없으면 갱신."""
     if force or not cache_is_fresh(titles=titles):
-        return refresh_ratings(titles, force=force, progress=progress)
+        return refresh_ratings(
+            titles,
+            force=True,
+            progress=progress,
+            channels=channels,
+        )
     return load_cache()
 
 
@@ -324,6 +358,11 @@ def cache_meta_label(cache: dict[str, Any] | None = None) -> str:
             refreshed = dt.strftime("%m.%d %H:%M")
         except ValueError:
             pass
-    return f"시청률 전일 기준({as_of}) · 매일 {REFRESH_HOUR:02d}:00 갱신" + (
-        f" · 최근 {refreshed}" if refreshed else ""
-    )
+    base = f"시청률 전일 기준({as_of}) · 매일 {REFRESH_HOUR:02d}:00 갱신"
+    if refreshed:
+        base += f" · 최근 {refreshed}"
+    changed = cache.get("changed_count")
+    fetched = cache.get("fetched_count")
+    if isinstance(changed, int) and isinstance(fetched, int) and fetched:
+        base += f" · 변동 {changed}/{fetched}"
+    return base

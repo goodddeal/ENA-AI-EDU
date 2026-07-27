@@ -72,21 +72,21 @@ def _load_ratings_cached() -> dict:
     if has < 40:
         ensure_runtime_caches(force=True)
         cache = load_cache()
-    _ = "ratings_seed_v9"
+    _ = "ratings_seed_v10"
     return cache
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_posters_cached() -> dict:
     ensure_runtime_caches()
-    _ = "posters_seed_v9"
+    _ = "posters_seed_v10"
     return load_poster_cache()
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_otts_cached() -> dict:
     ensure_runtime_caches()
-    _ = "otts_seed_v9"
+    _ = "otts_seed_v10"
     return load_ott_cache()
 
 
@@ -1155,26 +1155,53 @@ def view_home() -> None:
     all_contents = get_sorted_contents("전체")
     all_titles = [c["title"] for c in all_contents]
     channels = {c["title"]: c.get("channel") or "" for c in all_contents}
+    airing_contents = [c for c in all_contents if is_currently_airing(c)]
+    airing_titles = [c["title"] for c in airing_contents]
     col_a, col_b = st.columns(2)
     with col_a:
         refresh_otts = st.button("포스터·OTT 새로고침", key="refresh_otts")
     with col_b:
         refresh_ratings_btn = st.button("시청률 새로고침", key="refresh_ratings")
 
-    # ---- 기본: 디스크/시드 캐시만 사용 (네트워크 0) → 즉시 화면 표시 ----
+    # ---- 기본: 디스크/시드 캐시 → 08:00 지나면 방영 중만 자동 전일 시청률 갱신 ----
+    from ratings import cache_is_fresh, refresh_ratings
+
     ratings_cache = _load_ratings_cached()
     poster_cache = _load_posters_cached()
     ott_cache = _load_otts_cached()
 
-    # 버튼으로만 네트워크 (자동 조회 없음)
     if refresh_ratings_btn:
-        with st.spinner("시청률 갱신 중…"):
-            from ratings import refresh_ratings
-
+        with st.spinner(f"방영 중 {len(airing_titles)}편 전일 시청률 갱신 중…"):
             ratings_cache = refresh_ratings(
-                all_titles, force=True, channels=channels
+                airing_titles or all_titles,
+                force=True,
+                channels=channels,
             )
             _load_ratings_cached.clear()
+            changed = int(ratings_cache.get("changed_count") or 0)
+            fetched = int(ratings_cache.get("fetched_count") or 0)
+            st.success(
+                f"시청률 갱신 완료 · 변동 {changed}편 / 조회 {fetched}편 "
+                f"(기준일 {ratings_cache.get('as_of_date') or '-'})"
+            )
+            st.rerun()
+    elif (
+        airing_titles
+        and not cache_is_fresh(ratings_cache, titles=airing_titles)
+        and not st.session_state.get("_ratings_auto_tried")
+    ):
+        # 하루 1회: 방영 중만 자동 갱신 (전체 102편 순회 제거 → 속도·부하 완화)
+        st.session_state["_ratings_auto_tried"] = True
+        with st.spinner(
+            f"전일 시청률 자동 반영 중… (방영 중 {len(airing_titles)}편 · 매일 08:00)"
+        ):
+            ratings_cache = refresh_ratings(
+                airing_titles,
+                force=True,
+                channels=channels,
+            )
+            _load_ratings_cached.clear()
+            st.rerun()
 
     # 방영 중 우선 → 시청률 높은 순 → 현재 페이지
     items = sort_items_by_view_rate(items, ratings_cache)

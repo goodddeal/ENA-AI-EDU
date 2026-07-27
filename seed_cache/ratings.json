@@ -1,44 +1,330 @@
 {
-  "refresh_date": "2026-07-22",
-  "as_of_date": "2026-07-21",
-  "refreshed_at": "2026-07-22T18:03:25.314498+09:00",
-  "source": "naver_viewRate+manual",
+  "refresh_date": "2026-07-27",
+  "as_of_date": "2026-07-26",
+  "refreshed_at": "2026-07-27T09:28:36.394663+09:00",
+  "source": "naver_viewRate",
+  "changed_count": 38,
+  "fetched_count": 48,
   "items": {
     "톡파원 25시": {
-      "view_rate": 2.245,
-      "episode": "",
-      "air_date": "2026.07.20.",
-      "channel": "JTBC",
-      "type": "LATEST"
+      "view_rate": 2.3,
+      "episode": "217회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "217회",
+          "air_date": "",
+          "view_rate": 2.3,
+          "channel": ""
+        }
+      ]
     },
     "런닝맨": {
       "view_rate": 3.2,
       "episode": "812회",
-      "air_date": "2026.07.19.",
-      "channel": "SBS",
-      "type": "LATEST"
-    },
-    "스트릿 레스토랑 파이터": {
-      "view_rate": 1.59,
-      "episode": "5회",
-      "air_date": "2026.07.19.",
-      "channel": "tvN",
-      "type": "LATEST"
-    },
-    "쯔양몇끼": {
-      "view_rate": 0.875,
-      "episode": "8회",
-      "air_date": "2026.07.18.",
-      "channel": "ENA",
-      "type": "LATEST"
-    },
-    "오싹한 연애": {
-      "view_rate": 5.32,
-      "episode": "2회",
       "air_date": "2026-07-19",
       "channel": "",
       "type": "LATEST",
       "episodes": [
+        {
+          "episode": "812회",
+          "air_date": "2026-07-19",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "811회",
+          "air_date": "2026-07-12",
+          "view_rate": 2.7,
+          "channel": ""
+        },
+        {
+          "episode": "810회",
+          "air_date": "2026-07-05",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "809회",
+          "air_date": "2026-06-28",
+          "view_rate": 2.6,
+          "channel": ""
+        },
+        {
+          "episode": "808회",
+          "air_date": "2026-06-21",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "807회",
+          "air_date": "2026-06-14",
+          "view_rate": 2.7,
+          "channel": ""
+        },
+        {
+          "episode": "806회",
+          "air_date": "2026-06-07",
+          "view_rate": 2.6,
+          "channel": ""
+        },
+        {
+          "episode": "805회",
+          "air_date": "2026-05-31",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "804회",
+          "air_date": "2026-05-24",
+          "view_rate": 2.6,
+          "channel": ""
+        },
+        {
+          "episode": "803회",
+          "air_date": "2026-05-17",
+          "view_rate": 3.1,
+          "channel": ""
+        },
+        {
+          "episode": "802회",
+          "air_date": "2026-05-10",
+          "view_rate": 3.1,
+          "channel": ""
+        },
+        {
+          "episode": "801회",
+          "air_date": "2026-05-03",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "800회",
+          "air_date": "2026-04-26",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "799회",
+          "air_date": "2026-04-19",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "798회",
+          "air_date": "2026-04-12",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "797회",
+          "air_date": "2026-04-05",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "796회",
+          "air_date": "2026-03-29",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "795회",
+          "air_date": "2026-03-22",
+          "view_rate": 3.1,
+          "channel": ""
+        },
+        {
+          "episode": "794회",
+          "air_date": "2026-03-15",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "793회",
+          "air_date": "2026-03-08",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "792회",
+          "air_date": "2026-03-01",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "791회",
+          "air_date": "2026-02-22",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "790회",
+          "air_date": "2026-02-15",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "789회",
+          "air_date": "2026-02-08",
+          "view_rate": 4.0,
+          "channel": ""
+        },
+        {
+          "episode": "788회",
+          "air_date": "2026-02-01",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "787회",
+          "air_date": "2026-01-25",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "786회",
+          "air_date": "2026-01-18",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "785회",
+          "air_date": "2026-01-11",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "784회",
+          "air_date": "2026-01-04",
+          "view_rate": 3.9,
+          "channel": ""
+        },
+        {
+          "episode": "783회",
+          "air_date": "2025-12-28",
+          "view_rate": 3.2,
+          "channel": ""
+        }
+      ]
+    },
+    "스트릿 레스토랑 파이터": {
+      "view_rate": 1.59,
+      "episode": "5회",
+      "air_date": "2026-07-19",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "5회",
+          "air_date": "2026-07-19",
+          "view_rate": 1.59,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-07-12",
+          "view_rate": 1.662,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-07-05",
+          "view_rate": 2.061,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-06-28",
+          "view_rate": 1.973,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-06-21",
+          "view_rate": 2.24,
+          "channel": ""
+        }
+      ]
+    },
+    "쯔양몇끼": {
+      "view_rate": 0.907,
+      "episode": "9회",
+      "air_date": "2026-07-25",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "9회",
+          "air_date": "2026-07-25",
+          "view_rate": 0.907,
+          "channel": ""
+        },
+        {
+          "episode": "8회",
+          "air_date": "2026-07-18",
+          "view_rate": 0.875,
+          "channel": ""
+        },
+        {
+          "episode": "7회",
+          "air_date": "2026-07-11",
+          "view_rate": 0.938,
+          "channel": ""
+        },
+        {
+          "episode": "6회",
+          "air_date": "2026-07-04",
+          "view_rate": 0.671,
+          "channel": ""
+        },
+        {
+          "episode": "5회",
+          "air_date": "2026-06-27",
+          "view_rate": 0.978,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-06-20",
+          "view_rate": 1.004,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-06-13",
+          "view_rate": 0.762,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-06-06",
+          "view_rate": 0.908,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-05-30",
+          "view_rate": 0.962,
+          "channel": ""
+        }
+      ]
+    },
+    "오싹한 연애": {
+      "view_rate": 4.35,
+      "episode": "3회",
+      "air_date": "2026-07-25",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "3회",
+          "air_date": "2026-07-25",
+          "view_rate": 4.35,
+          "channel": ""
+        },
         {
           "episode": "2회",
           "air_date": "2026-07-19",
@@ -54,123 +340,2111 @@
       ]
     },
     "나 혼자 산다": {
-      "view_rate": 5.7,
-      "episode": "656회",
-      "air_date": "2026.07.17.",
-      "channel": "MBC",
-      "type": "LATEST"
+      "view_rate": 5.8,
+      "episode": "657회",
+      "air_date": "2026-07-24",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "657회",
+          "air_date": "2026-07-24",
+          "view_rate": 5.8,
+          "channel": ""
+        },
+        {
+          "episode": "656회",
+          "air_date": "2026-07-17",
+          "view_rate": 5.7,
+          "channel": ""
+        },
+        {
+          "episode": "655회",
+          "air_date": "2026-07-10",
+          "view_rate": 6.7,
+          "channel": ""
+        },
+        {
+          "episode": "654회",
+          "air_date": "2026-07-03",
+          "view_rate": 5.4,
+          "channel": ""
+        },
+        {
+          "episode": "653회",
+          "air_date": "2026-06-26",
+          "view_rate": 6.0,
+          "channel": ""
+        },
+        {
+          "episode": "652회",
+          "air_date": "2026-06-19",
+          "view_rate": 5.5,
+          "channel": ""
+        },
+        {
+          "episode": "651회",
+          "air_date": "2026-06-12",
+          "view_rate": 5.6,
+          "channel": ""
+        },
+        {
+          "episode": "650회",
+          "air_date": "2026-06-05",
+          "view_rate": 5.7,
+          "channel": ""
+        },
+        {
+          "episode": "649회",
+          "air_date": "2026-05-29",
+          "view_rate": 6.3,
+          "channel": ""
+        },
+        {
+          "episode": "648회",
+          "air_date": "2026-05-22",
+          "view_rate": 5.2,
+          "channel": ""
+        },
+        {
+          "episode": "647회",
+          "air_date": "2026-05-15",
+          "view_rate": 5.3,
+          "channel": ""
+        },
+        {
+          "episode": "646회",
+          "air_date": "2026-05-08",
+          "view_rate": 4.3,
+          "channel": ""
+        },
+        {
+          "episode": "645회",
+          "air_date": "2026-05-01",
+          "view_rate": 5.2,
+          "channel": ""
+        },
+        {
+          "episode": "644회",
+          "air_date": "2026-04-24",
+          "view_rate": 5.6,
+          "channel": ""
+        },
+        {
+          "episode": "643회",
+          "air_date": "2026-04-17",
+          "view_rate": 5.1,
+          "channel": ""
+        },
+        {
+          "episode": "642회",
+          "air_date": "2026-04-10",
+          "view_rate": 6.1,
+          "channel": ""
+        },
+        {
+          "episode": "641회",
+          "air_date": "2026-04-03",
+          "view_rate": 4.5,
+          "channel": ""
+        },
+        {
+          "episode": "640회",
+          "air_date": "2026-03-27",
+          "view_rate": 4.4,
+          "channel": ""
+        },
+        {
+          "episode": "639회",
+          "air_date": "2026-03-20",
+          "view_rate": 4.8,
+          "channel": ""
+        },
+        {
+          "episode": "638회",
+          "air_date": "2026-03-13",
+          "view_rate": 5.3,
+          "channel": ""
+        },
+        {
+          "episode": "637회",
+          "air_date": "2026-03-06",
+          "view_rate": 4.6,
+          "channel": ""
+        },
+        {
+          "episode": "636회",
+          "air_date": "2026-02-27",
+          "view_rate": 5.7,
+          "channel": ""
+        },
+        {
+          "episode": "635회",
+          "air_date": "2026-02-20",
+          "view_rate": 5.3,
+          "channel": ""
+        },
+        {
+          "episode": "634회",
+          "air_date": "2026-02-13",
+          "view_rate": 5.3,
+          "channel": ""
+        },
+        {
+          "episode": "633회",
+          "air_date": "2026-02-06",
+          "view_rate": 5.6,
+          "channel": ""
+        },
+        {
+          "episode": "632회",
+          "air_date": "2026-01-30",
+          "view_rate": 5.1,
+          "channel": ""
+        },
+        {
+          "episode": "631회",
+          "air_date": "2026-01-23",
+          "view_rate": 5.7,
+          "channel": ""
+        },
+        {
+          "episode": "630회",
+          "air_date": "2026-01-16",
+          "view_rate": 5.0,
+          "channel": ""
+        },
+        {
+          "episode": "629회",
+          "air_date": "2026-01-09",
+          "view_rate": 5.0,
+          "channel": ""
+        },
+        {
+          "episode": "628회",
+          "air_date": "2025-12-26",
+          "view_rate": 5.4,
+          "channel": ""
+        }
+      ]
     },
     "벌거벗은 세계사": {
       "view_rate": 2.503,
       "episode": "264회",
-      "air_date": "2026.07.20.",
-      "channel": "tvN",
-      "type": "LATEST"
+      "air_date": "2026-07-20",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "264회",
+          "air_date": "2026-07-20",
+          "view_rate": 2.503,
+          "channel": ""
+        },
+        {
+          "episode": "263회",
+          "air_date": "2026-07-13",
+          "view_rate": 1.725,
+          "channel": ""
+        },
+        {
+          "episode": "262회",
+          "air_date": "2026-07-06",
+          "view_rate": 2.087,
+          "channel": ""
+        },
+        {
+          "episode": "261회",
+          "air_date": "2026-06-29",
+          "view_rate": 1.563,
+          "channel": ""
+        },
+        {
+          "episode": "260회",
+          "air_date": "2026-06-22",
+          "view_rate": 1.8,
+          "channel": ""
+        },
+        {
+          "episode": "259회",
+          "air_date": "2026-06-15",
+          "view_rate": 1.853,
+          "channel": ""
+        },
+        {
+          "episode": "258회",
+          "air_date": "2026-06-08",
+          "view_rate": 2.14,
+          "channel": ""
+        },
+        {
+          "episode": "257회",
+          "air_date": "2026-06-01",
+          "view_rate": 2.338,
+          "channel": ""
+        },
+        {
+          "episode": "256회",
+          "air_date": "2026-05-25",
+          "view_rate": 1.857,
+          "channel": ""
+        },
+        {
+          "episode": "255회",
+          "air_date": "2026-05-18",
+          "view_rate": 2.189,
+          "channel": ""
+        },
+        {
+          "episode": "254회",
+          "air_date": "2026-05-11",
+          "view_rate": 1.409,
+          "channel": ""
+        },
+        {
+          "episode": "253회",
+          "air_date": "2026-05-04",
+          "view_rate": 1.868,
+          "channel": ""
+        },
+        {
+          "episode": "252회",
+          "air_date": "2026-04-27",
+          "view_rate": 1.511,
+          "channel": ""
+        },
+        {
+          "episode": "251회",
+          "air_date": "2026-04-20",
+          "view_rate": 2.15,
+          "channel": ""
+        },
+        {
+          "episode": "250회",
+          "air_date": "2026-04-13",
+          "view_rate": 1.535,
+          "channel": ""
+        },
+        {
+          "episode": "249회",
+          "air_date": "2026-04-06",
+          "view_rate": 2.091,
+          "channel": ""
+        },
+        {
+          "episode": "248회",
+          "air_date": "2026-03-30",
+          "view_rate": 1.755,
+          "channel": ""
+        },
+        {
+          "episode": "247회",
+          "air_date": "2026-03-23",
+          "view_rate": 1.899,
+          "channel": ""
+        },
+        {
+          "episode": "246회",
+          "air_date": "2026-03-16",
+          "view_rate": 2.308,
+          "channel": ""
+        },
+        {
+          "episode": "245회",
+          "air_date": "2026-03-09",
+          "view_rate": 2.161,
+          "channel": ""
+        },
+        {
+          "episode": "244회",
+          "air_date": "2026-03-02",
+          "view_rate": 2.123,
+          "channel": ""
+        },
+        {
+          "episode": "243회",
+          "air_date": "2026-02-23",
+          "view_rate": 2.884,
+          "channel": ""
+        },
+        {
+          "episode": "242회",
+          "air_date": "2026-02-16",
+          "view_rate": 1.779,
+          "channel": ""
+        },
+        {
+          "episode": "241회",
+          "air_date": "2026-02-09",
+          "view_rate": 2.535,
+          "channel": ""
+        },
+        {
+          "episode": "240회",
+          "air_date": "2026-02-02",
+          "view_rate": 2.516,
+          "channel": ""
+        },
+        {
+          "episode": "239회",
+          "air_date": "2026-01-26",
+          "view_rate": 2.224,
+          "channel": ""
+        },
+        {
+          "episode": "238회",
+          "air_date": "2026-01-19",
+          "view_rate": 1.808,
+          "channel": ""
+        },
+        {
+          "episode": "237회",
+          "air_date": "2026-01-12",
+          "view_rate": 1.876,
+          "channel": ""
+        },
+        {
+          "episode": "236회",
+          "air_date": "2026-01-05",
+          "view_rate": 2.093,
+          "channel": ""
+        },
+        {
+          "episode": "235회",
+          "air_date": "2025-12-29",
+          "view_rate": 1.88,
+          "channel": ""
+        }
+      ]
     },
     "콩콩팜팜": {
-      "view_rate": 2.744,
-      "episode": "5회",
-      "air_date": "2026.07.17.",
-      "channel": "tvN",
-      "type": "LATEST"
+      "view_rate": 2.007,
+      "episode": "6회",
+      "air_date": "2026-07-24",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "6회",
+          "air_date": "2026-07-24",
+          "view_rate": 2.007,
+          "channel": ""
+        },
+        {
+          "episode": "5회",
+          "air_date": "2026-07-17",
+          "view_rate": 2.744,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-07-10",
+          "view_rate": 2.171,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-07-03",
+          "view_rate": 2.354,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-06-26",
+          "view_rate": 2.878,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-06-19",
+          "view_rate": 3.043,
+          "channel": ""
+        }
+      ]
     },
     "유 퀴즈 온 더 블럭": {
-      "view_rate": 3.996,
-      "episode": "351회",
-      "air_date": "2026.07.15.",
-      "channel": "tvN",
-      "type": "LATEST"
+      "view_rate": 4.022,
+      "episode": "352회",
+      "air_date": "2026-07-22",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "352회",
+          "air_date": "2026-07-22",
+          "view_rate": 4.022,
+          "channel": ""
+        },
+        {
+          "episode": "351회",
+          "air_date": "2026-07-15",
+          "view_rate": 3.996,
+          "channel": ""
+        },
+        {
+          "episode": "350회",
+          "air_date": "2026-07-08",
+          "view_rate": 4.147,
+          "channel": ""
+        },
+        {
+          "episode": "349회",
+          "air_date": "2026-07-01",
+          "view_rate": 4.26,
+          "channel": ""
+        },
+        {
+          "episode": "348회",
+          "air_date": "2026-06-24",
+          "view_rate": 4.641,
+          "channel": ""
+        },
+        {
+          "episode": "347회",
+          "air_date": "2026-06-17",
+          "view_rate": 4.104,
+          "channel": ""
+        },
+        {
+          "episode": "346회",
+          "air_date": "2026-06-10",
+          "view_rate": 5.743,
+          "channel": ""
+        },
+        {
+          "episode": "345회",
+          "air_date": "2026-05-27",
+          "view_rate": 3.938,
+          "channel": ""
+        },
+        {
+          "episode": "344회",
+          "air_date": "2026-05-20",
+          "view_rate": 3.912,
+          "channel": ""
+        },
+        {
+          "episode": "343회",
+          "air_date": "2026-05-13",
+          "view_rate": 3.595,
+          "channel": ""
+        },
+        {
+          "episode": "342회",
+          "air_date": "2026-05-06",
+          "view_rate": 3.366,
+          "channel": ""
+        },
+        {
+          "episode": "341회",
+          "air_date": "2026-04-29",
+          "view_rate": 3.694,
+          "channel": ""
+        },
+        {
+          "episode": "340회",
+          "air_date": "2026-04-22",
+          "view_rate": 4.101,
+          "channel": ""
+        },
+        {
+          "episode": "339회",
+          "air_date": "2026-04-15",
+          "view_rate": 3.519,
+          "channel": ""
+        },
+        {
+          "episode": "338회",
+          "air_date": "2026-04-08",
+          "view_rate": 3.76,
+          "channel": ""
+        },
+        {
+          "episode": "337회",
+          "air_date": "2026-04-01",
+          "view_rate": 3.652,
+          "channel": ""
+        },
+        {
+          "episode": "336회",
+          "air_date": "2026-03-25",
+          "view_rate": 3.967,
+          "channel": ""
+        },
+        {
+          "episode": "335회",
+          "air_date": "2026-03-18",
+          "view_rate": 4.067,
+          "channel": ""
+        },
+        {
+          "episode": "334회",
+          "air_date": "2026-03-11",
+          "view_rate": 3.634,
+          "channel": ""
+        },
+        {
+          "episode": "333회",
+          "air_date": "2026-03-04",
+          "view_rate": 3.922,
+          "channel": ""
+        },
+        {
+          "episode": "332회",
+          "air_date": "2026-02-25",
+          "view_rate": 4.858,
+          "channel": ""
+        },
+        {
+          "episode": "331회",
+          "air_date": "2026-02-11",
+          "view_rate": 4.568,
+          "channel": ""
+        },
+        {
+          "episode": "330회",
+          "air_date": "2026-02-04",
+          "view_rate": 4.313,
+          "channel": ""
+        },
+        {
+          "episode": "329회",
+          "air_date": "2026-01-28",
+          "view_rate": 2.988,
+          "channel": ""
+        },
+        {
+          "episode": "328회",
+          "air_date": "2026-01-21",
+          "view_rate": 3.766,
+          "channel": ""
+        },
+        {
+          "episode": "327회",
+          "air_date": "2026-01-14",
+          "view_rate": 3.753,
+          "channel": ""
+        },
+        {
+          "episode": "326회",
+          "air_date": "2026-01-07",
+          "view_rate": 3.512,
+          "channel": ""
+        },
+        {
+          "episode": "325회",
+          "air_date": "2025-12-31",
+          "view_rate": 2.809,
+          "channel": ""
+        },
+        {
+          "episode": "324회",
+          "air_date": "2025-12-24",
+          "view_rate": 2.953,
+          "channel": ""
+        },
+        {
+          "episode": "323회",
+          "air_date": "2025-12-17",
+          "view_rate": 2.796,
+          "channel": ""
+        }
+      ]
     },
     "나는 SOLO": {
-      "view_rate": 1.871,
-      "episode": "262회",
-      "air_date": "2026.07.15.",
-      "channel": "SBS Plus",
-      "type": "LATEST"
+      "view_rate": 1.933,
+      "episode": "263회",
+      "air_date": "2026-07-22",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "263회",
+          "air_date": "2026-07-22",
+          "view_rate": 1.933,
+          "channel": ""
+        },
+        {
+          "episode": "262회",
+          "air_date": "2026-07-15",
+          "view_rate": 1.871,
+          "channel": ""
+        },
+        {
+          "episode": "261회",
+          "air_date": "2026-07-08",
+          "view_rate": 1.689,
+          "channel": ""
+        },
+        {
+          "episode": "260회",
+          "air_date": "2026-07-01",
+          "view_rate": 1.716,
+          "channel": ""
+        },
+        {
+          "episode": "259회",
+          "air_date": "2026-06-24",
+          "view_rate": 1.983,
+          "channel": ""
+        },
+        {
+          "episode": "258회",
+          "air_date": "2026-06-17",
+          "view_rate": 1.891,
+          "channel": ""
+        },
+        {
+          "episode": "257회",
+          "air_date": "2026-06-10",
+          "view_rate": 1.933,
+          "channel": ""
+        },
+        {
+          "episode": "256회",
+          "air_date": "2026-06-03",
+          "view_rate": 1.664,
+          "channel": ""
+        },
+        {
+          "episode": "255회",
+          "air_date": "2026-05-27",
+          "view_rate": 2.113,
+          "channel": ""
+        },
+        {
+          "episode": "254회",
+          "air_date": "2026-05-20",
+          "view_rate": 2.201,
+          "channel": ""
+        },
+        {
+          "episode": "253회",
+          "air_date": "2026-05-13",
+          "view_rate": 2.0,
+          "channel": ""
+        },
+        {
+          "episode": "252회",
+          "air_date": "2026-05-06",
+          "view_rate": 1.513,
+          "channel": ""
+        },
+        {
+          "episode": "251회",
+          "air_date": "2026-04-29",
+          "view_rate": 1.61,
+          "channel": ""
+        },
+        {
+          "episode": "250회",
+          "air_date": "2026-04-22",
+          "view_rate": 1.393,
+          "channel": ""
+        },
+        {
+          "episode": "249회",
+          "air_date": "2026-04-15",
+          "view_rate": 1.345,
+          "channel": ""
+        },
+        {
+          "episode": "248회",
+          "air_date": "2026-04-08",
+          "view_rate": 1.595,
+          "channel": ""
+        },
+        {
+          "episode": "247회",
+          "air_date": "2026-04-01",
+          "view_rate": 1.583,
+          "channel": ""
+        },
+        {
+          "episode": "246회",
+          "air_date": "2026-03-25",
+          "view_rate": 1.883,
+          "channel": ""
+        },
+        {
+          "episode": "245회",
+          "air_date": "2026-03-18",
+          "view_rate": 1.862,
+          "channel": ""
+        },
+        {
+          "episode": "244회",
+          "air_date": "2026-03-11",
+          "view_rate": 1.775,
+          "channel": ""
+        },
+        {
+          "episode": "243회",
+          "air_date": "2026-03-04",
+          "view_rate": 1.826,
+          "channel": ""
+        },
+        {
+          "episode": "242회",
+          "air_date": "2026-02-25",
+          "view_rate": 1.617,
+          "channel": ""
+        },
+        {
+          "episode": "241회",
+          "air_date": "2026-02-18",
+          "view_rate": 1.831,
+          "channel": ""
+        },
+        {
+          "episode": "240회",
+          "air_date": "2026-02-11",
+          "view_rate": 2.083,
+          "channel": ""
+        },
+        {
+          "episode": "239회",
+          "air_date": "2026-02-04",
+          "view_rate": 2.092,
+          "channel": ""
+        },
+        {
+          "episode": "238회",
+          "air_date": "2026-01-28",
+          "view_rate": 1.313,
+          "channel": ""
+        },
+        {
+          "episode": "237회",
+          "air_date": "2026-01-21",
+          "view_rate": 1.691,
+          "channel": ""
+        },
+        {
+          "episode": "236회",
+          "air_date": "2026-01-14",
+          "view_rate": 1.533,
+          "channel": ""
+        },
+        {
+          "episode": "235회",
+          "air_date": "2026-01-07",
+          "view_rate": 1.514,
+          "channel": ""
+        },
+        {
+          "episode": "234회",
+          "air_date": "2025-12-31",
+          "view_rate": 1.253,
+          "channel": ""
+        }
+      ]
     },
     "언더커버 셰프": {
-      "view_rate": 5.018,
-      "episode": "9회",
-      "air_date": "2026.07.16.",
-      "channel": "tvN",
-      "type": "LATEST"
+      "view_rate": 6.151,
+      "episode": "10회",
+      "air_date": "2026-07-23",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "10회",
+          "air_date": "2026-07-23",
+          "view_rate": 6.151,
+          "channel": ""
+        },
+        {
+          "episode": "9회",
+          "air_date": "2026-07-16",
+          "view_rate": 5.018,
+          "channel": ""
+        },
+        {
+          "episode": "8회",
+          "air_date": "2026-07-09",
+          "view_rate": 5.05,
+          "channel": ""
+        },
+        {
+          "episode": "7회",
+          "air_date": "2026-07-02",
+          "view_rate": 4.566,
+          "channel": ""
+        },
+        {
+          "episode": "6회",
+          "air_date": "2026-06-25",
+          "view_rate": 4.528,
+          "channel": ""
+        },
+        {
+          "episode": "5회",
+          "air_date": "2026-06-18",
+          "view_rate": 4.107,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-06-11",
+          "view_rate": 3.58,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-06-04",
+          "view_rate": 3.908,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-05-28",
+          "view_rate": 3.218,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-05-21",
+          "view_rate": 2.316,
+          "channel": ""
+        }
+      ]
     },
     "핸썸가이즈": {
-      "view_rate": 2.023,
-      "episode": "36회",
-      "air_date": "2025.08.14.",
-      "channel": "tvN",
-      "type": "HIGHEST"
+      "view_rate": 1.488,
+      "episode": "46회",
+      "air_date": "2025-10-23",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "46회",
+          "air_date": "2025-10-23",
+          "view_rate": 1.488,
+          "channel": ""
+        },
+        {
+          "episode": "45회",
+          "air_date": "2025-10-16",
+          "view_rate": 1.879,
+          "channel": ""
+        },
+        {
+          "episode": "44회",
+          "air_date": "2025-10-09",
+          "view_rate": 1.535,
+          "channel": ""
+        },
+        {
+          "episode": "43회",
+          "air_date": "2025-10-02",
+          "view_rate": 1.538,
+          "channel": ""
+        },
+        {
+          "episode": "42회",
+          "air_date": "2025-09-25",
+          "view_rate": 1.824,
+          "channel": ""
+        },
+        {
+          "episode": "41회",
+          "air_date": "2025-09-18",
+          "view_rate": 1.825,
+          "channel": ""
+        },
+        {
+          "episode": "40회",
+          "air_date": "2025-09-11",
+          "view_rate": 1.755,
+          "channel": ""
+        },
+        {
+          "episode": "39회",
+          "air_date": "2025-09-04",
+          "view_rate": 1.542,
+          "channel": ""
+        },
+        {
+          "episode": "38회",
+          "air_date": "2025-08-28",
+          "view_rate": 1.658,
+          "channel": ""
+        },
+        {
+          "episode": "37회",
+          "air_date": "2025-08-21",
+          "view_rate": 1.666,
+          "channel": ""
+        },
+        {
+          "episode": "36회",
+          "air_date": "2025-08-14",
+          "view_rate": 2.023,
+          "channel": ""
+        },
+        {
+          "episode": "35회",
+          "air_date": "2025-08-07",
+          "view_rate": 1.818,
+          "channel": ""
+        },
+        {
+          "episode": "34회",
+          "air_date": "2025-07-31",
+          "view_rate": 1.551,
+          "channel": ""
+        },
+        {
+          "episode": "33회",
+          "air_date": "2025-07-24",
+          "view_rate": 1.912,
+          "channel": ""
+        },
+        {
+          "episode": "32회",
+          "air_date": "2025-07-17",
+          "view_rate": 1.888,
+          "channel": ""
+        },
+        {
+          "episode": "31회",
+          "air_date": "2025-07-10",
+          "view_rate": 1.187,
+          "channel": ""
+        },
+        {
+          "episode": "30회",
+          "air_date": "2025-07-03",
+          "view_rate": 1.546,
+          "channel": ""
+        },
+        {
+          "episode": "29회",
+          "air_date": "2025-06-26",
+          "view_rate": 1.577,
+          "channel": ""
+        },
+        {
+          "episode": "28회",
+          "air_date": "2025-06-19",
+          "view_rate": 1.486,
+          "channel": ""
+        },
+        {
+          "episode": "27회",
+          "air_date": "2025-06-12",
+          "view_rate": 1.705,
+          "channel": ""
+        },
+        {
+          "episode": "26회",
+          "air_date": "2025-06-05",
+          "view_rate": 1.431,
+          "channel": ""
+        },
+        {
+          "episode": "25회",
+          "air_date": "2025-05-29",
+          "view_rate": 1.47,
+          "channel": ""
+        },
+        {
+          "episode": "24회",
+          "air_date": "2025-05-22",
+          "view_rate": 1.572,
+          "channel": ""
+        },
+        {
+          "episode": "23회",
+          "air_date": "2025-05-15",
+          "view_rate": 1.472,
+          "channel": ""
+        },
+        {
+          "episode": "22회",
+          "air_date": "2025-05-08",
+          "view_rate": 1.656,
+          "channel": ""
+        },
+        {
+          "episode": "21회",
+          "air_date": "2025-05-01",
+          "view_rate": 1.569,
+          "channel": ""
+        },
+        {
+          "episode": "20회",
+          "air_date": "2025-04-24",
+          "view_rate": 1.844,
+          "channel": ""
+        },
+        {
+          "episode": "19회",
+          "air_date": "2025-04-17",
+          "view_rate": 1.805,
+          "channel": ""
+        },
+        {
+          "episode": "18회",
+          "air_date": "2025-04-13",
+          "view_rate": 0.936,
+          "channel": ""
+        },
+        {
+          "episode": "17회",
+          "air_date": "2025-04-06",
+          "view_rate": 1.461,
+          "channel": ""
+        }
+      ]
     },
     "아이돌 파견근무": {
       "view_rate": 0.305,
       "episode": "5회",
-      "air_date": "2026.07.07.",
-      "channel": "ENA",
-      "type": "LATEST"
+      "air_date": "2026-07-07",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "5회",
+          "air_date": "2026-07-07",
+          "view_rate": 0.305,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-06-30",
+          "view_rate": 0.268,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-06-23",
+          "view_rate": 0.261,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-06-16",
+          "view_rate": 0.36,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-06-09",
+          "view_rate": 0.223,
+          "channel": ""
+        }
+      ]
     },
     "신발 벗고 돌싱포맨": {
       "view_rate": 4.0,
       "episode": "",
       "air_date": "2025.08.05.",
       "channel": "SBS",
-      "type": "HIGHEST"
+      "type": "HIGHEST",
+      "episodes": []
     },
     "킬잇 : 스타일 크리에이터 대전쟁": {
       "view_rate": 1.066,
       "episode": "11회",
-      "air_date": "2026.07.21.",
-      "channel": "tvN",
-      "type": "LATEST"
+      "air_date": "2026-07-21",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "11회",
+          "air_date": "2026-07-21",
+          "view_rate": 1.066,
+          "channel": ""
+        },
+        {
+          "episode": "10회",
+          "air_date": "2026-07-14",
+          "view_rate": 0.945,
+          "channel": ""
+        },
+        {
+          "episode": "9회",
+          "air_date": "2026-07-07",
+          "view_rate": 0.63,
+          "channel": ""
+        },
+        {
+          "episode": "8회",
+          "air_date": "2026-06-30",
+          "view_rate": 0.75,
+          "channel": ""
+        },
+        {
+          "episode": "7회",
+          "air_date": "2026-06-23",
+          "view_rate": 0.7,
+          "channel": ""
+        },
+        {
+          "episode": "6회",
+          "air_date": "2026-06-16",
+          "view_rate": 0.705,
+          "channel": ""
+        },
+        {
+          "episode": "5회",
+          "air_date": "2026-06-09",
+          "view_rate": 0.785,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-06-02",
+          "view_rate": 0.911,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-05-26",
+          "view_rate": 1.031,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-05-19",
+          "view_rate": 1.154,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-05-12",
+          "view_rate": 1.252,
+          "channel": ""
+        }
+      ]
     },
     "연애전쟁": {
       "view_rate": 2.149,
       "episode": "",
       "air_date": "2026.07.21.",
       "channel": "JTBC",
-      "type": "LATEST"
+      "type": "LATEST",
+      "episodes": []
     },
     "이호선 상담소": {
       "view_rate": 1.288,
       "episode": "26회",
-      "air_date": "2026.07.14.",
-      "channel": "tvN STORY",
-      "type": "LATEST"
+      "air_date": "2026-07-14",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "26회",
+          "air_date": "2026-07-14",
+          "view_rate": 1.288,
+          "channel": ""
+        },
+        {
+          "episode": "25회",
+          "air_date": "2026-07-07",
+          "view_rate": 1.311,
+          "channel": ""
+        },
+        {
+          "episode": "24회",
+          "air_date": "2026-06-30",
+          "view_rate": 1.16,
+          "channel": ""
+        },
+        {
+          "episode": "23회",
+          "air_date": "2026-06-23",
+          "view_rate": 1.52,
+          "channel": ""
+        },
+        {
+          "episode": "22회",
+          "air_date": "2026-06-16",
+          "view_rate": 1.224,
+          "channel": ""
+        },
+        {
+          "episode": "21회",
+          "air_date": "2026-06-09",
+          "view_rate": 1.691,
+          "channel": ""
+        },
+        {
+          "episode": "20회",
+          "air_date": "2026-06-02",
+          "view_rate": 1.165,
+          "channel": ""
+        },
+        {
+          "episode": "19회",
+          "air_date": "2026-05-26",
+          "view_rate": 1.593,
+          "channel": ""
+        },
+        {
+          "episode": "18회",
+          "air_date": "2026-05-19",
+          "view_rate": 1.433,
+          "channel": ""
+        },
+        {
+          "episode": "17회",
+          "air_date": "2026-05-12",
+          "view_rate": 1.707,
+          "channel": ""
+        },
+        {
+          "episode": "16회",
+          "air_date": "2026-05-05",
+          "view_rate": 2.112,
+          "channel": ""
+        },
+        {
+          "episode": "15회",
+          "air_date": "2026-04-28",
+          "view_rate": 1.708,
+          "channel": ""
+        },
+        {
+          "episode": "14회",
+          "air_date": "2026-04-21",
+          "view_rate": 1.878,
+          "channel": ""
+        },
+        {
+          "episode": "13회",
+          "air_date": "2026-04-14",
+          "view_rate": 1.552,
+          "channel": ""
+        },
+        {
+          "episode": "12회",
+          "air_date": "2026-04-07",
+          "view_rate": 1.059,
+          "channel": ""
+        },
+        {
+          "episode": "11회",
+          "air_date": "2026-03-31",
+          "view_rate": 1.369,
+          "channel": ""
+        },
+        {
+          "episode": "10회",
+          "air_date": "2026-03-24",
+          "view_rate": 1.88,
+          "channel": ""
+        },
+        {
+          "episode": "9회",
+          "air_date": "2026-03-17",
+          "view_rate": 1.409,
+          "channel": ""
+        },
+        {
+          "episode": "8회",
+          "air_date": "2026-02-24",
+          "view_rate": 2.137,
+          "channel": ""
+        },
+        {
+          "episode": "7회",
+          "air_date": "2026-02-17",
+          "view_rate": 1.796,
+          "channel": ""
+        },
+        {
+          "episode": "6회",
+          "air_date": "2026-02-10",
+          "view_rate": 1.445,
+          "channel": ""
+        },
+        {
+          "episode": "5회",
+          "air_date": "2026-02-03",
+          "view_rate": 1.5,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-01-27",
+          "view_rate": 1.601,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-01-20",
+          "view_rate": 1.192,
+          "channel": ""
+        },
+        {
+          "episode": "2회",
+          "air_date": "2026-01-13",
+          "view_rate": 1.318,
+          "channel": ""
+        },
+        {
+          "episode": "1회",
+          "air_date": "2026-01-06",
+          "view_rate": 0.764,
+          "channel": ""
+        }
+      ]
     },
     "히든에이지": {
       "view_rate": 0.367,
       "episode": "5회",
-      "air_date": "2026.03.24.",
-      "channel": "tvN",
-      "type": "LATEST"
+      "air_date": "2026-03-24",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "5회",
+          "air_date": "2026-03-24",
+          "view_rate": 0.367,
+          "channel": ""
+        },
+        {
+          "episode": "4회",
+          "air_date": "2026-03-17",
+          "view_rate": 0.471,
+          "channel": ""
+        },
+        {
+          "episode": "3회",
+          "air_date": "2026-03-10",
+          "view_rate": 0.4,
+          "channel": ""
+        }
+      ]
     },
     "동상이몽 2 - 너는 내 운명": {
       "view_rate": 4.4,
       "episode": "448회",
-      "air_date": "2026.07.21.",
-      "channel": "SBS",
-      "type": "LATEST"
+      "air_date": "2026-07-21",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "448회",
+          "air_date": "2026-07-21",
+          "view_rate": 4.4,
+          "channel": ""
+        },
+        {
+          "episode": "447회",
+          "air_date": "2026-07-14",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "446회",
+          "air_date": "2026-07-07",
+          "view_rate": 2.9,
+          "channel": ""
+        },
+        {
+          "episode": "445회",
+          "air_date": "2026-06-30",
+          "view_rate": 4.2,
+          "channel": ""
+        },
+        {
+          "episode": "444회",
+          "air_date": "2026-06-23",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "443회",
+          "air_date": "2026-06-16",
+          "view_rate": 2.9,
+          "channel": ""
+        },
+        {
+          "episode": "442회",
+          "air_date": "2026-06-09",
+          "view_rate": 2.2,
+          "channel": ""
+        },
+        {
+          "episode": "441회",
+          "air_date": "2026-06-02",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "440회",
+          "air_date": "2026-05-26",
+          "view_rate": 4.2,
+          "channel": ""
+        },
+        {
+          "episode": "439회",
+          "air_date": "2026-05-19",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "438회",
+          "air_date": "2026-05-12",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "437회",
+          "air_date": "2026-05-05",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "436회",
+          "air_date": "2026-04-28",
+          "view_rate": 3.9,
+          "channel": ""
+        },
+        {
+          "episode": "435회",
+          "air_date": "2026-04-21",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "434회",
+          "air_date": "2026-04-14",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "433회",
+          "air_date": "2026-04-07",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "432회",
+          "air_date": "2026-03-31",
+          "view_rate": 2.6,
+          "channel": ""
+        },
+        {
+          "episode": "431회",
+          "air_date": "2026-03-24",
+          "view_rate": 2.9,
+          "channel": ""
+        },
+        {
+          "episode": "430회",
+          "air_date": "2026-03-17",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "429회",
+          "air_date": "2026-03-10",
+          "view_rate": 2.6,
+          "channel": ""
+        },
+        {
+          "episode": "427회",
+          "air_date": "2026-02-24",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "425회",
+          "air_date": "2026-02-10",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "424회",
+          "air_date": "2026-02-03",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "423회",
+          "air_date": "2026-01-26",
+          "view_rate": 2.9,
+          "channel": ""
+        },
+        {
+          "episode": "422회",
+          "air_date": "2026-01-19",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "421회",
+          "air_date": "2026-01-12",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "420회",
+          "air_date": "2026-01-05",
+          "view_rate": 4.0,
+          "channel": ""
+        },
+        {
+          "episode": "419회",
+          "air_date": "2025-12-22",
+          "view_rate": 2.5,
+          "channel": ""
+        }
+      ]
     },
     "골 때리는 그녀들": {
-      "view_rate": 3.6,
-      "episode": "223회",
-      "air_date": "2026.07.15.",
-      "channel": "SBS",
-      "type": "LATEST"
+      "view_rate": 4.1,
+      "episode": "224회",
+      "air_date": "2026-07-22",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "224회",
+          "air_date": "2026-07-22",
+          "view_rate": 4.1,
+          "channel": ""
+        },
+        {
+          "episode": "223회",
+          "air_date": "2026-07-15",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "222회",
+          "air_date": "2026-07-08",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "221회",
+          "air_date": "2026-07-01",
+          "view_rate": 3.1,
+          "channel": ""
+        },
+        {
+          "episode": "220회",
+          "air_date": "2026-06-24",
+          "view_rate": 2.4,
+          "channel": ""
+        },
+        {
+          "episode": "218회",
+          "air_date": "2026-06-17",
+          "view_rate": 3.1,
+          "channel": ""
+        },
+        {
+          "episode": "217회",
+          "air_date": "2026-05-20",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "216회",
+          "air_date": "2026-05-13",
+          "view_rate": 2.6,
+          "channel": ""
+        },
+        {
+          "episode": "215회",
+          "air_date": "2026-05-06",
+          "view_rate": 2.9,
+          "channel": ""
+        },
+        {
+          "episode": "214회",
+          "air_date": "2026-04-29",
+          "view_rate": 2.5,
+          "channel": ""
+        },
+        {
+          "episode": "213회",
+          "air_date": "2026-04-22",
+          "view_rate": 2.7,
+          "channel": ""
+        },
+        {
+          "episode": "212회",
+          "air_date": "2026-04-15",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "211회",
+          "air_date": "2026-04-08",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "210회",
+          "air_date": "2026-04-01",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "209회",
+          "air_date": "2026-03-25",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "208회",
+          "air_date": "2026-03-18",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "207회",
+          "air_date": "2026-03-11",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "206회",
+          "air_date": "2026-03-04",
+          "view_rate": 4.0,
+          "channel": ""
+        },
+        {
+          "episode": "205회",
+          "air_date": "2026-02-25",
+          "view_rate": 4.0,
+          "channel": ""
+        },
+        {
+          "episode": "203회",
+          "air_date": "2026-02-11",
+          "view_rate": 4.0,
+          "channel": ""
+        },
+        {
+          "episode": "202회",
+          "air_date": "2026-02-04",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "201회",
+          "air_date": "2026-01-28",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "200회",
+          "air_date": "2026-01-21",
+          "view_rate": 4.0,
+          "channel": ""
+        },
+        {
+          "episode": "198회",
+          "air_date": "2025-11-26",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "197회",
+          "air_date": "2025-11-19",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "196회",
+          "air_date": "2025-11-12",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "195회",
+          "air_date": "2025-11-05",
+          "view_rate": 4.7,
+          "channel": ""
+        }
+      ]
     },
     "남겨서 뭐하게": {
       "view_rate": 0.524,
       "episode": "52회",
-      "air_date": "2026.07.20.",
-      "channel": "tvN STORY",
-      "type": "LATEST"
+      "air_date": "2026-07-20",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "52회",
+          "air_date": "2026-07-20",
+          "view_rate": 0.524,
+          "channel": ""
+        },
+        {
+          "episode": "51회",
+          "air_date": "2026-07-13",
+          "view_rate": 0.735,
+          "channel": ""
+        },
+        {
+          "episode": "50회",
+          "air_date": "2026-07-06",
+          "view_rate": 0.562,
+          "channel": ""
+        },
+        {
+          "episode": "49회",
+          "air_date": "2026-06-29",
+          "view_rate": 0.494,
+          "channel": ""
+        },
+        {
+          "episode": "48회",
+          "air_date": "2026-06-22",
+          "view_rate": 0.606,
+          "channel": ""
+        },
+        {
+          "episode": "47회",
+          "air_date": "2026-06-15",
+          "view_rate": 0.464,
+          "channel": ""
+        },
+        {
+          "episode": "46회",
+          "air_date": "2026-06-08",
+          "view_rate": 0.395,
+          "channel": ""
+        },
+        {
+          "episode": "45회",
+          "air_date": "2026-06-01",
+          "view_rate": 0.337,
+          "channel": ""
+        },
+        {
+          "episode": "44회",
+          "air_date": "2026-05-25",
+          "view_rate": 0.512,
+          "channel": ""
+        },
+        {
+          "episode": "43회",
+          "air_date": "2026-05-18",
+          "view_rate": 0.539,
+          "channel": ""
+        },
+        {
+          "episode": "42회",
+          "air_date": "2026-05-11",
+          "view_rate": 0.52,
+          "channel": ""
+        },
+        {
+          "episode": "41회",
+          "air_date": "2026-05-04",
+          "view_rate": 0.616,
+          "channel": ""
+        },
+        {
+          "episode": "40회",
+          "air_date": "2026-04-27",
+          "view_rate": 0.471,
+          "channel": ""
+        },
+        {
+          "episode": "39회",
+          "air_date": "2026-04-20",
+          "view_rate": 0.619,
+          "channel": ""
+        },
+        {
+          "episode": "38회",
+          "air_date": "2026-04-13",
+          "view_rate": 0.448,
+          "channel": ""
+        },
+        {
+          "episode": "37회",
+          "air_date": "2026-04-06",
+          "view_rate": 0.499,
+          "channel": ""
+        },
+        {
+          "episode": "36회",
+          "air_date": "2026-03-30",
+          "view_rate": 0.548,
+          "channel": ""
+        },
+        {
+          "episode": "35회",
+          "air_date": "2026-03-23",
+          "view_rate": 0.724,
+          "channel": ""
+        },
+        {
+          "episode": "34회",
+          "air_date": "2026-03-16",
+          "view_rate": 0.84,
+          "channel": ""
+        },
+        {
+          "episode": "33회",
+          "air_date": "2026-03-09",
+          "view_rate": 0.985,
+          "channel": ""
+        },
+        {
+          "episode": "32회",
+          "air_date": "2026-03-02",
+          "view_rate": 0.704,
+          "channel": ""
+        },
+        {
+          "episode": "31회",
+          "air_date": "2026-02-23",
+          "view_rate": 0.696,
+          "channel": ""
+        },
+        {
+          "episode": "30회",
+          "air_date": "2026-02-18",
+          "view_rate": 1.058,
+          "channel": ""
+        },
+        {
+          "episode": "29회",
+          "air_date": "2026-02-11",
+          "view_rate": 0.875,
+          "channel": ""
+        },
+        {
+          "episode": "28회",
+          "air_date": "2026-02-04",
+          "view_rate": 0.659,
+          "channel": ""
+        },
+        {
+          "episode": "27회",
+          "air_date": "2026-01-28",
+          "view_rate": 0.65,
+          "channel": ""
+        },
+        {
+          "episode": "26회",
+          "air_date": "2026-01-21",
+          "view_rate": 0.59,
+          "channel": ""
+        },
+        {
+          "episode": "25회",
+          "air_date": "2026-01-14",
+          "view_rate": 0.572,
+          "channel": ""
+        },
+        {
+          "episode": "24회",
+          "air_date": "2026-01-07",
+          "view_rate": 0.613,
+          "channel": ""
+        },
+        {
+          "episode": "23회",
+          "air_date": "2025-12-24",
+          "view_rate": 0.533,
+          "channel": ""
+        }
+      ]
     },
     "프리한19": {
       "view_rate": 0.248,
       "episode": "529회",
-      "air_date": "2026.07.20.",
-      "channel": "tvN SHOW",
-      "type": "LATEST"
+      "air_date": "2026-07-20",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "529회",
+          "air_date": "2026-07-20",
+          "view_rate": 0.248,
+          "channel": ""
+        },
+        {
+          "episode": "528회",
+          "air_date": "2026-07-13",
+          "view_rate": 0.221,
+          "channel": ""
+        },
+        {
+          "episode": "527회",
+          "air_date": "2026-07-06",
+          "view_rate": 0.18,
+          "channel": ""
+        },
+        {
+          "episode": "526회",
+          "air_date": "2026-06-29",
+          "view_rate": 0.219,
+          "channel": ""
+        },
+        {
+          "episode": "525회",
+          "air_date": "2026-06-22",
+          "view_rate": 0.298,
+          "channel": ""
+        },
+        {
+          "episode": "524회",
+          "air_date": "2026-06-15",
+          "view_rate": 0.202,
+          "channel": ""
+        },
+        {
+          "episode": "522회",
+          "air_date": "2026-06-01",
+          "view_rate": 0.213,
+          "channel": ""
+        },
+        {
+          "episode": "520회",
+          "air_date": "2026-05-18",
+          "view_rate": 0.133,
+          "channel": ""
+        },
+        {
+          "episode": "517회",
+          "air_date": "2026-04-27",
+          "view_rate": 0.221,
+          "channel": ""
+        },
+        {
+          "episode": "516회",
+          "air_date": "2026-04-20",
+          "view_rate": 0.319,
+          "channel": ""
+        },
+        {
+          "episode": "515회",
+          "air_date": "2026-04-13",
+          "view_rate": 0.22,
+          "channel": ""
+        },
+        {
+          "episode": "514회",
+          "air_date": "2026-04-06",
+          "view_rate": 0.164,
+          "channel": ""
+        },
+        {
+          "episode": "512회",
+          "air_date": "2026-03-23",
+          "view_rate": 0.166,
+          "channel": ""
+        },
+        {
+          "episode": "510회",
+          "air_date": "2026-03-09",
+          "view_rate": 0.209,
+          "channel": ""
+        },
+        {
+          "episode": "508회",
+          "air_date": "2026-02-23",
+          "view_rate": 0.24,
+          "channel": ""
+        },
+        {
+          "episode": "502회",
+          "air_date": "2026-01-12",
+          "view_rate": 0.178,
+          "channel": ""
+        },
+        {
+          "episode": "499회",
+          "air_date": "2025-12-22",
+          "view_rate": 0.207,
+          "channel": ""
+        },
+        {
+          "episode": "496회",
+          "air_date": "2025-12-01",
+          "view_rate": 0.135,
+          "channel": ""
+        },
+        {
+          "episode": "488회",
+          "air_date": "2025-10-06",
+          "view_rate": 0.18,
+          "channel": ""
+        },
+        {
+          "episode": "487회",
+          "air_date": "2025-09-29",
+          "view_rate": 0.162,
+          "channel": ""
+        },
+        {
+          "episode": "484회",
+          "air_date": "2025-09-08",
+          "view_rate": 0.148,
+          "channel": ""
+        },
+        {
+          "episode": "482회",
+          "air_date": "2025-08-25",
+          "view_rate": 0.223,
+          "channel": ""
+        },
+        {
+          "episode": "481회",
+          "air_date": "2025-08-18",
+          "view_rate": 0.175,
+          "channel": ""
+        },
+        {
+          "episode": "480회",
+          "air_date": "2025-08-11",
+          "view_rate": 0.145,
+          "channel": ""
+        },
+        {
+          "episode": "477회",
+          "air_date": "2025-07-21",
+          "view_rate": 0.183,
+          "channel": ""
+        },
+        {
+          "episode": "471회",
+          "air_date": "2025-06-09",
+          "view_rate": 0.146,
+          "channel": ""
+        },
+        {
+          "episode": "464회",
+          "air_date": "2025-04-21",
+          "view_rate": 0.139,
+          "channel": ""
+        },
+        {
+          "episode": "461회",
+          "air_date": "2025-03-31",
+          "view_rate": 0.245,
+          "channel": ""
+        },
+        {
+          "episode": "460회",
+          "air_date": "2025-03-24",
+          "view_rate": 0.236,
+          "channel": ""
+        },
+        {
+          "episode": "459회",
+          "air_date": "2025-03-17",
+          "view_rate": 0.244,
+          "channel": ""
+        }
+      ]
     },
     "그대에게 드림": {
       "view_rate": 2.698,
@@ -206,47 +2480,789 @@
       ]
     },
     "전지적 참견 시점": {
-      "view_rate": 2.5,
-      "episode": "407회",
-      "air_date": "2026.07.18.",
-      "channel": "MBC",
-      "type": "LATEST"
+      "view_rate": 3.4,
+      "episode": "408회",
+      "air_date": "2026-07-25",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "408회",
+          "air_date": "2026-07-25",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "407회",
+          "air_date": "2026-07-18",
+          "view_rate": 2.5,
+          "channel": ""
+        },
+        {
+          "episode": "406회",
+          "air_date": "2026-07-11",
+          "view_rate": 2.7,
+          "channel": ""
+        },
+        {
+          "episode": "405회",
+          "air_date": "2026-07-04",
+          "view_rate": 2.7,
+          "channel": ""
+        },
+        {
+          "episode": "404회",
+          "air_date": "2026-06-27",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "403회",
+          "air_date": "2026-06-20",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "402회",
+          "air_date": "2026-06-13",
+          "view_rate": 2.1,
+          "channel": ""
+        },
+        {
+          "episode": "401회",
+          "air_date": "2026-06-06",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "400회",
+          "air_date": "2026-05-30",
+          "view_rate": 4.1,
+          "channel": ""
+        },
+        {
+          "episode": "399회",
+          "air_date": "2026-05-23",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "398회",
+          "air_date": "2026-05-16",
+          "view_rate": 2.9,
+          "channel": ""
+        },
+        {
+          "episode": "397회",
+          "air_date": "2026-05-09",
+          "view_rate": 4.2,
+          "channel": ""
+        },
+        {
+          "episode": "396회",
+          "air_date": "2026-05-02",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "395회",
+          "air_date": "2026-04-25",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "394회",
+          "air_date": "2026-04-18",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "393회",
+          "air_date": "2026-04-11",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "392회",
+          "air_date": "2026-04-04",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "391회",
+          "air_date": "2026-03-28",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "390회",
+          "air_date": "2026-03-21",
+          "view_rate": 2.4,
+          "channel": ""
+        },
+        {
+          "episode": "389회",
+          "air_date": "2026-03-14",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "388회",
+          "air_date": "2026-03-07",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "387회",
+          "air_date": "2026-02-28",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "386회",
+          "air_date": "2026-02-21",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "385회",
+          "air_date": "2026-02-14",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "384회",
+          "air_date": "2026-02-07",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "383회",
+          "air_date": "2026-01-31",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "382회",
+          "air_date": "2026-01-24",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "381회",
+          "air_date": "2026-01-17",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "380회",
+          "air_date": "2026-01-10",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "379회",
+          "air_date": "2026-01-03",
+          "view_rate": 3.5,
+          "channel": ""
+        }
+      ]
     },
     "미운 우리 새끼": {
       "view_rate": 8.1,
       "episode": "504회",
-      "air_date": "2026.07.19.",
-      "channel": "SBS",
-      "type": "LATEST"
-    },
-    "아는 형님": {
-      "view_rate": 1.17,
-      "episode": "",
-      "air_date": "2026.07.11.",
-      "channel": "JTBC",
-      "type": "LATEST"
-    },
-    "놀라운 토요일": {
-      "view_rate": 1.511,
-      "episode": "426회",
-      "air_date": "2026.07.18.",
-      "channel": "tvN",
-      "type": "LATEST"
-    },
-    "놀면 뭐하니?": {
-      "view_rate": 3.6,
-      "episode": "338회",
-      "air_date": "2026.07.18.",
-      "channel": "MBC",
-      "type": "LATEST"
-    },
-    "아파트": {
-      "view_rate": 6.018,
-      "episode": "4회",
       "air_date": "2026-07-19",
       "channel": "",
       "type": "LATEST",
       "episodes": [
+        {
+          "episode": "504회",
+          "air_date": "2026-07-19",
+          "view_rate": 8.1,
+          "channel": ""
+        },
+        {
+          "episode": "503회",
+          "air_date": "2026-07-12",
+          "view_rate": 10.4,
+          "channel": ""
+        },
+        {
+          "episode": "502회",
+          "air_date": "2026-07-05",
+          "view_rate": 9.4,
+          "channel": ""
+        },
+        {
+          "episode": "501회",
+          "air_date": "2026-06-28",
+          "view_rate": 10.7,
+          "channel": ""
+        },
+        {
+          "episode": "500회",
+          "air_date": "2026-06-21",
+          "view_rate": 11.7,
+          "channel": ""
+        },
+        {
+          "episode": "499회",
+          "air_date": "2026-06-14",
+          "view_rate": 9.9,
+          "channel": ""
+        },
+        {
+          "episode": "498회",
+          "air_date": "2026-06-07",
+          "view_rate": 10.3,
+          "channel": ""
+        },
+        {
+          "episode": "497회",
+          "air_date": "2026-05-31",
+          "view_rate": 9.6,
+          "channel": ""
+        },
+        {
+          "episode": "496회",
+          "air_date": "2026-05-24",
+          "view_rate": 8.1,
+          "channel": ""
+        },
+        {
+          "episode": "495회",
+          "air_date": "2026-05-17",
+          "view_rate": 9.4,
+          "channel": ""
+        },
+        {
+          "episode": "494회",
+          "air_date": "2026-05-10",
+          "view_rate": 8.6,
+          "channel": ""
+        },
+        {
+          "episode": "493회",
+          "air_date": "2026-05-03",
+          "view_rate": 9.3,
+          "channel": ""
+        },
+        {
+          "episode": "492회",
+          "air_date": "2026-04-26",
+          "view_rate": 10.4,
+          "channel": ""
+        },
+        {
+          "episode": "491회",
+          "air_date": "2026-04-19",
+          "view_rate": 10.0,
+          "channel": ""
+        },
+        {
+          "episode": "490회",
+          "air_date": "2026-04-12",
+          "view_rate": 9.9,
+          "channel": ""
+        },
+        {
+          "episode": "489회",
+          "air_date": "2026-04-05",
+          "view_rate": 11.3,
+          "channel": ""
+        },
+        {
+          "episode": "488회",
+          "air_date": "2026-03-29",
+          "view_rate": 9.8,
+          "channel": ""
+        },
+        {
+          "episode": "487회",
+          "air_date": "2026-03-22",
+          "view_rate": 10.5,
+          "channel": ""
+        },
+        {
+          "episode": "486회",
+          "air_date": "2026-03-15",
+          "view_rate": 10.8,
+          "channel": ""
+        },
+        {
+          "episode": "485회",
+          "air_date": "2026-03-08",
+          "view_rate": 7.4,
+          "channel": ""
+        },
+        {
+          "episode": "484회",
+          "air_date": "2026-03-01",
+          "view_rate": 9.4,
+          "channel": ""
+        },
+        {
+          "episode": "483회",
+          "air_date": "2026-02-22",
+          "view_rate": 8.6,
+          "channel": ""
+        },
+        {
+          "episode": "482회",
+          "air_date": "2026-02-15",
+          "view_rate": 7.3,
+          "channel": ""
+        },
+        {
+          "episode": "481회",
+          "air_date": "2026-02-08",
+          "view_rate": 9.1,
+          "channel": ""
+        },
+        {
+          "episode": "480회",
+          "air_date": "2026-02-01",
+          "view_rate": 9.0,
+          "channel": ""
+        },
+        {
+          "episode": "479회",
+          "air_date": "2026-01-25",
+          "view_rate": 8.6,
+          "channel": ""
+        },
+        {
+          "episode": "478회",
+          "air_date": "2026-01-18",
+          "view_rate": 10.1,
+          "channel": ""
+        },
+        {
+          "episode": "477회",
+          "air_date": "2026-01-11",
+          "view_rate": 8.6,
+          "channel": ""
+        },
+        {
+          "episode": "476회",
+          "air_date": "2026-01-04",
+          "view_rate": 12.0,
+          "channel": ""
+        },
+        {
+          "episode": "475회",
+          "air_date": "2025-12-28",
+          "view_rate": 9.3,
+          "channel": ""
+        }
+      ]
+    },
+    "아는 형님": {
+      "view_rate": 1.2,
+      "episode": "536회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "536회",
+          "air_date": "",
+          "view_rate": 1.2,
+          "channel": ""
+        }
+      ]
+    },
+    "놀라운 토요일": {
+      "view_rate": 1.729,
+      "episode": "427회",
+      "air_date": "2026-07-25",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "427회",
+          "air_date": "2026-07-25",
+          "view_rate": 1.729,
+          "channel": ""
+        },
+        {
+          "episode": "426회",
+          "air_date": "2026-07-18",
+          "view_rate": 1.511,
+          "channel": ""
+        },
+        {
+          "episode": "425회",
+          "air_date": "2026-07-11",
+          "view_rate": 1.512,
+          "channel": ""
+        },
+        {
+          "episode": "424회",
+          "air_date": "2026-07-04",
+          "view_rate": 1.496,
+          "channel": ""
+        },
+        {
+          "episode": "423회",
+          "air_date": "2026-06-27",
+          "view_rate": 1.864,
+          "channel": ""
+        },
+        {
+          "episode": "422회",
+          "air_date": "2026-06-20",
+          "view_rate": 1.638,
+          "channel": ""
+        },
+        {
+          "episode": "421회",
+          "air_date": "2026-06-13",
+          "view_rate": 1.702,
+          "channel": ""
+        },
+        {
+          "episode": "420회",
+          "air_date": "2026-06-06",
+          "view_rate": 1.548,
+          "channel": ""
+        },
+        {
+          "episode": "419회",
+          "air_date": "2026-05-30",
+          "view_rate": 1.948,
+          "channel": ""
+        },
+        {
+          "episode": "418회",
+          "air_date": "2026-05-23",
+          "view_rate": 1.838,
+          "channel": ""
+        },
+        {
+          "episode": "417회",
+          "air_date": "2026-05-16",
+          "view_rate": 1.552,
+          "channel": ""
+        },
+        {
+          "episode": "416회",
+          "air_date": "2026-05-09",
+          "view_rate": 1.714,
+          "channel": ""
+        },
+        {
+          "episode": "415회",
+          "air_date": "2026-05-02",
+          "view_rate": 1.818,
+          "channel": ""
+        },
+        {
+          "episode": "414회",
+          "air_date": "2026-04-25",
+          "view_rate": 1.992,
+          "channel": ""
+        },
+        {
+          "episode": "413회",
+          "air_date": "2026-04-18",
+          "view_rate": 1.87,
+          "channel": ""
+        },
+        {
+          "episode": "412회",
+          "air_date": "2026-04-11",
+          "view_rate": 1.773,
+          "channel": ""
+        },
+        {
+          "episode": "411회",
+          "air_date": "2026-04-04",
+          "view_rate": 1.862,
+          "channel": ""
+        },
+        {
+          "episode": "410회",
+          "air_date": "2026-03-28",
+          "view_rate": 1.659,
+          "channel": ""
+        },
+        {
+          "episode": "409회",
+          "air_date": "2026-03-21",
+          "view_rate": 1.658,
+          "channel": ""
+        },
+        {
+          "episode": "408회",
+          "air_date": "2026-03-14",
+          "view_rate": 2.121,
+          "channel": ""
+        },
+        {
+          "episode": "407회",
+          "air_date": "2026-02-28",
+          "view_rate": 2.504,
+          "channel": ""
+        },
+        {
+          "episode": "406회",
+          "air_date": "2026-02-21",
+          "view_rate": 2.607,
+          "channel": ""
+        },
+        {
+          "episode": "405회",
+          "air_date": "2026-02-14",
+          "view_rate": 2.368,
+          "channel": ""
+        },
+        {
+          "episode": "404회",
+          "air_date": "2026-02-07",
+          "view_rate": 2.86,
+          "channel": ""
+        },
+        {
+          "episode": "403회",
+          "air_date": "2026-01-31",
+          "view_rate": 2.055,
+          "channel": ""
+        },
+        {
+          "episode": "402회",
+          "air_date": "2026-01-24",
+          "view_rate": 1.762,
+          "channel": ""
+        },
+        {
+          "episode": "401회",
+          "air_date": "2026-01-17",
+          "view_rate": 1.533,
+          "channel": ""
+        },
+        {
+          "episode": "400회",
+          "air_date": "2026-01-10",
+          "view_rate": 2.046,
+          "channel": ""
+        },
+        {
+          "episode": "399회",
+          "air_date": "2026-01-03",
+          "view_rate": 1.769,
+          "channel": ""
+        },
+        {
+          "episode": "398회",
+          "air_date": "2025-12-27",
+          "view_rate": 1.858,
+          "channel": ""
+        }
+      ]
+    },
+    "놀면 뭐하니?": {
+      "view_rate": 3.9,
+      "episode": "339회",
+      "air_date": "2026-07-25",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "339회",
+          "air_date": "2026-07-25",
+          "view_rate": 3.9,
+          "channel": ""
+        },
+        {
+          "episode": "338회",
+          "air_date": "2026-07-18",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "337회",
+          "air_date": "2026-07-11",
+          "view_rate": 4.6,
+          "channel": ""
+        },
+        {
+          "episode": "336회",
+          "air_date": "2026-07-04",
+          "view_rate": 4.2,
+          "channel": ""
+        },
+        {
+          "episode": "335회",
+          "air_date": "2026-06-27",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "334회",
+          "air_date": "2026-06-20",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "333회",
+          "air_date": "2026-06-13",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "332회",
+          "air_date": "2026-06-06",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "331회",
+          "air_date": "2026-05-30",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "330회",
+          "air_date": "2026-05-23",
+          "view_rate": 2.7,
+          "channel": ""
+        },
+        {
+          "episode": "329회",
+          "air_date": "2026-05-16",
+          "view_rate": 4.3,
+          "channel": ""
+        },
+        {
+          "episode": "328회",
+          "air_date": "2026-05-09",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "327회",
+          "air_date": "2026-05-02",
+          "view_rate": 4.2,
+          "channel": ""
+        },
+        {
+          "episode": "326회",
+          "air_date": "2026-04-25",
+          "view_rate": 4.5,
+          "channel": ""
+        },
+        {
+          "episode": "325회",
+          "air_date": "2026-04-18",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "324회",
+          "air_date": "2026-04-11",
+          "view_rate": 3.9,
+          "channel": ""
+        },
+        {
+          "episode": "323회",
+          "air_date": "2026-04-04",
+          "view_rate": 4.3,
+          "channel": ""
+        },
+        {
+          "episode": "322회",
+          "air_date": "2026-03-28",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "321회",
+          "air_date": "2026-03-21",
+          "view_rate": 4.8,
+          "channel": ""
+        },
+        {
+          "episode": "320회",
+          "air_date": "2026-03-14",
+          "view_rate": 4.8,
+          "channel": ""
+        },
+        {
+          "episode": "319회",
+          "air_date": "2026-02-28",
+          "view_rate": 4.9,
+          "channel": ""
+        },
+        {
+          "episode": "318회",
+          "air_date": "2026-02-21",
+          "view_rate": 4.4,
+          "channel": ""
+        },
+        {
+          "episode": "317회",
+          "air_date": "2026-02-14",
+          "view_rate": 4.7,
+          "channel": ""
+        },
+        {
+          "episode": "316회",
+          "air_date": "2026-02-07",
+          "view_rate": 4.1,
+          "channel": ""
+        },
+        {
+          "episode": "315회",
+          "air_date": "2026-01-31",
+          "view_rate": 4.2,
+          "channel": ""
+        },
+        {
+          "episode": "314회",
+          "air_date": "2026-01-24",
+          "view_rate": 5.4,
+          "channel": ""
+        },
+        {
+          "episode": "313회",
+          "air_date": "2026-01-17",
+          "view_rate": 4.4,
+          "channel": ""
+        },
+        {
+          "episode": "312회",
+          "air_date": "2026-01-10",
+          "view_rate": 4.6,
+          "channel": ""
+        },
+        {
+          "episode": "311회",
+          "air_date": "2026-01-03",
+          "view_rate": 4.9,
+          "channel": ""
+        },
+        {
+          "episode": "310회",
+          "air_date": "2025-12-27",
+          "view_rate": 3.8,
+          "channel": ""
+        }
+      ]
+    },
+    "아파트": {
+      "view_rate": 4.095,
+      "episode": "5회",
+      "air_date": "2026-07-25",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "5회",
+          "air_date": "2026-07-25",
+          "view_rate": 4.095,
+          "channel": ""
+        },
         {
           "episode": "4회",
           "air_date": "2026-07-19",
@@ -276,17 +3292,217 @@
     "사장님 귀는 당나귀 귀": {
       "view_rate": 3.7,
       "episode": "366회",
-      "air_date": "2026.07.19.",
-      "channel": "KBS2",
-      "type": "LATEST"
-    },
-    "가족관계증명서": {
-      "view_rate": 4.2,
-      "episode": "12회",
-      "air_date": "2026-07-21",
+      "air_date": "2026-07-19",
       "channel": "",
       "type": "LATEST",
       "episodes": [
+        {
+          "episode": "366회",
+          "air_date": "2026-07-19",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "365회",
+          "air_date": "2026-07-12",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "364회",
+          "air_date": "2026-07-05",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "363회",
+          "air_date": "2026-06-28",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "362회",
+          "air_date": "2026-06-21",
+          "view_rate": 3.1,
+          "channel": ""
+        },
+        {
+          "episode": "361회",
+          "air_date": "2026-06-14",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "360회",
+          "air_date": "2026-06-07",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "359회",
+          "air_date": "2026-05-31",
+          "view_rate": 4.0,
+          "channel": ""
+        },
+        {
+          "episode": "358회",
+          "air_date": "2026-05-24",
+          "view_rate": 3.1,
+          "channel": ""
+        },
+        {
+          "episode": "357회",
+          "air_date": "2026-05-17",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "356회",
+          "air_date": "2026-05-10",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "355회",
+          "air_date": "2026-05-03",
+          "view_rate": 4.1,
+          "channel": ""
+        },
+        {
+          "episode": "354회",
+          "air_date": "2026-04-26",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "353회",
+          "air_date": "2026-04-19",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "352회",
+          "air_date": "2026-04-12",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "351회",
+          "air_date": "2026-04-05",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "350회",
+          "air_date": "2026-03-29",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "349회",
+          "air_date": "2026-03-22",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "348회",
+          "air_date": "2026-03-15",
+          "view_rate": 4.2,
+          "channel": ""
+        },
+        {
+          "episode": "347회",
+          "air_date": "2026-03-08",
+          "view_rate": 4.5,
+          "channel": ""
+        },
+        {
+          "episode": "346회",
+          "air_date": "2026-03-01",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "345회",
+          "air_date": "2026-02-22",
+          "view_rate": 5.3,
+          "channel": ""
+        },
+        {
+          "episode": "344회",
+          "air_date": "2026-02-15",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "343회",
+          "air_date": "2026-02-08",
+          "view_rate": 4.5,
+          "channel": ""
+        },
+        {
+          "episode": "342회",
+          "air_date": "2026-02-01",
+          "view_rate": 5.1,
+          "channel": ""
+        },
+        {
+          "episode": "341회",
+          "air_date": "2026-01-25",
+          "view_rate": 4.9,
+          "channel": ""
+        },
+        {
+          "episode": "340회",
+          "air_date": "2026-01-18",
+          "view_rate": 4.9,
+          "channel": ""
+        },
+        {
+          "episode": "339회",
+          "air_date": "2026-01-11",
+          "view_rate": 4.5,
+          "channel": ""
+        },
+        {
+          "episode": "338회",
+          "air_date": "2026-01-04",
+          "view_rate": 4.4,
+          "channel": ""
+        },
+        {
+          "episode": "337회",
+          "air_date": "2025-12-28",
+          "view_rate": 4.3,
+          "channel": ""
+        }
+      ]
+    },
+    "가족관계증명서": {
+      "view_rate": 4.5,
+      "episode": "15회",
+      "air_date": "2026-07-24",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "15회",
+          "air_date": "2026-07-24",
+          "view_rate": 4.5,
+          "channel": ""
+        },
+        {
+          "episode": "14회",
+          "air_date": "2026-07-23",
+          "view_rate": 4.4,
+          "channel": ""
+        },
+        {
+          "episode": "13회",
+          "air_date": "2026-07-22",
+          "view_rate": 4.3,
+          "channel": ""
+        },
         {
           "episode": "12회",
           "air_date": "2026-07-21",
@@ -364,24 +3580,213 @@
     "1박 2일": {
       "view_rate": 6.4,
       "episode": "336회",
-      "air_date": "2026.07.19.",
-      "channel": "KBS2",
-      "type": "LATEST"
+      "air_date": "2026-07-19",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "336회",
+          "air_date": "2026-07-19",
+          "view_rate": 6.4,
+          "channel": ""
+        },
+        {
+          "episode": "335회",
+          "air_date": "2026-07-12",
+          "view_rate": 6.6,
+          "channel": ""
+        },
+        {
+          "episode": "334회",
+          "air_date": "2026-07-05",
+          "view_rate": 7.4,
+          "channel": ""
+        },
+        {
+          "episode": "333회",
+          "air_date": "2026-06-28",
+          "view_rate": 6.0,
+          "channel": ""
+        },
+        {
+          "episode": "332회",
+          "air_date": "2026-06-21",
+          "view_rate": 6.9,
+          "channel": ""
+        },
+        {
+          "episode": "331회",
+          "air_date": "2026-06-14",
+          "view_rate": 6.9,
+          "channel": ""
+        },
+        {
+          "episode": "330회",
+          "air_date": "2026-06-07",
+          "view_rate": 7.1,
+          "channel": ""
+        },
+        {
+          "episode": "329회",
+          "air_date": "2026-05-31",
+          "view_rate": 6.2,
+          "channel": ""
+        },
+        {
+          "episode": "328회",
+          "air_date": "2026-05-24",
+          "view_rate": 5.5,
+          "channel": ""
+        },
+        {
+          "episode": "327회",
+          "air_date": "2026-05-17",
+          "view_rate": 5.5,
+          "channel": ""
+        },
+        {
+          "episode": "326회",
+          "air_date": "2026-05-10",
+          "view_rate": 6.5,
+          "channel": ""
+        },
+        {
+          "episode": "325회",
+          "air_date": "2026-05-03",
+          "view_rate": 6.8,
+          "channel": ""
+        },
+        {
+          "episode": "324회",
+          "air_date": "2026-04-26",
+          "view_rate": 7.0,
+          "channel": ""
+        },
+        {
+          "episode": "323회",
+          "air_date": "2026-04-19",
+          "view_rate": 5.9,
+          "channel": ""
+        },
+        {
+          "episode": "322회",
+          "air_date": "2026-04-12",
+          "view_rate": 6.2,
+          "channel": ""
+        },
+        {
+          "episode": "321회",
+          "air_date": "2026-04-05",
+          "view_rate": 5.9,
+          "channel": ""
+        },
+        {
+          "episode": "320회",
+          "air_date": "2026-03-29",
+          "view_rate": 7.2,
+          "channel": ""
+        },
+        {
+          "episode": "319회",
+          "air_date": "2026-03-22",
+          "view_rate": 7.0,
+          "channel": ""
+        },
+        {
+          "episode": "318회",
+          "air_date": "2026-03-15",
+          "view_rate": 6.7,
+          "channel": ""
+        },
+        {
+          "episode": "317회",
+          "air_date": "2026-03-08",
+          "view_rate": 8.6,
+          "channel": ""
+        },
+        {
+          "episode": "316회",
+          "air_date": "2026-03-01",
+          "view_rate": 7.2,
+          "channel": ""
+        },
+        {
+          "episode": "315회",
+          "air_date": "2026-02-22",
+          "view_rate": 8.4,
+          "channel": ""
+        },
+        {
+          "episode": "314회",
+          "air_date": "2026-02-15",
+          "view_rate": 6.2,
+          "channel": ""
+        },
+        {
+          "episode": "313회",
+          "air_date": "2026-02-08",
+          "view_rate": 8.1,
+          "channel": ""
+        },
+        {
+          "episode": "312회",
+          "air_date": "2026-02-01",
+          "view_rate": 8.7,
+          "channel": ""
+        },
+        {
+          "episode": "311회",
+          "air_date": "2026-01-25",
+          "view_rate": 7.6,
+          "channel": ""
+        },
+        {
+          "episode": "310회",
+          "air_date": "2026-01-18",
+          "view_rate": 6.9,
+          "channel": ""
+        },
+        {
+          "episode": "309회",
+          "air_date": "2026-01-11",
+          "view_rate": 7.2,
+          "channel": ""
+        },
+        {
+          "episode": "308회",
+          "air_date": "2026-01-04",
+          "view_rate": 6.9,
+          "channel": ""
+        },
+        {
+          "episode": "307회",
+          "air_date": "2025-12-28",
+          "view_rate": 6.2,
+          "channel": ""
+        }
+      ]
     },
     "금쪽같은 내 새끼": {
       "view_rate": 2.038,
       "episode": "",
       "air_date": "2026.03.06.",
       "channel": "채널A",
-      "type": "HIGHEST"
+      "type": "HIGHEST",
+      "episodes": []
     },
     "결혼의 완성": {
-      "view_rate": 6.4,
-      "episode": "6회",
-      "air_date": "2026-07-19",
+      "view_rate": 4.8,
+      "episode": "7회",
+      "air_date": "2026-07-25",
       "channel": "",
       "type": "LATEST",
       "episodes": [
+        {
+          "episode": "7회",
+          "air_date": "2026-07-25",
+          "view_rate": 4.8,
+          "channel": ""
+        },
         {
           "episode": "6회",
           "air_date": "2026-07-19",
@@ -421,26 +3826,396 @@
       ]
     },
     "라디오스타": {
-      "view_rate": 3.6,
-      "episode": "972회",
-      "air_date": "2026.07.15.",
-      "channel": "MBC",
-      "type": "LATEST"
-    },
-    "불후의 명곡": {
-      "view_rate": 5.7,
-      "episode": "765회",
-      "air_date": "2026.07.18.",
-      "channel": "KBS2",
-      "type": "LATEST"
-    },
-    "김부장": {
-      "view_rate": 23.1,
-      "episode": "8회",
-      "air_date": "2026-07-18",
+      "view_rate": 3.7,
+      "episode": "973회",
+      "air_date": "2026-07-22",
       "channel": "",
       "type": "LATEST",
       "episodes": [
+        {
+          "episode": "973회",
+          "air_date": "2026-07-22",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "972회",
+          "air_date": "2026-07-15",
+          "view_rate": 3.6,
+          "channel": ""
+        },
+        {
+          "episode": "971회",
+          "air_date": "2026-07-08",
+          "view_rate": 3.9,
+          "channel": ""
+        },
+        {
+          "episode": "970회",
+          "air_date": "2026-07-01",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "969회",
+          "air_date": "2026-06-24",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "968회",
+          "air_date": "2026-06-17",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "967회",
+          "air_date": "2026-06-10",
+          "view_rate": 3.4,
+          "channel": ""
+        },
+        {
+          "episode": "966회",
+          "air_date": "2026-05-20",
+          "view_rate": 2.7,
+          "channel": ""
+        },
+        {
+          "episode": "965회",
+          "air_date": "2026-05-13",
+          "view_rate": 2.6,
+          "channel": ""
+        },
+        {
+          "episode": "964회",
+          "air_date": "2026-05-06",
+          "view_rate": 2.5,
+          "channel": ""
+        },
+        {
+          "episode": "963회",
+          "air_date": "2026-04-29",
+          "view_rate": 2.5,
+          "channel": ""
+        },
+        {
+          "episode": "962회",
+          "air_date": "2026-04-22",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "961회",
+          "air_date": "2026-04-15",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "960회",
+          "air_date": "2026-04-08",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "959회",
+          "air_date": "2026-04-01",
+          "view_rate": 2.0,
+          "channel": ""
+        },
+        {
+          "episode": "957회",
+          "air_date": "2026-03-18",
+          "view_rate": 2.8,
+          "channel": ""
+        },
+        {
+          "episode": "956회",
+          "air_date": "2026-03-11",
+          "view_rate": 2.9,
+          "channel": ""
+        },
+        {
+          "episode": "955회",
+          "air_date": "2026-03-04",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "954회",
+          "air_date": "2026-02-25",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "953회",
+          "air_date": "2026-02-18",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "952회",
+          "air_date": "2026-02-11",
+          "view_rate": 2.7,
+          "channel": ""
+        },
+        {
+          "episode": "951회",
+          "air_date": "2026-02-04",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "950회",
+          "air_date": "2026-01-28",
+          "view_rate": 2.9,
+          "channel": ""
+        },
+        {
+          "episode": "949회",
+          "air_date": "2026-01-21",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "948회",
+          "air_date": "2026-01-14",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "947회",
+          "air_date": "2026-01-07",
+          "view_rate": 2.9,
+          "channel": ""
+        },
+        {
+          "episode": "946회",
+          "air_date": "2025-12-24",
+          "view_rate": 4.1,
+          "channel": ""
+        },
+        {
+          "episode": "945회",
+          "air_date": "2025-12-17",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "944회",
+          "air_date": "2025-12-10",
+          "view_rate": 2.9,
+          "channel": ""
+        }
+      ]
+    },
+    "불후의 명곡": {
+      "view_rate": 4.8,
+      "episode": "766회",
+      "air_date": "2026-07-25",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "766회",
+          "air_date": "2026-07-25",
+          "view_rate": 4.8,
+          "channel": ""
+        },
+        {
+          "episode": "765회",
+          "air_date": "2026-07-18",
+          "view_rate": 5.7,
+          "channel": ""
+        },
+        {
+          "episode": "764회",
+          "air_date": "2026-07-11",
+          "view_rate": 3.9,
+          "channel": ""
+        },
+        {
+          "episode": "763회",
+          "air_date": "2026-07-04",
+          "view_rate": 4.1,
+          "channel": ""
+        },
+        {
+          "episode": "762회",
+          "air_date": "2026-06-27",
+          "view_rate": 4.7,
+          "channel": ""
+        },
+        {
+          "episode": "761회",
+          "air_date": "2026-06-20",
+          "view_rate": 4.9,
+          "channel": ""
+        },
+        {
+          "episode": "760회",
+          "air_date": "2026-06-13",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "759회",
+          "air_date": "2026-06-06",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "758회",
+          "air_date": "2026-05-30",
+          "view_rate": 3.7,
+          "channel": ""
+        },
+        {
+          "episode": "757회",
+          "air_date": "2026-05-23",
+          "view_rate": 3.2,
+          "channel": ""
+        },
+        {
+          "episode": "756회",
+          "air_date": "2026-05-16",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "755회",
+          "air_date": "2026-05-09",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "754회",
+          "air_date": "2026-05-02",
+          "view_rate": 4.7,
+          "channel": ""
+        },
+        {
+          "episode": "753회",
+          "air_date": "2026-04-25",
+          "view_rate": 4.3,
+          "channel": ""
+        },
+        {
+          "episode": "752회",
+          "air_date": "2026-04-18",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "751회",
+          "air_date": "2026-04-11",
+          "view_rate": 3.8,
+          "channel": ""
+        },
+        {
+          "episode": "750회",
+          "air_date": "2026-04-04",
+          "view_rate": 4.7,
+          "channel": ""
+        },
+        {
+          "episode": "749회",
+          "air_date": "2026-03-28",
+          "view_rate": 4.8,
+          "channel": ""
+        },
+        {
+          "episode": "748회",
+          "air_date": "2026-03-21",
+          "view_rate": 4.7,
+          "channel": ""
+        },
+        {
+          "episode": "747회",
+          "air_date": "2026-03-14",
+          "view_rate": 4.9,
+          "channel": ""
+        },
+        {
+          "episode": "746회",
+          "air_date": "2026-02-28",
+          "view_rate": 6.1,
+          "channel": ""
+        },
+        {
+          "episode": "745회",
+          "air_date": "2026-02-21",
+          "view_rate": 6.4,
+          "channel": ""
+        },
+        {
+          "episode": "744회",
+          "air_date": "2026-02-14",
+          "view_rate": 5.9,
+          "channel": ""
+        },
+        {
+          "episode": "743회",
+          "air_date": "2026-02-07",
+          "view_rate": 5.8,
+          "channel": ""
+        },
+        {
+          "episode": "742회",
+          "air_date": "2026-01-31",
+          "view_rate": 5.4,
+          "channel": ""
+        },
+        {
+          "episode": "741회",
+          "air_date": "2026-01-24",
+          "view_rate": 5.3,
+          "channel": ""
+        },
+        {
+          "episode": "740회",
+          "air_date": "2026-01-17",
+          "view_rate": 4.6,
+          "channel": ""
+        },
+        {
+          "episode": "739회",
+          "air_date": "2026-01-10",
+          "view_rate": 5.0,
+          "channel": ""
+        },
+        {
+          "episode": "738회",
+          "air_date": "2026-01-03",
+          "view_rate": 6.6,
+          "channel": ""
+        },
+        {
+          "episode": "737회",
+          "air_date": "2025-12-27",
+          "view_rate": 5.9,
+          "channel": ""
+        }
+      ]
+    },
+    "김부장": {
+      "view_rate": 23.0,
+      "episode": "10회",
+      "air_date": "2026-07-25",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "10회",
+          "air_date": "2026-07-25",
+          "view_rate": 23.0,
+          "channel": ""
+        },
+        {
+          "episode": "9회",
+          "air_date": "2026-07-24",
+          "view_rate": 21.5,
+          "channel": ""
+        },
         {
           "episode": "8회",
           "air_date": "2026-07-18",
@@ -492,11 +4267,19 @@
       ]
     },
     "신랑수업": {
-      "view_rate": 1.424,
-      "episode": "",
-      "air_date": "2026.07.17.",
-      "channel": "채널A",
-      "type": "LATEST"
+      "view_rate": 1.4,
+      "episode": "18회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "18회",
+          "air_date": "",
+          "view_rate": 1.4,
+          "channel": ""
+        }
+      ]
     },
     "내일도 출근": {
       "view_rate": 4.356,
@@ -568,18 +4351,27 @@
       ]
     },
     "냉장고를 부탁해": {
-      "view_rate": 2.291,
-      "episode": "",
-      "air_date": "2026.07.19.",
-      "channel": "JTBC",
-      "type": "LATEST"
+      "view_rate": 2.3,
+      "episode": "80회",
+      "air_date": "",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "80회",
+          "air_date": "",
+          "view_rate": 2.3,
+          "channel": ""
+        }
+      ]
     },
     "전국노래자랑": {
       "view_rate": 6.4,
       "episode": "",
       "air_date": "2026.07.19.",
       "channel": "KBS1",
-      "type": "LATEST"
+      "type": "LATEST",
+      "episodes": []
     },
     "꽃보다 청춘: 리미티드 에디션": {
       "view_rate": 3.744,
@@ -1159,12 +4951,30 @@
       ]
     },
     "기쁜 우리 좋은 날": {
-      "view_rate": 10.6,
-      "episode": "80회",
-      "air_date": "2026-07-21",
+      "view_rate": 10.2,
+      "episode": "83회",
+      "air_date": "2026-07-24",
       "channel": "",
       "type": "LATEST",
       "episodes": [
+        {
+          "episode": "83회",
+          "air_date": "2026-07-24",
+          "view_rate": 10.2,
+          "channel": ""
+        },
+        {
+          "episode": "82회",
+          "air_date": "2026-07-23",
+          "view_rate": 11.7,
+          "channel": ""
+        },
+        {
+          "episode": "81회",
+          "air_date": "2026-07-22",
+          "view_rate": 10.4,
+          "channel": ""
+        },
         {
           "episode": "80회",
           "air_date": "2026-07-21",
@@ -1325,24 +5135,6 @@
           "episode": "54회",
           "air_date": "2026-06-15",
           "view_rate": 10.3,
-          "channel": ""
-        },
-        {
-          "episode": "53회",
-          "air_date": "2026-06-12",
-          "view_rate": 8.4,
-          "channel": ""
-        },
-        {
-          "episode": "52회",
-          "air_date": "2026-06-11",
-          "view_rate": 9.5,
-          "channel": ""
-        },
-        {
-          "episode": "51회",
-          "air_date": "2026-06-10",
-          "view_rate": 8.9,
           "channel": ""
         }
       ]
@@ -1519,11 +5311,193 @@
       ]
     },
     "살림하는 남자들": {
-      "view_rate": 3.1,
-      "episode": "452회",
-      "air_date": "2026.07.18.",
-      "channel": "KBS2",
-      "type": "LATEST"
+      "view_rate": 3.5,
+      "episode": "453회",
+      "air_date": "2026-07-25",
+      "channel": "",
+      "type": "LATEST",
+      "episodes": [
+        {
+          "episode": "453회",
+          "air_date": "2026-07-25",
+          "view_rate": 3.5,
+          "channel": ""
+        },
+        {
+          "episode": "452회",
+          "air_date": "2026-07-18",
+          "view_rate": 3.1,
+          "channel": ""
+        },
+        {
+          "episode": "451회",
+          "air_date": "2026-07-11",
+          "view_rate": 3.3,
+          "channel": ""
+        },
+        {
+          "episode": "450회",
+          "air_date": "2026-07-04",
+          "view_rate": 3.0,
+          "channel": ""
+        },
+        {
+          "episode": "449회",
+          "air_date": "2026-06-27",
+          "view_rate": 4.6,
+          "channel": ""
+        },
+        {
+          "episode": "448회",
+          "air_date": "2026-06-20",
+          "view_rate": 5.7,
+          "channel": ""
+        },
+        {
+          "episode": "447회",
+          "air_date": "2026-06-13",
+          "view_rate": 4.6,
+          "channel": ""
+        },
+        {
+          "episode": "446회",
+          "air_date": "2026-06-06",
+          "view_rate": 5.6,
+          "channel": ""
+        },
+        {
+          "episode": "445회",
+          "air_date": "2026-05-30",
+          "view_rate": 4.5,
+          "channel": ""
+        },
+        {
+          "episode": "444회",
+          "air_date": "2026-05-23",
+          "view_rate": 4.7,
+          "channel": ""
+        },
+        {
+          "episode": "443회",
+          "air_date": "2026-05-16",
+          "view_rate": 4.9,
+          "channel": ""
+        },
+        {
+          "episode": "442회",
+          "air_date": "2026-05-09",
+          "view_rate": 5.1,
+          "channel": ""
+        },
+        {
+          "episode": "441회",
+          "air_date": "2026-05-02",
+          "view_rate": 4.7,
+          "channel": ""
+        },
+        {
+          "episode": "440회",
+          "air_date": "2026-04-25",
+          "view_rate": 6.0,
+          "channel": ""
+        },
+        {
+          "episode": "439회",
+          "air_date": "2026-04-18",
+          "view_rate": 6.1,
+          "channel": ""
+        },
+        {
+          "episode": "438회",
+          "air_date": "2026-04-11",
+          "view_rate": 5.7,
+          "channel": ""
+        },
+        {
+          "episode": "437회",
+          "air_date": "2026-04-04",
+          "view_rate": 5.2,
+          "channel": ""
+        },
+        {
+          "episode": "436회",
+          "air_date": "2026-03-28",
+          "view_rate": 6.0,
+          "channel": ""
+        },
+        {
+          "episode": "435회",
+          "air_date": "2026-03-21",
+          "view_rate": 6.0,
+          "channel": ""
+        },
+        {
+          "episode": "434회",
+          "air_date": "2026-03-14",
+          "view_rate": 5.6,
+          "channel": ""
+        },
+        {
+          "episode": "433회",
+          "air_date": "2026-03-07",
+          "view_rate": 4.5,
+          "channel": ""
+        },
+        {
+          "episode": "432회",
+          "air_date": "2026-02-28",
+          "view_rate": 5.2,
+          "channel": ""
+        },
+        {
+          "episode": "431회",
+          "air_date": "2026-02-21",
+          "view_rate": 5.1,
+          "channel": ""
+        },
+        {
+          "episode": "430회",
+          "air_date": "2026-02-14",
+          "view_rate": 5.1,
+          "channel": ""
+        },
+        {
+          "episode": "429회",
+          "air_date": "2026-02-07",
+          "view_rate": 5.0,
+          "channel": ""
+        },
+        {
+          "episode": "428회",
+          "air_date": "2026-01-31",
+          "view_rate": 4.4,
+          "channel": ""
+        },
+        {
+          "episode": "427회",
+          "air_date": "2026-01-24",
+          "view_rate": 4.8,
+          "channel": ""
+        },
+        {
+          "episode": "426회",
+          "air_date": "2026-01-17",
+          "view_rate": 4.2,
+          "channel": ""
+        },
+        {
+          "episode": "425회",
+          "air_date": "2026-01-10",
+          "view_rate": 3.9,
+          "channel": ""
+        },
+        {
+          "episode": "424회",
+          "air_date": "2026-01-03",
+          "view_rate": 3.9,
+          "channel": ""
+        }
+      ]
     },
     "미혼남녀의 효율적 만남": {
       "view_rate": 4.968,
@@ -3418,16 +7392,16 @@
       ]
     },
     "한문철의 블랙박스 리뷰": {
-      "view_rate": 2.8,
-      "episode": "178회",
+      "view_rate": 2.5,
+      "episode": "179회",
       "air_date": "",
       "channel": "",
       "type": "LATEST",
       "episodes": [
         {
-          "episode": "178회",
+          "episode": "179회",
           "air_date": "",
-          "view_rate": 2.8,
+          "view_rate": 2.5,
           "channel": ""
         }
       ]
