@@ -7643,12 +7643,11 @@
       "episodes": []
     },
     "왕자와 거지": {
-      "looked_up": true,
-      "view_rate": null,
-      "episode": "",
-      "air_date": "",
-      "channel": "",
-      "type": "",
+      "view_rate": 0.507,
+      "episode": "1회",
+      "air_date": "2026.07.27.",
+      "channel": "ENA",
+      "type": "LATEST",
       "episodes": []
     },
     "송영주의 재즈 포레스트": {

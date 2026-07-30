@@ -93,6 +93,9 @@ def main() -> int:
                 errors.append("[회귀] 쯔양몇끼 팅글룸 오인 포스터입니다.")
             if not c.get("poster_locked"):
                 warnings.append("쯔양몇끼 poster_locked 권장")
+        if title == "왕자와 거지":
+            if "방영 예정" in ep or "종영" in ep:
+                errors.append("[회귀] 왕자와 거지는 방영 중이어야 합니다.")
         if title == "전국노래자랑":
             if "namu.wiki" in poster or "tving.com" in poster:
                 errors.append("[회귀] 전국노래자랑 포스터가 오인 URL 입니다.")

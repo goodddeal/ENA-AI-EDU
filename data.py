@@ -640,9 +640,9 @@ CONTENTS = [
         "channel": "ENA",
         "broadcaster": "ENA (PP)",
         "aired_at": date(2026, 7, 27),
-        "episode": "방영 예정 · 7/27 첫방",
+        "episode": "방영 중",
         "otts": [],
-        "desc": "ENA 여행 서바이벌. K-POP 아이돌 이집트 왕자/거지 여행.",
+        "desc": "ENA 월요 예능. K-POP 아이돌 이집트 왕자/거지 여행. 디즈니+ 동시 공개.",
     },
     {
         "id": "v52",
