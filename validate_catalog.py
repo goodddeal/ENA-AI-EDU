@@ -78,6 +78,21 @@ def main() -> int:
                 errors.append("[회귀] 김부장은 2026-07-25 종영이어야 합니다.")
             if c.get("ended_at") != date(2026, 7, 25):
                 errors.append("[회귀] 김부장 ended_at 이 2026-07-25 이어야 합니다.")
+        if title == "보검 매직컬":
+            if "방영 중" in ep or "종영" not in ep:
+                errors.append("[회귀] 보검 매직컬은 종영이어야 합니다.")
+            if "32668767" in poster:
+                errors.append("[회귀] 보검 매직컬 오인 포스터(32668767)입니다.")
+            if not c.get("poster_locked"):
+                warnings.append("보검 매직컬 poster_locked 권장")
+        if title == "핸썸가이즈":
+            if "방영 중" in ep or "종영" not in ep:
+                errors.append("[회귀] 핸썸가이즈는 종영이어야 합니다.")
+        if title == "쯔양몇끼":
+            if "tingleroom" in poster.lower():
+                errors.append("[회귀] 쯔양몇끼 팅글룸 오인 포스터입니다.")
+            if not c.get("poster_locked"):
+                warnings.append("쯔양몇끼 poster_locked 권장")
         if title == "전국노래자랑":
             if "namu.wiki" in poster or "tving.com" in poster:
                 errors.append("[회귀] 전국노래자랑 포스터가 오인 URL 입니다.")

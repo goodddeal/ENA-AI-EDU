@@ -60,6 +60,12 @@ def is_plausible_poster_url(url: str, *, title: str = "", channel: str = "") -> 
     blob = f"{title}|{url}".lower()
     if any(m.lower() in blob for m in bad_markers) and "전국노래자랑" in (title or ""):
         return False
+    # 쯔양몇끼 ← 팅글룸 포스터 오인 차단
+    if "쯔양몇끼" in (title or "") and "tingleroom" in lower:
+        return False
+    # 보검 매직컬 ← 구작/오인 poster id 차단
+    if "보검 매직컬" in (title or "") and "32668767" in lower:
+        return False
     return True
 
 

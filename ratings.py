@@ -348,6 +348,55 @@ def ensure_ratings(
     return load_cache()
 
 
+def maybe_start_daily_ratings_refresh(
+    titles: list[str],
+    *,
+    channels: dict[str, str] | None = None,
+) -> bool:
+    """
+    매일 08:00 이후 전일 시청률이 없으면 백그라운드로 1회만 갱신.
+    화면 진입을 막지 않음 (스피너/rerun 없음). 이미 오늘 갱신됐으면 False.
+    """
+    import os
+
+    titles = [t for t in titles if t]
+    if not titles:
+        return False
+    cache = load_cache()
+    if cache_is_fresh(cache, titles=titles):
+        return False
+
+    expected = expected_refresh_date().isoformat()
+    lock_path = CACHE_PATH.parent / f"ratings_daily_{expected}.lock"
+    CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(now_kst().isoformat())
+    except FileExistsError:
+        return False
+    except OSError:
+        return False
+
+    def _worker() -> None:
+        try:
+            refresh_ratings(titles, force=True, channels=channels or {})
+        except Exception:
+            try:
+                lock_path.unlink(missing_ok=True)  # type: ignore[arg-type]
+            except TypeError:
+                try:
+                    if lock_path.exists():
+                        lock_path.unlink()
+                except OSError:
+                    pass
+            except OSError:
+                pass
+
+    threading.Thread(target=_worker, daemon=True, name="ratings-daily").start()
+    return True
+
+
 def cache_meta_label(cache: dict[str, Any] | None = None) -> str:
     cache = cache if cache is not None else load_cache()
     as_of = cache.get("as_of_date") or "-"

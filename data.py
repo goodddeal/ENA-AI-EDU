@@ -258,6 +258,10 @@ CONTENTS = [
         "episode": "방영 중",
         "otts": [],
         "desc": "ENA 토요 예능. 먹방 크리에이터 쯔양의 한 끼 탐험.",
+        "poster_locked": True,
+        "poster_url": (
+            "https://ktena.co.kr/data/file/variety/64f192ac8d12ad789d874b36756ac069_dIce69xw_e040f7de003235107812205ddeaf350fef1c8bb8.jpg"
+        ),
     },
     {
         "id": "v18",
@@ -353,10 +357,15 @@ CONTENTS = [
         "genre": "예능",
         "channel": "tvN",
         "broadcaster": "tvN (PP)",
-        "aired_at": date(2026, 7, 8),
-        "episode": "방영 중",
+        "aired_at": date(2026, 4, 3),
+        "ended_at": date(2026, 4, 3),
+        "episode": "종영",
         "otts": [],
-        "desc": "tvN 힐링 예능. 박보검의 매직·공연 프로젝트.",
+        "desc": "tvN 힐링 예능. 박보검·이상이·곽동연 이발소. 2026.01.30~04.03 종영.",
+        "poster_locked": True,
+        "poster_url": (
+            "https://image.starnewskorea.com/21/2026/01/2026011514095221335_1.jpg"
+        ),
     },
     {
         "id": "v27",
@@ -552,10 +561,11 @@ CONTENTS = [
         "genre": "예능",
         "channel": "tvN",
         "broadcaster": "tvN (PP)",
-        "aired_at": date(2026, 7, 16),
-        "episode": "방영 중",
+        "aired_at": date(2025, 10, 23),
+        "ended_at": date(2025, 10, 23),
+        "episode": "종영",
         "otts": [],
-        "desc": "tvN 목요 예능. 남성 토크·버라이어티.",
+        "desc": "tvN 목요 예능. 시즌1 2024.12.01~2025.10.23 종영(시즌2 예정).",
     },
     {
         "id": "v45",
@@ -780,7 +790,7 @@ CONTENTS = [
         "broadcaster": "tvN (PP)",
         "aired_at": date(2026, 6, 22),
         "ended_at": date(2026, 7, 28),
-        "episode": "12부작 · 방영 중",
+        "episode": "12부작 · 종영",
         "otts": [],
         "desc": "tvN 월화드라마. 2026.06.22~07.28.",
     },

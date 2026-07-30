@@ -73,21 +73,21 @@ def _load_ratings_cached() -> dict:
     if has < 40:
         ensure_runtime_caches(force=True)
         cache = load_cache()
-    _ = "ratings_seed_v10"
+    _ = "ratings_seed_v11"
     return cache
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_posters_cached() -> dict:
     ensure_runtime_caches()
-    _ = "posters_seed_v10"
+    _ = "posters_seed_v11"
     return load_poster_cache()
 
 
 @st.cache_data(show_spinner=False, ttl=300)
 def _load_otts_cached() -> dict:
     ensure_runtime_caches()
-    _ = "otts_seed_v10"
+    _ = "otts_seed_v11"
     return load_ott_cache()
 
 
@@ -1168,8 +1168,8 @@ def view_home() -> None:
     with col_b:
         refresh_ratings_btn = st.button("시청률 새로고침", key="refresh_ratings")
 
-    # ---- 기본: 디스크/시드 캐시 → 08:00 지나면 방영 중만 자동 전일 시청률 갱신 ----
-    from ratings import cache_is_fresh, refresh_ratings
+    # ---- 기본: 캐시 즉시 표시. 시청률은 08:00 기준 하루 1회만 백그라운드 갱신 ----
+    from ratings import maybe_start_daily_ratings_refresh, refresh_ratings
 
     ratings_cache = _load_ratings_cached()
     poster_cache = _load_posters_cached()
@@ -1190,23 +1190,9 @@ def view_home() -> None:
                 f"(기준일 {ratings_cache.get('as_of_date') or '-'})"
             )
             st.rerun()
-    elif (
-        airing_titles
-        and not cache_is_fresh(ratings_cache, titles=airing_titles)
-        and not st.session_state.get("_ratings_auto_tried")
-    ):
-        # 하루 1회: 방영 중만 자동 갱신 (전체 102편 순회 제거 → 속도·부하 완화)
-        st.session_state["_ratings_auto_tried"] = True
-        with st.spinner(
-            f"전일 시청률 자동 반영 중… (방영 중 {len(airing_titles)}편 · 매일 08:00)"
-        ):
-            ratings_cache = refresh_ratings(
-                airing_titles,
-                force=True,
-                channels=channels,
-            )
-            _load_ratings_cached.clear()
-            st.rerun()
+    elif airing_titles:
+        # 접속마다 로딩/rerun 하지 않음 — 백그라운드 1회만
+        maybe_start_daily_ratings_refresh(airing_titles, channels=channels)
 
     # 방영 중 우선 → 시청률 높은 순 → 현재 페이지
     items = sort_items_by_view_rate(items, ratings_cache)
@@ -1233,7 +1219,10 @@ def view_home() -> None:
 
     looked, confirmed, total = ott_cache_stats(all_titles, ott_cache)
     st.caption(cache_meta_label(ratings_cache))
-    st.caption(f"OTT 확인 {confirmed}/{total} · 캐시로 즉시 표시 · 새로고침 시에만 네트워크")
+    st.caption(
+        f"OTT 확인 {confirmed}/{total} · 목록은 캐시 즉시 표시 · "
+        "시청률은 매일 08:00 이후 하루 1회 자동 반영"
+    )
 
     last_group: str | None = None
     enriched: list[dict] = []
